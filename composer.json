@@ -4,7 +4,6 @@
 	"type": "project",
 	"description": "The custom component of our wedding website",
 	"require": {
-		"php": "^8.4",
 		"inertiajs/inertia-laravel": "^2.0",
 		"laravel/framework": "^11.31",
 		"laravel/sanctum": "^4.0",
@@ -19,7 +18,14 @@
 		"laravel/sail": "^1.26",
 		"mockery/mockery": "^1.6",
 		"nunomaduro/collision": "^8.1",
-		"phpunit/phpunit": "^11.0.1"
+		"phpunit/phpunit": "^11.0.1",
+		"dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+		"phpcsstandards/phpcsutils": "^1.0",
+		"roave/security-advisories": "dev-latest",
+		"squizlabs/php_codesniffer": "^3.9",
+		"wp-coding-standards/wpcs": "dev-main",
+		"phpstan/phpstan": "^2.1",
+		"phpstan/extension-installer": "^1.4"
 	},
 	"autoload": {
 		"psr-4": {
@@ -52,7 +58,9 @@
 		"dev": [
 			"Composer\\Config::disableProcessTimeout",
 			"npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"php artisan pail --timeout=0\" \"npm run dev\" --names=server,queue,logs,vite"
-		]
+		],
+		"format": "phpcbf ./ --standard=phpcs.xml --extensions=php --ignore=vendor/,node_modules",
+		"lint": "phpcs ./ --standard=phpcs.xml --extensions=php --ignore=vendor/,node_modules & phpstan analyze"
 	},
 	"extra": {
 		"laravel": {
@@ -60,6 +68,9 @@
 		}
 	},
 	"config": {
+		"platform": {
+			"php": "8.4"
+		},
 		"optimize-autoloader": true,
 		"preferred-install": "dist",
 		"sort-packages": true,

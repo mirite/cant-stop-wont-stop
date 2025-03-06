@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<ruleset name="Custom">
+    <!-- Extend the WordPress standard -->
+    <rule ref="WordPress">
+        <!-- Exclude the rules you want to change -->
+        <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase"/>
+        <exclude name="WordPress.Commenting.FileComment.Missing"/>
+        <exclude name="Squiz.Commenting.FileComment.Missing"/>
+        <!-- This is to avoid a conflict with PHPStan type aliasing -->
+        <exclude name="Squiz.Commenting.FunctionComment.IncorrectTypeHint"/>
+        <exclude name="WordPress.NamingConventions.PrefixAllGlobals"/>
+        <exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
+        <exclude name="Squiz.Commenting.FileComment.MissingPackageTag"/>
+    </rule>
+
+    <!-- Add your custom rules -->
+    <rule ref="Generic.NamingConventions.UpperCaseConstantName">
+        <type>warning</type>
+        <message>Class names should be declared in Pascal_Case (With underscores)</message>
+    </rule>
+</ruleset>

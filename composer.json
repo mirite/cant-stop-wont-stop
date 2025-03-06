@@ -75,8 +75,10 @@
 		"preferred-install": "dist",
 		"sort-packages": true,
 		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true,
 			"pestphp/pest-plugin": true,
-			"php-http/discovery": true
+			"php-http/discovery": true,
+			"phpstan/extension-installer": true
 		}
 	},
 	"minimum-stability": "stable",

@@ -33,13 +33,13 @@ export default function UpdatePasswordForm({
 		put(route("password.update"), {
 			preserveScroll: true,
 			onSuccess: () => reset(),
-			onError: (errors) => {
-				if (errors.password) {
+			onError: (err) => {
+				if (err.password) {
 					reset("password", "password_confirmation");
 					passwordInput.current?.focus();
 				}
 
-				if (errors.current_password) {
+				if (err.current_password) {
 					reset("current_password");
 					currentPasswordInput.current?.focus();
 				}

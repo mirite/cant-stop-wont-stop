@@ -1,15 +1,10 @@
 {
 	"$schema": "https://getcomposer.org/schema.json",
-	"name": "laravel/laravel",
+	"name": "mirite/cant-stop-wont-stop",
 	"type": "project",
-	"description": "The skeleton application for the Laravel framework.",
-	"keywords": [
-		"laravel",
-		"framework"
-	],
-	"license": "MIT",
+	"description": "The custom component of our wedding website",
 	"require": {
-		"php": "^8.2",
+		"php": "^8.4",
 		"inertiajs/inertia-laravel": "^2.0",
 		"laravel/framework": "^11.31",
 		"laravel/sanctum": "^4.0",

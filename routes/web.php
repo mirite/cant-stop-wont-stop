@@ -9,7 +9,7 @@ Route::get(
 	'/',
 	function () {
 		return Inertia::render(
-			'Welcome',
+			'Home',
 			array(
 				'canLogin'       => Route::has( 'login' ),
 				'canRegister'    => Route::has( 'register' ),

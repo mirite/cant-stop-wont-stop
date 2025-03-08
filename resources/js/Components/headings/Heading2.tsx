@@ -1,10 +1,7 @@
 import type { HTMLAttributes, ReactElement } from "react";
 import { twMerge } from "tailwind-merge";
 
-/**
- *
- * @param props
- */
+/** @param props */
 export default function Heading2(
 	props: HTMLAttributes<HTMLHeadingElement>,
 ): ReactElement {

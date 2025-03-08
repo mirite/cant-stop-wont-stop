@@ -1,11 +1,11 @@
-import type { HTMLAttributes, PropsWithChildren, ReactElement } from "react";
-import { twMerge } from "tailwind-merge";
+import type { ReactElement } from "react";
 
-import Heading2 from "@/Components/headings/Heading2";
-import Heading3 from "@/Components/headings/Heading3";
+import Accommodation from "@/Components/Accommodation";
+import Button from "@/Components/Button";
+import Divider from "@/Components/Divider";
+import Section from "@/Components/Section";
 
 import Layout from "../Layouts/GuestLayout";
-
 /**
  * The home page component.
  *
@@ -38,66 +38,16 @@ export default function Home(): ReactElement {
 			</div>
 			<Section heading="Accommodations" className="w-full max-w-full">
 				<div className="grid w-full @2xl:grid-cols-3">
-					<Accomondation />
-					<Accomondation />
-					<Accomondation />
+					<Accommodation />
+					<Accommodation />
+					<Accommodation />
 				</div>
 			</Section>
-			<Section heading="Directions" />
+			<Section heading="Directions">
+				<p className="text-brown uppercase">Placeholder text</p>
+				<br />
+				<Button href="/">Google Maps</Button>
+			</Section>
 		</Layout>
-	);
-}
-
-/**
- *
- */
-function Accomondation() {
-	return (
-		<div className="border-b-taracota @2xl:border-r-taracota flex w-full flex-col items-center border-b-1 py-8 last:border-b-0 @2xl:border-r-1 @2xl:border-b-0 @2xl:px-8 @2xl:py-0 @2xl:last:border-r-0">
-			<Heading3>Placeholder</Heading3>
-			<span className="text-brown uppercase">109 Niska Drive</span>
-			<span className="text-brown uppercase">109 Niska Drive</span>
-			<span className="text-brown uppercase">109 Niska Drive</span>
-			<br />
-			<span className="text-brown text-2xl font-bold uppercase">
-				22 Min Drive
-			</span>
-			<br />
-			<a
-				href="/"
-				className="bg-taracota/20 bg-taracota hover:bg-taracota rounded-full px-8 py-1 font-bold uppercase transition-all hover:text-white"
-			>
-				Book Now
-			</a>
-		</div>
-	);
-}
-
-/**
- *
- */
-function Divider(): ReactElement {
-	return <hr className="bg-taracota my-4 h-px w-4/5" />;
-}
-
-/**
- *
- * @param props
- */
-function Section(
-	props: HTMLAttributes<HTMLDivElement> & { heading: string },
-): ReactElement {
-	const { className: extendedClassName, heading, children, ...rest } = props;
-	return (
-		<div
-			className={twMerge(
-				"mb-8 flex max-w-fit flex-col items-center place-self-center",
-				extendedClassName,
-			)}
-			{...rest}
-		>
-			<Heading2 className="mb-4">{heading}</Heading2>
-			{children}
-		</div>
 	);
 }

@@ -36,9 +36,6 @@ const pages = [
 	{ href: "/", text: "RSVP" },
 	{ href: "/about", text: "Our Story" },
 ];
-/**
- *
- */
 function Nav(): ReactElement {
 	return (
 		<nav className="flex list-none gap-4">
@@ -54,10 +51,7 @@ type NavLinkProps = {
 	text: string;
 };
 
-/**
- *
- * @param props
- */
+/** @param props */
 function NavLink(props: NavLinkProps): ReactElement {
 	return (
 		<li>

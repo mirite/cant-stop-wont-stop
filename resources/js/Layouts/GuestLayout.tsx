@@ -1,4 +1,4 @@
-import type { PropsWithChildren, ReactElement , CSSProperties } from "react";
+import type { PropsWithChildren, ReactElement, CSSProperties } from "react";
 
 import { Header } from "@/Components/Header";
 
@@ -18,7 +18,7 @@ export default function Guest({ children }: PropsWithChildren): ReactElement {
 	const { pattern, primary } = themes[theme];
 	return (
 		<div
-			className="text-primary flex min-h-dvh w-full flex-col *:w-full"
+			className="text-primary tracking-us flex min-h-dvh w-full flex-col *:w-full"
 			style={
 				{
 					"--color-primary": `var(${primary})`,
@@ -29,7 +29,7 @@ export default function Guest({ children }: PropsWithChildren): ReactElement {
 			}
 		>
 			<Header />
-			<main className="@container container mx-auto grow">{children}</main>
+			<main className="container mx-auto grow">{children}</main>
 			<footer className="container mx-auto p-4 text-center">
 				Copyright © {new Date().getFullYear()}, Jesse Conner &amp; Bailey Few
 			</footer>

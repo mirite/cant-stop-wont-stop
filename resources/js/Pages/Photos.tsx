@@ -1,5 +1,5 @@
-import type { CSSProperties, ReactElement } from "react";
-
+import type { ReactElement } from "react";
+import { Head } from "@inertiajs/react";
 import Heading1 from "@/Components/headings/Heading1";
 import Layout from "@/Layouts/GuestLayout";
 /**
@@ -10,6 +10,7 @@ import Layout from "@/Layouts/GuestLayout";
 export default function Photos(): ReactElement {
 	return (
 		<Layout>
+			<Head title="Photos" />
 			<Heading1>Photos</Heading1>
 		</Layout>
 	);

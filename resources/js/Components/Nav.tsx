@@ -3,6 +3,8 @@ import type { ReactElement } from "react";
 
 import type { NavLinkProps } from "../types/navigation";
 
+import { twMerge } from "tailwind-merge";
+import { usePage } from "@inertiajs/react";
 type Props = { pages: NavLinkProps[] };
 /**
  * Displays a page navigation.
@@ -27,10 +29,14 @@ export default function Nav(props: Props): ReactElement {
  * @returns The component.
  */
 function NavLink(props: NavLinkProps): ReactElement {
+	const { url } = usePage();
 	return (
 		<li>
 			<Link
-				className="text-neutral text-xl font-bold uppercase"
+				className={twMerge(
+					"text-neutral text-xl font-bold uppercase decoration-1 underline-offset-10",
+					url === props.href && "underline",
+				)}
 				href={props.href}
 			>
 				{props.text}

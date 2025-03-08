@@ -15,4 +15,5 @@
 		--color-taracota
 	); /* The actual colour comes from the layout, this is so tailwind adjusts accordingly*/
 	--color-secondary: var(--color-brown);
+	--tracking-us: 0.25em;
 }

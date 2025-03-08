@@ -16,7 +16,7 @@ export default function Section(
 	return (
 		<div
 			className={twMerge(
-				"mb-8 flex max-w-fit flex-col items-center place-self-center",
+				"@container mb-8 flex w-full flex-col items-center place-self-center",
 				extendedClassName,
 			)}
 			{...rest}

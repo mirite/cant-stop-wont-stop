@@ -1,11 +1,13 @@
 import type { ReactElement } from "react";
 
-import Accommodation from "@/Components/Accommodation";
+import { Head } from "@inertiajs/react";
 import Button from "@/Components/Button";
 import Divider from "@/Components/Divider";
 import Section from "@/Components/Section";
 
 import Layout from "../Layouts/GuestLayout";
+import { accommodations } from "@/types/accommodations";
+import Accommodations from "@/Components/Accommodations";
 /**
  * The home page component.
  *
@@ -14,9 +16,10 @@ import Layout from "../Layouts/GuestLayout";
 export default function Home(): ReactElement {
 	return (
 		<Layout>
+			<Head title="Home" />
 			<div className="grid grid-cols-3 gap-4">
-				<Section heading="When">
-					<span className="text-3xl font-bold uppercase">Oct 5, 2025</span>
+				<Section heading="When" className="pt-10">
+					<span className="text-3xl font-semibold uppercase">Oct 5, 2025</span>
 					<Divider />
 					<span className="text-3xl uppercase">3:30 PM</span>
 					<span className="text-secondary font-semibold uppercase">
@@ -38,13 +41,7 @@ export default function Home(): ReactElement {
 					</span>
 				</Section>
 			</div>
-			<Section heading="Accommodations" className="w-full max-w-full">
-				<div className="grid w-full @2xl:grid-cols-3">
-					<Accommodation />
-					<Accommodation />
-					<Accommodation />
-				</div>
-			</Section>
+			<Accommodations accommodations={accommodations} />
 			<Section heading="Directions">
 				<p className="text-secondary uppercase">Placeholder text</p>
 				<br />

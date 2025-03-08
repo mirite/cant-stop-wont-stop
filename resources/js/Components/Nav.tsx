@@ -1,10 +1,9 @@
-import { Link } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 import type { ReactElement } from "react";
+import { twMerge } from "tailwind-merge";
 
 import type { NavLinkProps } from "../types/navigation";
 
-import { twMerge } from "tailwind-merge";
-import { usePage } from "@inertiajs/react";
 type Props = { pages: NavLinkProps[] };
 /**
  * Displays a page navigation.

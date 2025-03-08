@@ -1,5 +1,6 @@
-import type { ReactElement } from "react";
 import { Head } from "@inertiajs/react";
+import type { ReactElement } from "react";
+
 import Heading1 from "@/Components/headings/Heading1";
 
 import Layout from "../Layouts/GuestLayout";

@@ -9,6 +9,7 @@ type Props = { accommodation: AccommodationProps };
 /**
  * An accommodation listing.
  *
+ * @param props
  * @returns The component,
  */
 export default function Accommodation(props: Props): ReactElement {
@@ -17,7 +18,7 @@ export default function Accommodation(props: Props): ReactElement {
 		accommodation;
 	return (
 		<div className="border-b-primary @lg:border-r-primary flex w-full flex-col items-center border-b-1 py-8 last:border-b-0 @lg:border-r-1 @lg:border-b-0 @lg:px-8 @lg:py-0 @lg:last:border-r-0">
-			<Heading3 className="max-w-[20ch]">{title}</Heading3>
+			<Heading3 className="max-w-[27ch]">{title}</Heading3>
 			<span className="text-secondary uppercase">{address}</span>
 			<span className="text-secondary uppercase">
 				{city}, {province}

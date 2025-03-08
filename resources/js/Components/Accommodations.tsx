@@ -1,7 +1,10 @@
+import type { ReactElement } from "react";
+
 import type { AccommodationProps } from "../types/accommodations";
+
 import Accommodation from "./Accommodation";
 import Section from "./Section";
-import type { ReactElement } from "react";
+
 type Props = { accommodations: AccommodationProps[] };
 
 /**

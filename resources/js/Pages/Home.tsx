@@ -1,13 +1,13 @@
+import { Head } from "@inertiajs/react";
 import type { ReactElement } from "react";
 
-import { Head } from "@inertiajs/react";
+import Accommodations from "@/Components/Accommodations";
 import Button from "@/Components/Button";
 import Divider from "@/Components/Divider";
 import Section from "@/Components/Section";
+import { accommodations } from "@/types/accommodations";
 
 import Layout from "../Layouts/GuestLayout";
-import { accommodations } from "@/types/accommodations";
-import Accommodations from "@/Components/Accommodations";
 /**
  * The home page component.
  *

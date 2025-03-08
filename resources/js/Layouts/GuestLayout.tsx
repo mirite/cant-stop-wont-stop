@@ -1,24 +1,19 @@
-import { Link } from "@inertiajs/react";
-import type { PropsWithChildren } from "react";
+import type { PropsWithChildren, ReactElement } from "react";
 
-import ApplicationLogo from "@/Components/ApplicationLogo";
+import { Header } from "@/Components/Header";
 
 /**
  * @param root0
  * @param root0.children
  */
-export default function Guest({ children }: PropsWithChildren) {
+export default function Guest({ children }: PropsWithChildren): ReactElement {
 	return (
-		<div className="flex min-h-screen flex-col items-center bg-gray-100 pt-6 sm:justify-center sm:pt-0 dark:bg-gray-900">
-			<div>
-				<Link href="/">
-					<ApplicationLogo className="size-20 fill-current text-gray-500" />
-				</Link>
-			</div>
-
-			<div className="mt-6 w-full overflow-hidden bg-white px-6 py-4 shadow-md sm:max-w-md sm:rounded-lg dark:bg-gray-800">
-				{children}
-			</div>
+		<div className="text-taracota flex min-h-dvh w-full flex-col *:w-full">
+			<Header />
+			<main className="@container container mx-auto grow">{children}</main>
+			<footer className="container mx-auto p-4 text-center">
+				Copyright © {new Date().getFullYear()}, Jesse Conner &amp; Bailey Few
+			</footer>
 		</div>
 	);
 }

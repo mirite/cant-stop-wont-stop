@@ -21,6 +21,34 @@ Route::get(
 );
 
 Route::get(
+	'/photos',
+	function () {
+		return Inertia::render(
+			'Photos',
+			array(
+				'canLogin'       => Route::has( 'login' ),
+				'canRegister'    => Route::has( 'register' ),
+				'laravelVersion' => Application::VERSION,
+				'phpVersion'     => PHP_VERSION,
+			)
+		);
+	}
+);
+Route::get(
+	'/about',
+	function () {
+		return Inertia::render(
+			'About',
+			array(
+				'canLogin'       => Route::has( 'login' ),
+				'canRegister'    => Route::has( 'register' ),
+				'laravelVersion' => Application::VERSION,
+				'phpVersion'     => PHP_VERSION,
+			)
+		);
+	}
+);
+Route::get(
 	'/dashboard',
 	function () {
 		return Inertia::render( 'Dashboard' );

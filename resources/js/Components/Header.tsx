@@ -10,7 +10,7 @@ import { pages } from "@/types/navigation";
  */
 export function Header(): ReactElement {
 	return (
-		<header className="text-neutral bg-primary bg-fill relative h-[33vh] [background-image:var(--pattern)] p-8">
+		<header className="text-neutral bg-primary bg-fill relative h-[33vh] [background-image:var(--pattern)] [background-size:100%] p-8">
 			<div className="container mx-auto flex items-center justify-between gap-4">
 				<img width={64} height={64} />
 				<Link href={"/"} className="mr-auto text-xl font-bold uppercase">

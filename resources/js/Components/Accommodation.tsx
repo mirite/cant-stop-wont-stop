@@ -10,13 +10,13 @@ import Heading3 from "@/Components/headings/Heading3";
  */
 export default function Accommodation(): ReactElement {
 	return (
-		<div className="border-b-taracota @2xl:border-r-taracota flex w-full flex-col items-center border-b-1 py-8 last:border-b-0 @2xl:border-r-1 @2xl:border-b-0 @2xl:px-8 @2xl:py-0 @2xl:last:border-r-0">
+		<div className="border-b-primary @2xl:border-r-primary flex w-full flex-col items-center border-b-1 py-8 last:border-b-0 @2xl:border-r-1 @2xl:border-b-0 @2xl:px-8 @2xl:py-0 @2xl:last:border-r-0">
 			<Heading3>Placeholder</Heading3>
-			<span className="text-brown uppercase">109 Niska Drive</span>
-			<span className="text-brown uppercase">109 Niska Drive</span>
-			<span className="text-brown uppercase">109 Niska Drive</span>
+			<span className="text-secondary uppercase">109 Niska Drive</span>
+			<span className="text-secondary uppercase">109 Niska Drive</span>
+			<span className="text-secondary uppercase">109 Niska Drive</span>
 			<br />
-			<span className="text-brown text-2xl font-bold uppercase">
+			<span className="text-secondary text-2xl font-bold uppercase">
 				22 Min Drive
 			</span>
 			<br />

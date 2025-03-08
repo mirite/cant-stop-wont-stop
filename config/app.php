@@ -13,7 +13,7 @@ return array(
 	|
 	*/
 
-	'name'            => env( 'APP_NAME', 'Laravel' ),
+	'name'            => env( 'APP_NAME', "Can't Stop Won't Stop" ),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -39,7 +39,7 @@ return array(
 	|
 	*/
 
-	'debug'           => (bool) env( 'APP_DEBUG', false ),
+	'debug'           => (bool) env( 'APP_DEBUG', true ),
 
 	/*
 	|--------------------------------------------------------------------------

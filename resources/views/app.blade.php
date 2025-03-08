@@ -7,7 +7,7 @@
         <title inertia>{{ config('app.name', "Can't Stop Won't Stop") }}</title>
 
         <!-- Fonts -->
-<link rel="stylesheet" href="https://use.typekit.net/iof7gon.css">
+        <link rel="stylesheet" href="https://use.typekit.net/iof7gon.css">
         <!-- Scripts -->
         @routes
         @viteReactRefresh

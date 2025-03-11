@@ -8,16 +8,18 @@ import Section from "@/Components/Section";
 import { accommodations } from "@/types/accommodations";
 
 import Layout from "../Layouts/GuestLayout";
+import { useTheme } from "@/useTheme";
 /**
  * The home page component.
  *
  * @returns The component.
  */
 export default function Home(): ReactElement {
+	const { date } = useTheme();
 	return (
 		<Layout>
 			<Head title="Home" />
-			<div className="grid grid-cols-3 gap-4">
+			<div className="mb-8 grid grid-cols-3 gap-4">
 				<Section heading="When" className="pt-10">
 					<span className="text-3xl font-semibold uppercase">Oct 5, 2025</span>
 					<Divider />
@@ -27,9 +29,11 @@ export default function Home(): ReactElement {
 					</span>
 				</Section>
 				<div className="relative">
-					<div className="absolute -top-1/2 bottom-1/2 left-[calc(50%-var(--logo-width)/2)] mx-auto w-(--logo-width) bg-white" />
+					<div className="absolute -top-full right-0 bottom-0 left-0 mx-auto">
+						<img src={date} className="mx-auto h-full w-auto" />
+					</div>
 				</div>
-				<Section heading="Where">
+				<Section heading="Where" className="pt-10">
 					<span className="text-3xl uppercase">The Barn</span>
 					<span className="text-3xl uppercase">Event Space</span>
 					<Divider />

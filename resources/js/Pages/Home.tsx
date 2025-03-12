@@ -5,19 +5,22 @@ import Accommodations from "@/Components/Accommodations";
 import Button from "@/Components/Button";
 import Divider from "@/Components/Divider";
 import Section from "@/Components/Section";
+import type { PageProps } from "@/types";
 import { accommodations } from "@/types/accommodations";
+import { useTheme } from "@/useTheme";
 
 import Layout from "../Layouts/GuestLayout";
-import { useTheme } from "@/useTheme";
+
 /**
  * The home page component.
  *
+ * @param props
  * @returns The component.
  */
-export default function Home(): ReactElement {
-	const { date } = useTheme();
+export default function Home(props: PageProps): ReactElement {
+	const { date } = useTheme(props);
 	return (
-		<Layout>
+		<Layout {...props}>
 			<Head title="Home" />
 			<div className="mb-8 grid grid-cols-3 gap-4">
 				<Section heading="When" className="pt-10">
@@ -29,7 +32,7 @@ export default function Home(): ReactElement {
 					</span>
 				</Section>
 				<div className="relative">
-					<div className="absolute -top-full right-0 bottom-0 left-0 mx-auto">
+					<div className="absolute inset-x-0 -top-full bottom-0 mx-auto">
 						<img src={date} className="mx-auto h-full w-auto" />
 					</div>
 				</div>

@@ -1,9 +1,9 @@
-import GreenPattern from "./green-pattern.svg";
-import GreenLogo from "./green-logo.svg";
 import GreenDate from "./green-date.svg";
-import RedPattern from "./red-pattern.svg";
-import RedLogo from "./red-logo.svg";
+import GreenLogo from "./green-logo.svg";
+import GreenPattern from "./green-pattern.svg";
 import RedDate from "./red-date.svg";
+import RedLogo from "./red-logo.svg";
+import RedPattern from "./red-pattern.svg";
 
 export const themes = {
 	green: {
@@ -22,7 +22,10 @@ export const themes = {
 	},
 };
 
-export function useTheme() {
-	const theme = Math.random() > 0.5 ? "green" : "red";
-	return themes[theme];
+/**
+ * @param props
+ * @param props.theme
+ */
+export function useTheme(props: { theme: "green" | "red" }) {
+	return themes[props.theme];
 }

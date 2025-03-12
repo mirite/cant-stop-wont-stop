@@ -15,6 +15,7 @@ Route::get(
 				'canRegister'    => Route::has( 'register' ),
 				'laravelVersion' => Application::VERSION,
 				'phpVersion'     => PHP_VERSION,
+				'theme'          => 'red',
 			)
 		);
 	}
@@ -30,6 +31,7 @@ Route::get(
 				'canRegister'    => Route::has( 'register' ),
 				'laravelVersion' => Application::VERSION,
 				'phpVersion'     => PHP_VERSION,
+				'theme'          => 'green',
 			)
 		);
 	}
@@ -44,6 +46,7 @@ Route::get(
 				'canRegister'    => Route::has( 'register' ),
 				'laravelVersion' => Application::VERSION,
 				'phpVersion'     => PHP_VERSION,
+				'theme'          => 'green',
 			)
 		);
 	}

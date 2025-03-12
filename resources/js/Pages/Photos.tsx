@@ -3,14 +3,16 @@ import type { ReactElement } from "react";
 
 import Heading1 from "@/Components/headings/Heading1";
 import Layout from "@/Layouts/GuestLayout";
+import type { PageProps } from "@/types";
 /**
  * The photo page component.
  *
+ * @param props
  * @returns The component.
  */
-export default function Photos(): ReactElement {
+export default function Photos(props: PageProps): ReactElement {
 	return (
-		<Layout>
+		<Layout {...props}>
 			<Head title="Photos" />
 			<Heading1>Photos</Heading1>
 		</Layout>

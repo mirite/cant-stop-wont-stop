@@ -2,15 +2,17 @@ import { Link } from "@inertiajs/react";
 import type { CSSProperties, ReactElement } from "react";
 
 import Nav from "@/Components/Nav";
+import type { PageProps } from "@/types";
 import { pages } from "@/types/navigation";
 import { useTheme } from "@/useTheme";
 /**
  * The site header
  *
+ * @param props
  * @returns The component.
  */
-export function Header(): ReactElement {
-	const { pattern, logo, classes } = useTheme();
+export function Header(props: PageProps): ReactElement {
+	const { pattern, logo, classes } = useTheme(props);
 	return (
 		<header
 			className={`text-neutral relative h-[33vh] [background-image:var(--pattern)] p-4 ${classes} bg-primary`}

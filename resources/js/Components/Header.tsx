@@ -39,7 +39,7 @@ export function Header(props: PageProps): ReactElement {
 					</span>
 				</Section>
 				<div className="relative order-first md:order-none">
-					<div className="absolute inset-x-0 -top-1/2 bottom-0 mx-auto xl:-top-full">
+					<div className="absolute inset-x-0 -top-1/2 bottom-0 mx-auto md:-top-2/3 xl:-top-full">
 						<img src={date} className="mx-auto h-full w-auto" />
 					</div>
 				</div>

@@ -5,12 +5,13 @@ import Nav from "@/Components/Nav";
 import type { PageProps } from "@/types";
 import { pages } from "@/types/navigation";
 import { useTheme } from "@/useTheme";
-import Section from "./Section";
+
 import Divider from "./Divider";
+import Section from "./Section";
 /**
  * The site header
  *
- * @param props
+ * @param props The page props from the layout.
  * @returns The component.
  */
 export function Header(props: PageProps): ReactElement {

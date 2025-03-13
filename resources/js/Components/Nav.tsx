@@ -1,10 +1,11 @@
+import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, usePage } from "@inertiajs/react";
 import { useState, type ReactElement } from "react";
 import { twMerge } from "tailwind-merge";
 
 import type { NavLinkProps } from "../types/navigation";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
+
 type Props = { pages: NavLinkProps[] };
 /**
  * Displays a page navigation.

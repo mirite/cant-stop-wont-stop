@@ -1,13 +1,13 @@
 import type { ReactElement } from "react";
+import { twMerge } from "tailwind-merge";
 
+import flower1 from "../mum.svg";
 import type { AccommodationProps } from "../types/accommodations";
 
 import Accommodation from "./Accommodation";
 import Section from "./Section";
 
 type Props = { accommodations: AccommodationProps[] };
-import flower1 from "../mum.svg";
-import { twMerge } from "tailwind-merge";
 /**
  * Displays a list of accommodations.
  *

@@ -19,7 +19,7 @@ export function Header(props: PageProps): ReactElement {
 	return (
 		<div>
 			<header
-				className={`text-neutral relative h-[min(33vh,400px)] [background-image:var(--pattern)] p-4 ${classes} bg-primary`}
+				className={`text-neutral relative h-[300px] [background-image:var(--pattern)] p-4 md:h-[min(33vh,400px)] ${classes} bg-primary`}
 				style={{ "--pattern": `url(${pattern})` } as CSSProperties}
 			>
 				<div className="container mx-auto flex items-center justify-between gap-4">

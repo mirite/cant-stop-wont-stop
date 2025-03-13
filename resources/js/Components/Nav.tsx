@@ -1,9 +1,10 @@
 import { Link, usePage } from "@inertiajs/react";
-import type { ReactElement } from "react";
+import { useState, type ReactElement } from "react";
 import { twMerge } from "tailwind-merge";
 
 import type { NavLinkProps } from "../types/navigation";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
 type Props = { pages: NavLinkProps[] };
 /**
  * Displays a page navigation.
@@ -12,12 +13,29 @@ type Props = { pages: NavLinkProps[] };
  * @returns The component.
  */
 export default function Nav(props: Props): ReactElement {
+	const [isClosed, setIsClosed] = useState(true);
+
 	return (
-		<nav className="flex list-none gap-4">
-			{props.pages.map((page) => (
-				<NavLink key={page.text} {...page} />
-			))}
-		</nav>
+		<div className="relative">
+			<nav
+				className={twMerge(
+					"bg-primary fixed inset-0 z-10 flex list-none flex-col items-center justify-center gap-4 md:static md:flex md:flex-row md:bg-none",
+					isClosed && "hidden",
+				)}
+			>
+				{props.pages.map((page) => (
+					<NavLink key={page.text} {...page} />
+				))}
+			</nav>
+			<button
+				className="relative z-20 cursor-pointer text-2xl font-bold md:hidden"
+				type="button"
+				onClick={() => setIsClosed(!isClosed)}
+				title={isClosed ? "Open Menu" : "Close Menu"}
+			>
+				<FontAwesomeIcon icon={isClosed ? faBars : faX} />
+			</button>
+		</div>
 	);
 }
 

@@ -18,7 +18,7 @@ export function Header(props: PageProps): ReactElement {
 	return (
 		<div>
 			<header
-				className={`text-neutral relative h-[33vh] [background-image:var(--pattern)] p-4 ${classes} bg-primary`}
+				className={`text-neutral relative h-[min(33vh,400px)] [background-image:var(--pattern)] p-4 ${classes} bg-primary`}
 				style={{ "--pattern": `url(${pattern})` } as CSSProperties}
 			>
 				<div className="container mx-auto flex items-center justify-between gap-4">
@@ -29,7 +29,7 @@ export function Header(props: PageProps): ReactElement {
 					<Nav pages={pages} />
 				</div>
 			</header>
-			<div className="mb-8 grid grid-rows-3 gap-4 md:grid-cols-3 md:grid-rows-1">
+			<div className="container mx-auto mb-8 grid grid-rows-3 gap-4 md:grid-cols-3 md:grid-rows-1">
 				<Section heading="When" className="order-2 pt-10 md:order-none">
 					<span className="text-3xl font-semibold uppercase">Oct 5, 2025</span>
 					<Divider />

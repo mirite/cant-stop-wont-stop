@@ -1,16 +1,14 @@
 import { Head } from "@inertiajs/react";
+import type { ReactElement } from "react";
 
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
-export default function Dashboard() {
+/**
+ *
+ */
+export default function Dashboard(): ReactElement {
 	return (
-		<AuthenticatedLayout
-			header={
-				<h2 className="text-xl leading-tight font-semibold text-gray-800 dark:text-gray-200">
-					Dashboard
-				</h2>
-			}
-		>
+		<AuthenticatedLayout>
 			<Head title="Dashboard" />
 
 			<div className="py-12">

@@ -4,7 +4,7 @@ import type { FormEventHandler } from "react";
 import InputError from "@/Components/InputError";
 import PrimaryButton from "@/Components/PrimaryButton";
 import TextInput from "@/Components/TextInput";
-import GuestLayout from "@/Layouts/GuestLayout";
+import GuestLayout from "@/Layouts/AuthenticatedLayout";
 
 /**
  * @param root0

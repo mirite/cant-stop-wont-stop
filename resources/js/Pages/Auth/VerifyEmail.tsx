@@ -2,7 +2,7 @@ import { Head, Link, useForm } from "@inertiajs/react";
 import type { FormEventHandler } from "react";
 
 import PrimaryButton from "@/Components/PrimaryButton";
-import GuestLayout from "@/Layouts/GuestLayout";
+import GuestLayout from "@/Layouts/AuthenticatedLayout";
 
 /**
  * @param root0

@@ -5,7 +5,7 @@ import InputError from "@/Components/InputError";
 import InputLabel from "@/Components/InputLabel";
 import PrimaryButton from "@/Components/PrimaryButton";
 import TextInput from "@/Components/TextInput";
-import GuestLayout from "@/Layouts/AuthenticatedLayout";
+import GuestLayout from "@/Layouts/GuestLayout";
 
 /**
  * @param root0

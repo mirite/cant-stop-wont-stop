@@ -2,7 +2,7 @@ import { Head } from "@inertiajs/react";
 import type { ReactElement } from "react";
 
 import Heading1 from "@/Components/headings/Heading1";
-import Layout from "@/Layouts/GuestLayout";
+import Layout from "@/Layouts/MainLayout";
 import type { PageProps } from "@/types";
 /**
  * The photo page component.

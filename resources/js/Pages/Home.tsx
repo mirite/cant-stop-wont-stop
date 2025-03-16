@@ -7,7 +7,7 @@ import Section from "@/Components/Section";
 import type { PageProps } from "@/types";
 import { accommodations } from "@/types/accommodations";
 
-import Layout from "../Layouts/GuestLayout";
+import Layout from "../Layouts/MainLayout";
 
 /**
  * The home page component.

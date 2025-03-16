@@ -1,7 +1,7 @@
 import { Head, Link, useForm } from "@inertiajs/react";
 import type { FormEventHandler } from "react";
 
-import GuestLayout from "@/Layouts/AuthenticatedLayout";
+import GuestLayout from "@/Layouts/GuestLayout";
 
 /**
  * @param root0

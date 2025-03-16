@@ -4,7 +4,7 @@ import type { ReactElement } from "react";
 import Heading1 from "@/Components/headings/Heading1";
 import type { PageProps } from "@/types";
 
-import Layout from "../Layouts/GuestLayout";
+import Layout from "../Layouts/MainLayout";
 /**
  * The our story page component.
  *

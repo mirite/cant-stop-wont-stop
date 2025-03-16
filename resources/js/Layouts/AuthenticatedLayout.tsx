@@ -1,20 +1,29 @@
 import { usePage } from "@inertiajs/react";
-import type { PropsWithChildren, ReactElement, ReactNode } from "react";
+import type { PropsWithChildren, ReactElement } from "react";
+
+import Footer from "@/Components/Footer";
+import Main from "@/Components/Main";
+import PageWrapper from "@/Components/PageWrapper";
 
 /**
- * @param root0
- * @param root0.header
- * @param root0.children
+ * The layout used by authenticated back-end pages.
+ *
+ * @param root0 The layout props.
+ * @param root0.children The page using the layout.
+ * @returns The layout.
  */
 export default function Authenticated({
 	children,
-}: PropsWithChildren<{ header?: ReactNode }>): ReactElement {
+}: PropsWithChildren): ReactElement {
 	const user = usePage().props.auth.user;
 
 	return (
-		<main>
-			{user?.name}
-			{children}
-		</main>
+		<PageWrapper>
+			<Main>
+				{user?.name}
+				{children}
+			</Main>
+			<Footer />
+		</PageWrapper>
 	);
 }

@@ -20,7 +20,7 @@ export default function Nav(props: Props): ReactElement {
 		<div className="relative">
 			<nav
 				className={twMerge(
-					"bg-primary fixed inset-0 z-10 flex list-none flex-col items-center justify-center gap-4 md:static md:flex md:flex-row md:bg-none",
+					"bg-primary fixed inset-0 z-10 flex list-none flex-col items-center justify-center gap-4 md:static md:flex md:flex-row md:bg-transparent",
 					isClosed && "hidden",
 				)}
 			>

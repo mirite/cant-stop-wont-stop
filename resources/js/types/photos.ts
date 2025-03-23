@@ -39,6 +39,7 @@ export const photos: PhotoProps[] = [
 	{
 		src: "463216189_9080327985319338_1606559593105980768_n.jpg",
 		title: "Fritz Looking Glamorous",
+		className: "object-bottom",
 	},
 	{
 		src: "463868643_9080327995319337_7660532591378465189_n.jpg",

@@ -1,9 +1,9 @@
-import type { ReactElement } from "react";
+import { useState, type ReactElement } from "react";
 
 import type { PhotoProps } from "@/types/photos";
 
+import LightboxPhoto from "./LightboxPhoto";
 import Photo from "./Photo";
-
 
 type Props = {
 	photos: PhotoProps[];
@@ -17,10 +17,32 @@ type Props = {
  */
 export default function PhotoGrid(props: Props): ReactElement {
 	const { photos } = props;
+	const [state, setState] = useState({ isOpen: false, index: 0 });
 	return (
-		<div className="mx-auto grid grid-cols-[repeat(auto-fit,512px)] place-content-center">
-			{photos.map((image) => (
-				<Photo key={image.src} {...image} />
+		<div className="mx-auto mt-8 grid grid-cols-[repeat(auto-fit,500px)] place-content-center gap-4">
+			{state.isOpen === true && (
+				<LightboxPhoto
+					onNext={() =>
+						setState({
+							...state,
+							index: Math.min(photos.length - 1, state.index + 1),
+						})
+					}
+					onPrevious={() =>
+						setState({ ...state, index: Math.max(0, state.index - 1) })
+					}
+					isStart={state.index === 0}
+					isEnd={state.index === photos.length - 1}
+					onClose={() => setState({ ...state, isOpen: false })}
+					{...photos[state.index]}
+				/>
+			)}
+			{photos.map((image, index) => (
+				<Photo
+					key={image.src}
+					onOpen={() => setState({ ...state, isOpen: true, index })}
+					{...image}
+				/>
 			))}
 		</div>
 	);

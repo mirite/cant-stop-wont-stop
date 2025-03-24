@@ -21,8 +21,9 @@ type LightboxPhotoProps = Pick<PhotoProps, "title" | "src"> & {
 /** @param props */
 export default function LightboxPhoto(props: LightboxPhotoProps): ReactElement {
 	const { isEnd, isStart, onClose, onNext, onPrevious, src, title } = props;
+
 	return (
-		<div className="fixed inset-0 drop-shadow-xl backdrop-blur-lg">
+		<div className="fixed inset-0 bg-white/10 drop-shadow-xl backdrop-blur-lg">
 			<SliderButton
 				onClick={onClose}
 				title="Close"

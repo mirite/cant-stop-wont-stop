@@ -29,7 +29,7 @@ export default function Accommodation(props: Props): ReactElement {
 				{distance} Min Drive
 			</span>
 			<br />
-			<Button href={href} target="_blank">
+			<Button useNative={true} href={href} target="_blank">
 				Book Now
 			</Button>
 		</div>

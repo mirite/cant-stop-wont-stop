@@ -42,14 +42,28 @@ export default function LightboxPhoto(props: LightboxPhotoProps): ReactElement {
 				onClick={onClose}
 				className="relative m-auto size-full"
 			>
-				<div className="mx-auto flex size-4/5 items-center justify-center">
+				<div
+					className="group relative mx-auto flex size-4/5 max-h-fit max-w-fit items-center justify-center"
+					onClick={(e) => e.stopPropagation()}
+				>
 					<img
-						onClick={(e) => e.stopPropagation()}
 						src={`/images/${src}`}
 						className="max-h-full max-w-full object-contain object-center"
 						alt=""
 						title={title}
 					/>
+					<div className="absolute inset-x-0 bottom-0 bg-black/90 p-4 transition-all lg:opacity-0 lg:group-hover:opacity-100">
+						<h2 className="mb-2 text-2xl font-medium">{title}</h2>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+							eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+							enim ad minim veniam, quis nostrud exercitation ullamco laboris
+							nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+							reprehenderit in voluptate velit esse cillum dolore eu fugiat
+							nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+							sunt in culpa qui officia deserunt mollit anim id est laborum.
+						</p>
+					</div>
 				</div>
 			</button>
 			<SliderButton

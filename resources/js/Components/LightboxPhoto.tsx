@@ -10,18 +10,35 @@ import { twMerge } from "tailwind-merge";
 
 import type { PhotoProps } from "@/types/photos";
 
-type LightboxPhotoProps = Pick<PhotoProps, "title" | "src"> & {
+type LightboxPhotoProps = Pick<
+	PhotoProps,
+	"title" | "src" | "description" | "date"
+> & {
 	onPrevious: () => void;
 	onNext: () => void;
 	onClose: () => void;
 	isStart: boolean;
 	isEnd: boolean;
 };
-
+const dateFormatter = new Intl.DateTimeFormat("en-ca", {
+	year: "numeric",
+	month: "long",
+	day: "numeric",
+});
 /** @param props */
 export default function LightboxPhoto(props: LightboxPhotoProps): ReactElement {
-	const { isEnd, isStart, onClose, onNext, onPrevious, src, title } = props;
-
+	const {
+		isEnd,
+		isStart,
+		onClose,
+		onNext,
+		onPrevious,
+		src,
+		title,
+		description,
+		date,
+	} = props;
+	const formattedDate = dateFormatter.format(date.getTime());
 	return (
 		<div className="fixed inset-0 bg-white/10 drop-shadow-xl backdrop-blur-lg">
 			<SliderButton
@@ -54,14 +71,16 @@ export default function LightboxPhoto(props: LightboxPhotoProps): ReactElement {
 					/>
 					<div className="absolute inset-x-0 bottom-0 bg-black/90 p-4 transition-all lg:opacity-0 lg:group-hover:opacity-100">
 						<h2 className="mb-2 text-2xl font-medium">{title}</h2>
+						<div>{formattedDate}</div>
 						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+							{description ||
+								`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 							eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
 							enim ad minim veniam, quis nostrud exercitation ullamco laboris
 							nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
 							reprehenderit in voluptate velit esse cillum dolore eu fugiat
 							nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-							sunt in culpa qui officia deserunt mollit anim id est laborum.
+							sunt in culpa qui officia deserunt mollit anim id est laborum.`}
 						</p>
 					</div>
 				</div>

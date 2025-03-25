@@ -10,6 +10,8 @@ import { twMerge } from "tailwind-merge";
 
 import type { PhotoProps } from "@/types/photos";
 
+import Paragraph from "./Paragraph";
+
 type LightboxPhotoProps = Pick<
 	PhotoProps,
 	"title" | "src" | "description" | "date"
@@ -71,8 +73,8 @@ export default function LightboxPhoto(props: LightboxPhotoProps): ReactElement {
 					/>
 					<div className="absolute inset-x-0 bottom-0 bg-black/90 p-4 transition-all lg:opacity-0 lg:group-hover:opacity-100">
 						<h2 className="mb-2 text-2xl font-medium">{title}</h2>
-						<div>{formattedDate}</div>
-						<p>
+						<div className="mb-2">{formattedDate}</div>
+						<Paragraph>
 							{description ||
 								`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 							eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -81,7 +83,7 @@ export default function LightboxPhoto(props: LightboxPhotoProps): ReactElement {
 							reprehenderit in voluptate velit esse cillum dolore eu fugiat
 							nulla pariatur. Excepteur sint occaecat cupidatat non proident,
 							sunt in culpa qui officia deserunt mollit anim id est laborum.`}
-						</p>
+						</Paragraph>
 					</div>
 				</div>
 			</button>

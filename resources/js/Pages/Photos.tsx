@@ -4,7 +4,7 @@ import type { ReactElement } from "react";
 import PhotoGrid from "@/Components/PhotoGrid";
 import Layout from "@/Layouts/MainLayout";
 import type { PageProps } from "@/types";
-import { photos } from "@/types/photos";
+import type { PhotoProps } from "@/types/photos";
 
 /**
  * The photo page component.
@@ -12,9 +12,12 @@ import { photos } from "@/types/photos";
  * @param props The page props.
  * @returns The component.
  */
-export default function Photos(props: PageProps): ReactElement {
+export default function Photos(
+	props: PageProps & { photos: PhotoProps[] },
+): ReactElement {
+	const { photos, ...rest } = props;
 	return (
-		<Layout {...props}>
+		<Layout {...rest}>
 			<Head title="Photos" />
 			<PhotoGrid photos={photos} />
 		</Layout>

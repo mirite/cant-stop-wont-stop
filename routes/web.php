@@ -33,6 +33,7 @@ Route::get(
 				'laravelVersion' => Application::VERSION,
 				'phpVersion'     => PHP_VERSION,
 				'theme'          => 'green',
+				'photos'         => ImageController::get(),
 			)
 		);
 	}

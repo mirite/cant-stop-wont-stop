@@ -38,7 +38,7 @@ export default function LightboxPhoto(props: LightboxPhotoProps): ReactElement {
 		description,
 		date,
 	} = props;
-	const formattedDate = dateFormatter.format(date.getTime());
+	const formattedDate = dateFormatter.format(new Date(date * 1000));
 	return (
 		<div className="fixed inset-0 bg-white/10 drop-shadow-xl backdrop-blur-lg">
 			<SliderButton

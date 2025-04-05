@@ -31,7 +31,7 @@ export function Header(props: PageProps): ReactElement {
 				</div>
 			</header>
 			<div className="container mx-auto mb-8 grid grid-rows-3 md:grid-cols-3 md:grid-rows-1 md:gap-4">
-				<Section heading="When" className="order-2 md:order-none md:pt-10">
+				<Section heading="When" className="order-2 pt-6 md:order-none md:pt-10">
 					<span className="text-3xl font-semibold uppercase">Oct 5, 2025</span>
 					<Divider />
 					<span className="text-3xl uppercase">3:30 PM</span>
@@ -40,7 +40,7 @@ export function Header(props: PageProps): ReactElement {
 					</span>
 				</Section>
 				<div className="relative order-first md:order-none">
-					<div className="absolute inset-x-0 -top-1/2 bottom-0 mx-auto md:-top-2/3 xl:-top-full">
+					<div className="absolute inset-x-0 -top-1/2 bottom-0 mx-auto md:-top-1/3 xl:-top-full">
 						<img src={date} className="mx-auto h-full w-auto" />
 					</div>
 				</div>

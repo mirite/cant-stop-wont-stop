@@ -16,16 +16,16 @@ export const accommodations: AccommodationProps[] = [
 		province: "ON",
 		postalCode: "L4G 0Z6",
 		distance: "22",
-		href: "",
+		href: "https://www.ihg.com/holidayinnexpress/hotels/us/en/aurora/ytora/hoteldetail",
 	},
 	{
-		title: "Fairfield Inn & Suites (Opening March 2025)",
+		title: "Fairfield Inn & Suites",
 		address: "100 Pony Drive",
 		city: "Newmarket",
 		province: "ON",
 		postalCode: "L3Y 7B6",
 		distance: "17",
-		href: "",
+		href: "https://www.marriott.com/en-us/hotels/yyzfo-fairfield-inn-and-suites-newmarket/overview/",
 	},
 	{
 		title: "Best Western Voyageur Place",
@@ -34,6 +34,6 @@ export const accommodations: AccommodationProps[] = [
 		province: "ON",
 		postalCode: "L3Y 5H6",
 		distance: "25",
-		href: "",
+		href: "https://www.bestwestern.com/en_US/book/hotel-rooms.66065.html",
 	},
 ];

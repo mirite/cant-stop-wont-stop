@@ -16,7 +16,7 @@ type Props = { accommodations: AccommodationProps[] };
  */
 export default function Accommodations(props: Props): ReactElement {
 	return (
-		<Section heading="Accommodations" className="w-full max-w-full">
+		<Section heading="Accomm&shy;odations" className="w-full max-w-full">
 			<div className="grid w-full grid-rows-[1fr_90px_1fr_90px_1fr] @2xl:grid-cols-[1fr_max-content_1fr_max-content_1fr] @2xl:grid-rows-1">
 				{props.accommodations.map((a, i) => (
 					<>

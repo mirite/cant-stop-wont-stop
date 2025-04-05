@@ -14,7 +14,7 @@ export default function Heading3(
 	return (
 		<h3
 			className={twMerge(
-				"text-center text-2xl font-bold break-all uppercase",
+				"text-center text-2xl font-bold uppercase",
 				extendedClassName,
 			)}
 			{...rest}

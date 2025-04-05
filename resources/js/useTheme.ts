@@ -11,7 +11,7 @@ export const themes = {
 		primary: "--color-eucalyptus",
 		logo: GreenLogo,
 		date: GreenDate,
-		classes: "[background-size:100%]",
+		classes: "[background-size:100%_100%]",
 	},
 	red: {
 		pattern: RedPattern,

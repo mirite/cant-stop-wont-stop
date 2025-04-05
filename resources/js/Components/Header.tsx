@@ -30,8 +30,8 @@ export function Header(props: PageProps): ReactElement {
 					<Nav pages={pages} />
 				</div>
 			</header>
-			<div className="container mx-auto mb-8 grid grid-rows-3 gap-4 md:grid-cols-3 md:grid-rows-1">
-				<Section heading="When" className="order-2 pt-10 md:order-none">
+			<div className="container mx-auto mb-8 grid grid-rows-3 md:grid-cols-3 md:grid-rows-1 md:gap-4">
+				<Section heading="When" className="order-2 md:order-none md:pt-10">
 					<span className="text-3xl font-semibold uppercase">Oct 5, 2025</span>
 					<Divider />
 					<span className="text-3xl uppercase">3:30 PM</span>
@@ -44,7 +44,7 @@ export function Header(props: PageProps): ReactElement {
 						<img src={date} className="mx-auto h-full w-auto" />
 					</div>
 				</div>
-				<Section heading="Where" className="order-last pt-10 md:order-none">
+				<Section heading="Where" className="order-last md:order-none md:pt-10">
 					<span className="text-3xl uppercase">The Barn</span>
 					<span className="text-3xl uppercase">Event Space</span>
 					<Divider />

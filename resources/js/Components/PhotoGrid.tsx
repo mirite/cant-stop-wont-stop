@@ -24,7 +24,7 @@ export default function PhotoGrid(props: Props): ReactElement {
 		.querySelector("body")
 		?.classList[state.isOpen ? "add" : "remove"]("overflow-clip");
 	return (
-		<div className="mx-auto mt-8 grid place-content-center gap-4 sm:grid-cols-[repeat(auto-fit,500px)]">
+		<div className="mx-auto grid place-content-center gap-4 sm:grid-cols-[repeat(auto-fit,500px)]">
 			{state.isOpen === true && (
 				<LightboxPhoto
 					onNext={() =>

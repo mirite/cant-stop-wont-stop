@@ -29,7 +29,7 @@ export default function Nav(props: Props): ReactElement {
 				))}
 			</nav>
 			<button
-				className="relative z-20 cursor-pointer text-2xl font-bold md:hidden"
+				className="relative z-20 mr-2 cursor-pointer text-2xl font-bold md:hidden"
 				type="button"
 				onClick={() => setIsClosed(!isClosed)}
 				title={isClosed ? "Open Menu" : "Close Menu"}

@@ -2,10 +2,13 @@ import { Head } from "@inertiajs/react";
 import type { ReactElement } from "react";
 
 import Heading1 from "@/Components/headings/Heading1";
+import Milestones from "@/Components/Milestones";
 import Paragraph from "@/Components/Paragraph";
 import type { PageProps } from "@/types";
+import { milestones } from "@/types/milestones";
 
 import Layout from "../Layouts/MainLayout";
+
 /**
  * The our story page component.
  *
@@ -42,6 +45,7 @@ export default function About(props: PageProps): ReactElement {
 	return (
 		<Layout {...props}>
 			<Head title="Our Story" />
+			<Milestones milestones={milestones} />
 			<Heading1>Our Story</Heading1>
 			<div className="mx-auto w-fit">
 				{paragraphs.map((p) => (

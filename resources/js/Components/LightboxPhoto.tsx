@@ -65,7 +65,7 @@ export default function LightboxPhoto(props: LightboxPhotoProps): ReactElement {
 						alt=""
 						title={title}
 					/>
-					<div className="inset-x-0 bottom-0 w-full bg-black/90 p-4 transition-all lg:absolute lg:opacity-0 lg:group-hover:opacity-100">
+					<div className="bg-eucalyptus lg:bg-eucalyptus/90 text-neutral inset-x-0 bottom-0 w-full p-4 transition-all lg:absolute lg:opacity-0 lg:group-hover:opacity-100">
 						<h2 className="mb-2 text-2xl font-medium">{title}</h2>
 						<div className="mb-2">{formattedDate}</div>
 					</div>

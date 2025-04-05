@@ -48,7 +48,7 @@ Route::get(
 				'canRegister'    => Route::has( 'register' ),
 				'laravelVersion' => Application::VERSION,
 				'phpVersion'     => PHP_VERSION,
-				'theme'          => 'green',
+				'theme'          => 'red',
 			)
 		);
 	}

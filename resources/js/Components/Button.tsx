@@ -17,7 +17,7 @@ export default function Button(props: ButtonProps): ReactElement {
 	return (
 		<Element
 			className={twMerge(
-				"bg-primary/20 hover:bg-primary hover:text-neutral rounded-full px-8 py-1 text-xl font-bold uppercase transition-all",
+				"bg-primary/20 hover:bg-primary hover:text-neutral rounded-full px-8 py-1 text-center text-xl font-bold uppercase transition-all",
 			)}
 			{...rest}
 		/>

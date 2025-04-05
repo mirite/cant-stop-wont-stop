@@ -1,7 +1,12 @@
 import type { HTMLAttributes, ReactElement } from "react";
 import { twMerge } from "tailwind-merge";
 
-/** @param props */
+/**
+ * A level two heading
+ *
+ * @param props The heading props.
+ * @returns The heading.
+ */
 export default function Heading2(
 	props: HTMLAttributes<HTMLHeadingElement>,
 ): ReactElement {
@@ -10,7 +15,7 @@ export default function Heading2(
 		<h2
 			{...rest}
 			className={twMerge(
-				"text-center text-3xl font-bold uppercase",
+				"text-center text-3xl font-bold break-all uppercase",
 				extendedClassName,
 			)}
 		/>

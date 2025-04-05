@@ -56,7 +56,7 @@ export default function LightboxPhoto(props: LightboxPhotoProps): ReactElement {
 				className="relative m-auto size-full"
 			>
 				<div
-					className="group relative mx-auto flex size-4/5 max-h-fit max-w-fit items-center justify-center"
+					className="group relative mx-auto flex size-4/5 max-h-fit max-w-fit flex-col items-center justify-center"
 					onClick={(e) => e.stopPropagation()}
 				>
 					<img
@@ -65,7 +65,7 @@ export default function LightboxPhoto(props: LightboxPhotoProps): ReactElement {
 						alt=""
 						title={title}
 					/>
-					<div className="absolute inset-x-0 bottom-0 bg-black/90 p-4 transition-all lg:opacity-0 lg:group-hover:opacity-100">
+					<div className="inset-x-0 bottom-0 w-full bg-black/90 p-4 transition-all lg:absolute lg:opacity-0 lg:group-hover:opacity-100">
 						<h2 className="mb-2 text-2xl font-medium">{title}</h2>
 						<div className="mb-2">{formattedDate}</div>
 					</div>

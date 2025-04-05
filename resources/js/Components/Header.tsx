@@ -17,7 +17,7 @@ import Section from "./Section";
 export function Header(props: PageProps): ReactElement {
 	const { pattern, logo, classes, date } = useTheme(props);
 	return (
-		<div className="[--header-height:calc(var(--inner-header-height)+(var(--logo-height)/2))] [--inner-header-height:142px] [--logo-height:min(400px,calc(100vw*1.63))] md:[--logo-height:min(700px,calc(33vw*1.63))]">
+		<div className="[--header-height:calc(var(--inner-header-height)+(var(--logo-height)/2))] [--inner-header-height:142px] [--logo-height:min(400px,calc(60vw*1.63))] md:[--logo-height:min(600px,calc(33vw*1.63))]">
 			<header
 				className={`text-neutral relative h-(--header-height) [background-image:var(--pattern)] ${classes} bg-primary`}
 				style={{ "--pattern": `url(${pattern})` } as CSSProperties}

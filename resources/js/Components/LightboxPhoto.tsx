@@ -10,8 +10,6 @@ import { twMerge } from "tailwind-merge";
 
 import type { PhotoProps } from "@/types/photos";
 
-import Paragraph from "./Paragraph";
-
 type LightboxPhotoProps = Pick<
 	PhotoProps,
 	"title" | "src" | "description" | "date"
@@ -27,19 +25,15 @@ const dateFormatter = new Intl.DateTimeFormat("en-ca", {
 	month: "long",
 	day: "numeric",
 });
-/** @param props */
+/**
+ * A full sized lightbox view of a gallery image.
+ *
+ * @param props The image data and control callbacks.
+ * @returns The component.
+ */
 export default function LightboxPhoto(props: LightboxPhotoProps): ReactElement {
-	const {
-		isEnd,
-		isStart,
-		onClose,
-		onNext,
-		onPrevious,
-		src,
-		title,
-		description,
-		date,
-	} = props;
+	const { isEnd, isStart, onClose, onNext, onPrevious, src, title, date } =
+		props;
 	const formattedDate = dateFormatter.format(new Date(date * 1000));
 	return (
 		<div className="fixed inset-0 bg-white/10 drop-shadow-xl backdrop-blur-lg">
@@ -74,16 +68,6 @@ export default function LightboxPhoto(props: LightboxPhotoProps): ReactElement {
 					<div className="absolute inset-x-0 bottom-0 bg-black/90 p-4 transition-all lg:opacity-0 lg:group-hover:opacity-100">
 						<h2 className="mb-2 text-2xl font-medium">{title}</h2>
 						<div className="mb-2">{formattedDate}</div>
-						<Paragraph>
-							{description ||
-								`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-							eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-							enim ad minim veniam, quis nostrud exercitation ullamco laboris
-							nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-							reprehenderit in voluptate velit esse cillum dolore eu fugiat
-							nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-							sunt in culpa qui officia deserunt mollit anim id est laborum.`}
-						</Paragraph>
 					</div>
 				</div>
 			</button>
@@ -101,11 +85,16 @@ type SliderButtonProps = Omit<
 	ButtonHTMLAttributes<HTMLButtonElement>,
 	"children"
 > & { icon: FontAwesomeIconProps["icon"]; title: string };
-/** @param props */
+/**
+ * A button within the slider UI.
+ *
+ * @param props The icon and button props.
+ * @returns The component.
+ */
 function SliderButton(props: SliderButtonProps): ReactElement {
 	const { className: extendedClassName, icon, ...rest } = props;
 	const className = twMerge(
-		"border-primary-100/40 hover:not-disabled:bg-primary hover:not-disabled:text-neutral hover:not-disabled:border-primary fixed z-10 rounded-full border p-2 leading-0 transition-all [--button-size:2rem;] [--ui-padding:2rem;] [--vertical-centre:calc(50%-(var(--button-size)/2))] not-disabled:cursor-pointer disabled:opacity-25",
+		"border-primary-100/40 hover:not-disabled:bg-primary hover:not-disabled:text-neutral hover:not-disabled:border-primary fixed z-10 rounded-full border p-2 leading-0 transition-all [--button-size:1rem] [--ui-padding:1rem] [--vertical-centre:calc(50%-(var(--button-size)/2))] not-disabled:cursor-pointer disabled:opacity-25 md:[--button-size:2rem] md:[--ui-padding:2rem]",
 		extendedClassName,
 	);
 	return (

@@ -1,8 +1,10 @@
 import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link, usePage } from "@inertiajs/react";
+import { usePage } from "@inertiajs/react";
 import { useState, type ReactElement } from "react";
 import { twMerge } from "tailwind-merge";
+
+import { getLinkElement } from "@/linkHelpers";
 
 import type { NavLinkProps } from "../types/navigation";
 
@@ -48,9 +50,10 @@ export default function Nav(props: Props): ReactElement {
  */
 function NavLink(props: NavLinkProps): ReactElement {
 	const { url } = usePage();
+	const Element = getLinkElement(props.href.startsWith("https://"));
 	return (
 		<li>
-			<Link
+			<Element
 				className={twMerge(
 					"text-neutral text-xl font-bold uppercase decoration-1 underline-offset-10",
 					url === props.href && "underline",
@@ -58,7 +61,7 @@ function NavLink(props: NavLinkProps): ReactElement {
 				href={props.href}
 			>
 				{props.text}
-			</Link>
+			</Element>
 		</li>
 	);
 }

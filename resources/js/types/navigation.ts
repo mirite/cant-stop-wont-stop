@@ -1,7 +1,10 @@
 export const pages: NavLinkProps[] = [
 	{ href: "/", text: "Info" },
 	{ href: "/photos", text: "Photos" },
-	{ href: "/", text: "RSVP" },
+	{
+		href: "https://www.aisleplanner.com/app/v2/our-wedding/afewmorekisses/rsvp",
+		text: "RSVP",
+	},
 	{ href: "/about", text: "Our Story" },
 ];
 

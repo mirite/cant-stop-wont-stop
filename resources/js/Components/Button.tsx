@@ -1,9 +1,8 @@
-import { Link } from "@inertiajs/react";
-import type { AnchorHTMLAttributes, ComponentProps, ReactElement } from "react";
+import type { ReactElement } from "react";
 import { twMerge } from "tailwind-merge";
 
-type ButtonProps = Omit<ComponentProps<typeof Link>, "as" | "method" | "ref"> &
-	AnchorHTMLAttributes<HTMLAnchorElement> & { useNative?: boolean };
+import type { ButtonProps } from "@/linkHelpers";
+import { getLinkElement } from "@/linkHelpers";
 
 /**
  * An anchor styled as a button.
@@ -13,7 +12,7 @@ type ButtonProps = Omit<ComponentProps<typeof Link>, "as" | "method" | "ref"> &
  */
 export default function Button(props: ButtonProps): ReactElement {
 	const { className: extendedClassName, useNative = false, ...rest } = props;
-	const Element = useNative ? "a" : Link;
+	const Element = getLinkElement(useNative);
 	return (
 		<Element
 			className={twMerge(

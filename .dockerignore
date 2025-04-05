@@ -1,0 +1,15 @@
+.git
+node_modules
+vendor
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+error_log
+.env
+.env.example
+.idea/*
+.prettierrc

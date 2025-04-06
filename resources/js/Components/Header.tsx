@@ -30,14 +30,12 @@ export function Header(props: PageProps): ReactElement {
 					<Nav pages={pages} />
 				</div>
 			</header>
-			<div className="container mx-auto mb-8 grid min-h-[calc(var(--logo-height)/2)] grid-rows-3 md:grid-cols-3 md:grid-rows-1 md:gap-4">
+			<div className="mx-auto mb-8 grid min-h-[calc(var(--logo-height)/2)] max-w-6xl grid-rows-3 md:grid-cols-3 md:grid-rows-1 md:gap-4">
 				<Section heading="When" className="order-2 pt-6 md:order-none md:pt-10">
 					<span className="text-3xl font-semibold uppercase">Oct 5, 2025</span>
 					<Divider />
 					<span className="text-3xl uppercase">3:30 PM</span>
-					<span className="text-secondary font-semibold uppercase">
-						Reception to Follow
-					</span>
+					<span className="font-semibold uppercase">Reception to Follow</span>
 				</Section>
 				<div className="relative order-first flex md:order-none">
 					<div className="absolute inset-x-0 -top-[calc(var(--logo-height)/2)] bottom-0 mx-auto h-(--logo-height)">
@@ -48,12 +46,8 @@ export function Header(props: PageProps): ReactElement {
 					<span className="text-3xl uppercase">The Barn</span>
 					<span className="text-3xl uppercase">Event Space</span>
 					<Divider />
-					<span className="text-secondary font-semibold uppercase">
-						122 Ashworth Rd.
-					</span>
-					<span className="text-secondary font-semibold uppercase">
-						Mount Albert
-					</span>
+					<span className="font-semibold uppercase">122 Ashworth Rd.</span>
+					<span className="font-semibold uppercase">Mount Albert</span>
 				</Section>
 			</div>
 		</div>

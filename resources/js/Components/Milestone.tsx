@@ -9,8 +9,10 @@ type Props = {
 };
 
 /**
+ * One of our milestones.
  *
- * @param props
+ * @param props The milestone data.
+ * @returns The component.
  */
 export default function Milestone(props: Props): ReactElement {
 	return (
@@ -25,6 +27,7 @@ export default function Milestone(props: Props): ReactElement {
 			<div className="tracking-us mb-4 p-2 text-center font-medium uppercase">
 				{props.milestone.subtitle}
 			</div>
+			<div className="bg-taracota mx-auto my-4 h-px w-2/3 last:hidden lg:row-span-4 lg:size-full" />
 		</>
 	);
 }

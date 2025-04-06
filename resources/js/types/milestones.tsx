@@ -9,7 +9,7 @@ export const milestones: Milestone[] = [
 		title: "Mini Putt",
 		subtitle: "1st Date",
 		content: (
-			<img src={MiniPutt} alt="" height={200} className="size-[200px]" />
+			<img src={MiniPutt} alt="" height={100} className="size-[100px]" />
 		),
 	},
 	{
@@ -28,7 +28,7 @@ export const milestones: Milestone[] = [
 		title: "Algonquin",
 		subtitle: "1st Backpacking Trip",
 		content: (
-			<img src={Backpack} alt="" height={200} className="size-[200px]" />
+			<img src={Backpack} alt="" height={100} className="size-[100px]" />
 		),
 	},
 ];

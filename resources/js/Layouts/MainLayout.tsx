@@ -1,4 +1,4 @@
-import type { PropsWithChildren, ReactElement, CSSProperties } from "react";
+import type { CSSProperties, PropsWithChildren, ReactElement } from "react";
 
 import Footer from "@/Components/Footer";
 import { Header } from "@/Components/Header";
@@ -6,6 +6,7 @@ import Main from "@/Components/Main";
 import PageWrapper from "@/Components/PageWrapper";
 import type { PageProps } from "@/types";
 import { useTheme } from "@/useTheme";
+
 /**
  * The layout used by the main front-facing pages.
  *

@@ -8,6 +8,7 @@ import { useTheme } from "@/useTheme";
 
 import Divider from "./Divider";
 import Section from "./Section";
+
 /**
  * The site header
  *
@@ -19,7 +20,7 @@ export function Header(props: PageProps): ReactElement {
 	return (
 		<div className="[--header-height:calc(var(--inner-header-height)+(var(--logo-height)/2))] [--inner-header-height:142px] [--logo-height:min(400px,calc(60vw*1.63))] md:[--logo-height:min(600px,calc(33vw*1.63))]">
 			<header
-				className={`text-neutral relative h-(--header-height) [background-image:var(--pattern)] ${classes} bg-primary`}
+				className={`relative h-(--header-height) [background-image:var(--pattern)] text-neutral ${classes} bg-primary`}
 				style={{ "--pattern": `url(${pattern})` } as CSSProperties}
 			>
 				<div className="container mx-auto flex h-(--inner-header-height) items-center justify-between gap-4 p-4">

@@ -25,7 +25,7 @@ export default function Accommodation(props: Props): ReactElement {
 			</span>
 			<span className="text-secondary uppercase">{postalCode}</span>
 			<br />
-			<span className="text-secondary text-2xl font-bold uppercase">
+			<span className="text-2xl font-bold text-secondary uppercase">
 				{distance} Min Drive
 			</span>
 			<br />

@@ -9,7 +9,7 @@ export default function PageWrapper(
 	return (
 		<div
 			className={twMerge(
-				"text-primary flex min-h-dvh w-full flex-col *:w-full",
+				"flex min-h-dvh w-full flex-col text-primary *:w-full",
 				className,
 			)}
 			{...rest}

@@ -1,5 +1,6 @@
-import type { ReactElement, HTMLAttributes } from "react";
+import type { HTMLAttributes, ReactElement } from "react";
 import { twMerge } from "tailwind-merge";
+
 /**
  * A paragraph for readable text.
  *

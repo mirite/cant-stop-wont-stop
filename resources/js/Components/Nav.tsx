@@ -22,7 +22,7 @@ export default function Nav(props: Props): ReactElement {
 		<div className="relative">
 			<nav
 				className={twMerge(
-					"bg-primary fixed inset-0 z-10 flex list-none flex-col items-center justify-center gap-4 md:static md:flex md:flex-row md:bg-transparent",
+					"fixed inset-0 z-10 flex list-none flex-col items-center justify-center gap-4 bg-primary md:static md:flex md:flex-row md:bg-transparent",
 					isClosed && "hidden",
 				)}
 			>
@@ -55,7 +55,7 @@ function NavLink(props: NavLinkProps): ReactElement {
 		<li>
 			<Element
 				className={twMerge(
-					"text-neutral text-xl font-bold uppercase decoration-1 underline-offset-10",
+					"text-xl font-bold text-neutral uppercase decoration-1 underline-offset-10",
 					url === props.href && "underline",
 				)}
 				href={props.href}

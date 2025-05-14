@@ -20,7 +20,7 @@
 		"@headlessui/react": "^2.2.3",
 		"@ianvs/prettier-plugin-sort-imports": "^4.4.1",
 		"@inertiajs/react": "^2.0.9",
-		"@mirite/eslint-config-mirite": "^1.0.1",
+		"@mirite/eslint-config-mirite": "^1.1.0",
 		"@tailwindcss/forms": "^0.5.10",
 		"@tailwindcss/postcss": "4.1.6",
 		"@types/node": "^22.15.18",

@@ -7,13 +7,15 @@ import { createRoot, hydrateRoot } from "react-dom/client";
 const appName = import.meta.env.VITE_APP_NAME || "Laravel";
 
 createInertiaApp({
-	title: (title) => `${title} - ${appName}`,
+	progress: {
+		color: "#4B5563",
+	},
 	resolve: (name) =>
 		resolvePageComponent(
 			`./Pages/${name}.tsx`,
 			import.meta.glob("./Pages/**/*.tsx"),
 		),
-	setup({ el, App, props }) {
+	setup({ App, el, props }) {
 		if (import.meta.env.SSR) {
 			hydrateRoot(el, <App {...props} />);
 			return;
@@ -21,7 +23,5 @@ createInertiaApp({
 
 		createRoot(el).render(<App {...props} />);
 	},
-	progress: {
-		color: "#4B5563",
-	},
+	title: (title) => `${title} - ${appName}`,
 });

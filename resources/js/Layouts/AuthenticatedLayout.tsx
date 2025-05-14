@@ -1,5 +1,6 @@
-import { usePage } from "@inertiajs/react";
 import type { PropsWithChildren, ReactElement } from "react";
+
+import { usePage } from "@inertiajs/react";
 
 import Footer from "@/Components/Footer";
 import Main from "@/Components/Main";

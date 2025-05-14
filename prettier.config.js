@@ -1,8 +1,3 @@
-export default {
-	plugins: [
-		"prettier-plugin-packagejson",
-		"@ianvs/prettier-plugin-sort-imports",
-		"prettier-plugin-tailwindcss",
-	],
-	tailwindStylesheet: "./resources/css/app.css",
-};
+import { prettierWithTW } from "@mirite/eslint-config-mirite";
+
+export default prettierWithTW("./resources/css/app.css");

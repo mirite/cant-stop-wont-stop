@@ -1,4 +1,4 @@
-import { useState, type ReactElement } from "react";
+import { type ReactElement, useState } from "react";
 
 import type { PhotoProps } from "@/types/photos";
 
@@ -18,7 +18,7 @@ type Props = {
 export default function PhotoGrid(props: Props): ReactElement {
 	const { photos } = props;
 	const { length } = photos;
-	const [state, setState] = useState({ isOpen: false, index: 0 });
+	const [state, setState] = useState({ index: 0, isOpen: false });
 
 	document
 		.querySelector("body")
@@ -27,6 +27,9 @@ export default function PhotoGrid(props: Props): ReactElement {
 		<div className="mx-auto grid place-content-center gap-4 sm:grid-cols-[repeat(auto-fit,500px)]">
 			{state.isOpen === true && (
 				<LightboxPhoto
+					isEnd={state.index === length - 1}
+					isStart={state.index === 0}
+					onClose={() => setState({ ...state, isOpen: false })}
 					onNext={() =>
 						setState({
 							...state,
@@ -36,16 +39,13 @@ export default function PhotoGrid(props: Props): ReactElement {
 					onPrevious={() =>
 						setState({ ...state, index: Math.max(0, state.index - 1) })
 					}
-					isStart={state.index === 0}
-					isEnd={state.index === length - 1}
-					onClose={() => setState({ ...state, isOpen: false })}
 					{...photos[state.index]}
 				/>
 			)}
 			{photos.map((image, index) => (
 				<Photo
 					key={image.src}
-					onOpen={() => setState({ ...state, isOpen: true, index })}
+					onOpen={() => setState({ ...state, index, isOpen: true })}
 					{...image}
 				/>
 			))}

@@ -1,5 +1,6 @@
-import { Head, useForm } from "@inertiajs/react";
 import type { FormEventHandler } from "react";
+
+import { Head, useForm } from "@inertiajs/react";
 
 import InputError from "@/Components/InputError";
 import InputLabel from "@/Components/InputLabel";
@@ -13,17 +14,17 @@ import GuestLayout from "@/Layouts/GuestLayout";
  * @param root0.email
  */
 export default function ResetPassword({
-	token,
 	email,
+	token,
 }: {
-	token: string;
 	email: string;
+	token: string;
 }) {
-	const { data, setData, post, processing, errors, reset } = useForm({
-		token: token,
+	const { data, errors, post, processing, reset, setData } = useForm({
 		email: email,
 		password: "",
 		password_confirmation: "",
+		token: token,
 	});
 
 	const submit: FormEventHandler = (e) => {
@@ -43,33 +44,33 @@ export default function ResetPassword({
 					<InputLabel htmlFor="email" value="Email" />
 
 					<TextInput
-						id="email"
-						type="email"
-						name="email"
-						value={data.email}
-						className="mt-1 block w-full"
 						autoComplete="username"
+						className="mt-1 block w-full"
+						id="email"
+						name="email"
 						onChange={(e) => setData("email", e.target.value)}
+						type="email"
+						value={data.email}
 					/>
 
-					<InputError message={errors.email} className="mt-2" />
+					<InputError className="mt-2" message={errors.email} />
 				</div>
 
 				<div className="mt-4">
 					<InputLabel htmlFor="password" value="Password" />
 
 					<TextInput
-						id="password"
-						type="password"
-						name="password"
-						value={data.password}
-						className="mt-1 block w-full"
 						autoComplete="new-password"
+						className="mt-1 block w-full"
+						id="password"
 						isFocused={true}
+						name="password"
 						onChange={(e) => setData("password", e.target.value)}
+						type="password"
+						value={data.password}
 					/>
 
-					<InputError message={errors.password} className="mt-2" />
+					<InputError className="mt-2" message={errors.password} />
 				</div>
 
 				<div className="mt-4">
@@ -79,15 +80,15 @@ export default function ResetPassword({
 					/>
 
 					<TextInput
-						type="password"
-						name="password_confirmation"
-						value={data.password_confirmation}
-						className="mt-1 block w-full"
 						autoComplete="new-password"
+						className="mt-1 block w-full"
+						name="password_confirmation"
 						onChange={(e) => setData("password_confirmation", e.target.value)}
+						type="password"
+						value={data.password_confirmation}
 					/>
 
-					<InputError message={errors.password_confirmation} className="mt-2" />
+					<InputError className="mt-2" message={errors.password_confirmation} />
 				</div>
 
 				<div className="mt-4 flex items-center justify-end">

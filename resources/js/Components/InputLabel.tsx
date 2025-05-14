@@ -7,9 +7,9 @@ import type { LabelHTMLAttributes } from "react";
  * @param root0.children
  */
 export default function InputLabel({
-	value,
-	className = "",
 	children,
+	className = "",
+	value,
 	...props
 }: LabelHTMLAttributes<HTMLLabelElement> & { value?: string }) {
 	return (

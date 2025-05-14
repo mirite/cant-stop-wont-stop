@@ -1,11 +1,9 @@
-import { Head } from "@inertiajs/react";
 import type { ReactElement } from "react";
+
+import { Head } from "@inertiajs/react";
 
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
-/**
- *
- */
 export default function Dashboard(): ReactElement {
 	return (
 		<AuthenticatedLayout>

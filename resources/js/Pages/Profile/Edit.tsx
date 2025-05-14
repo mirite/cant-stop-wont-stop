@@ -1,7 +1,8 @@
 import { Head } from "@inertiajs/react";
 
-import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import type { PageProps } from "@/types";
+
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
 import DeleteUserForm from "./Partials/DeleteUserForm";
 import UpdatePasswordForm from "./Partials/UpdatePasswordForm";
@@ -24,9 +25,9 @@ export default function Edit({
 				<div className="mx-auto max-w-7xl space-y-6 sm:px-6 lg:px-8">
 					<div className="bg-white p-4 shadow-sm sm:rounded-lg sm:p-8 dark:bg-gray-800">
 						<UpdateProfileInformationForm
+							className="max-w-xl"
 							mustVerifyEmail={mustVerifyEmail}
 							status={status}
-							className="max-w-xl"
 						/>
 					</div>
 

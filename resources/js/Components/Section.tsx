@@ -1,4 +1,5 @@
 import type { HTMLAttributes, ReactElement } from "react";
+
 import { twMerge } from "tailwind-merge";
 
 import Heading2 from "./headings/Heading2";
@@ -12,7 +13,7 @@ import Heading2 from "./headings/Heading2";
 export default function Section(
 	props: HTMLAttributes<HTMLDivElement> & { heading: string },
 ): ReactElement {
-	const { className: extendedClassName, heading, children, ...rest } = props;
+	const { children, className: extendedClassName, heading, ...rest } = props;
 	return (
 		<div
 			className={twMerge(

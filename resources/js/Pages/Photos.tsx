@@ -1,10 +1,12 @@
-import { Head } from "@inertiajs/react";
 import type { ReactElement } from "react";
+
+import { Head } from "@inertiajs/react";
+
+import type { PageProps } from "@/types";
+import type { PhotoProps } from "@/types/photos";
 
 import PhotoGrid from "@/Components/PhotoGrid";
 import Layout from "@/Layouts/MainLayout";
-import type { PageProps } from "@/types";
-import type { PhotoProps } from "@/types/photos";
 
 /**
  * The photo page component.

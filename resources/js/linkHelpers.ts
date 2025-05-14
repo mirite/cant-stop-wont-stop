@@ -1,11 +1,11 @@
-import { Link } from "@inertiajs/react";
 import type { AnchorHTMLAttributes, ComponentProps } from "react";
 
-export type ButtonProps = Omit<
-	ComponentProps<typeof Link>,
-	"as" | "method" | "ref"
-> &
-	AnchorHTMLAttributes<HTMLAnchorElement> & { useNative?: boolean };
+import { Link } from "@inertiajs/react";
+
+export type ButtonProps = AnchorHTMLAttributes<HTMLAnchorElement> &
+	Omit<ComponentProps<typeof Link>, "as" | "method" | "ref"> & {
+		useNative?: boolean;
+	};
 /**
  * Gets the tag to use for a link.
  *

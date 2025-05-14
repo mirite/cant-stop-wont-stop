@@ -1,10 +1,12 @@
-import { Head } from "@inertiajs/react";
 import type { ReactElement } from "react";
+
+import { Head } from "@inertiajs/react";
+
+import type { PageProps } from "@/types";
 
 import Heading1 from "@/Components/headings/Heading1";
 import Milestones from "@/Components/Milestones";
 import Paragraph from "@/Components/Paragraph";
-import type { PageProps } from "@/types";
 import { milestones } from "@/types/milestones";
 
 import Layout from "../Layouts/MainLayout";

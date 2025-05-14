@@ -1,5 +1,6 @@
-import { Head, Link, useForm } from "@inertiajs/react";
 import type { FormEventHandler } from "react";
+
+import { Head, Link, useForm } from "@inertiajs/react";
 
 import GuestLayout from "@/Layouts/GuestLayout";
 
@@ -9,13 +10,13 @@ import GuestLayout from "@/Layouts/GuestLayout";
  * @param root0.canResetPassword
  */
 export default function Login({
-	status,
 	canResetPassword,
+	status,
 }: {
-	status?: string;
 	canResetPassword: boolean;
+	status?: string;
 }) {
-	const { data, setData, post, processing, errors, reset } = useForm({
+	const { data, errors, post, processing, reset, setData } = useForm({
 		email: "",
 		password: "",
 		remember: false as boolean,
@@ -42,13 +43,13 @@ export default function Login({
 					<label htmlFor="email">Email</label>
 
 					<input
-						id="email"
-						type="email"
-						name="email"
-						value={data.email}
-						className="mt-1 block w-full"
 						autoComplete="username"
+						className="mt-1 block w-full"
+						id="email"
+						name="email"
 						onChange={(e) => setData("email", e.target.value)}
+						type="email"
+						value={data.email}
 					/>
 
 					<span>{errors.email}</span>
@@ -58,13 +59,13 @@ export default function Login({
 					<label htmlFor="password">Password</label>
 
 					<input
-						id="password"
-						type="password"
-						name="password"
-						value={data.password}
-						className="mt-1 block w-full"
 						autoComplete="current-password"
+						className="mt-1 block w-full"
+						id="password"
+						name="password"
 						onChange={(e) => setData("password", e.target.value)}
+						type="password"
+						value={data.password}
 					/>
 
 					<span>{errors.password}</span>
@@ -73,12 +74,12 @@ export default function Login({
 				<div className="mt-4 block">
 					<label className="flex items-center">
 						<input
-							type="checkbox"
-							name="remember"
 							checked={data.remember}
+							name="remember"
 							onChange={(e) =>
 								setData("remember", (e.target.checked || false) as false)
 							}
+							type="checkbox"
 						/>
 						<span className="ms-2 text-sm text-gray-600 dark:text-gray-400">
 							Remember me
@@ -89,14 +90,14 @@ export default function Login({
 				<div className="mt-4 flex items-center justify-end">
 					{canResetPassword ? (
 						<Link
-							href={route("password.request")}
 							className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-hidden dark:text-gray-400 dark:hover:text-gray-100 dark:focus:ring-offset-gray-800"
+							href={route("password.request")}
 						>
 							Forgot your password?
 						</Link>
 					) : null}
 
-					<button type="submit" className="ms-4" disabled={processing}>
+					<button className="ms-4" disabled={processing} type="submit">
 						Log in
 					</button>
 				</div>

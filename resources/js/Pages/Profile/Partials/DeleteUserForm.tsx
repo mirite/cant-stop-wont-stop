@@ -1,5 +1,6 @@
-import { useForm } from "@inertiajs/react";
 import type { FormEventHandler } from "react";
+
+import { useForm } from "@inertiajs/react";
 import { useRef, useState } from "react";
 
 import DangerButton from "@/Components/DangerButton";
@@ -22,13 +23,13 @@ export default function DeleteUserForm({
 	const passwordInput = useRef<HTMLInputElement>(null);
 
 	const {
+		clearErrors,
 		data,
-		setData,
 		delete: destroy,
+		errors,
 		processing,
 		reset,
-		errors,
-		clearErrors,
+		setData,
 	} = useForm({
 		password: "",
 	});
@@ -41,10 +42,10 @@ export default function DeleteUserForm({
 		e.preventDefault();
 
 		destroy(route("profile.destroy"), {
-			preserveScroll: true,
-			onSuccess: () => closeModal(),
 			onError: () => passwordInput.current?.focus(),
 			onFinish: () => reset(),
+			onSuccess: () => closeModal(),
+			preserveScroll: true,
 		});
 	};
 
@@ -71,8 +72,8 @@ export default function DeleteUserForm({
 
 			<DangerButton onClick={confirmUserDeletion}>Delete Account</DangerButton>
 
-			<Modal show={confirmingUserDeletion} onClose={closeModal}>
-				<form onSubmit={deleteUser} className="p-6">
+			<Modal onClose={closeModal} show={confirmingUserDeletion}>
+				<form className="p-6" onSubmit={deleteUser}>
 					<h2 className="text-lg font-medium text-gray-900 dark:text-gray-100">
 						Are you sure you want to delete your account?
 					</h2>
@@ -85,24 +86,24 @@ export default function DeleteUserForm({
 
 					<div className="mt-6">
 						<InputLabel
+							className="sr-only"
 							htmlFor="password"
 							value="Password"
-							className="sr-only"
 						/>
 
 						<TextInput
-							id="password"
-							type="password"
-							name="password"
-							ref={passwordInput}
-							value={data.password}
-							onChange={(e) => setData("password", e.target.value)}
 							className="mt-1 block w-3/4"
+							id="password"
 							isFocused
+							name="password"
+							onChange={(e) => setData("password", e.target.value)}
 							placeholder="Password"
+							ref={passwordInput}
+							type="password"
+							value={data.password}
 						/>
 
-						<InputError message={errors.password} className="mt-2" />
+						<InputError className="mt-2" message={errors.password} />
 					</div>
 
 					<div className="mt-6 flex justify-end">

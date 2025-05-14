@@ -1,7 +1,7 @@
 import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { usePage } from "@inertiajs/react";
-import { useState, type ReactElement } from "react";
+import { type ReactElement, useState } from "react";
 import { twMerge } from "tailwind-merge";
 
 import { getLinkElement } from "@/linkHelpers";
@@ -32,9 +32,9 @@ export default function Nav(props: Props): ReactElement {
 			</nav>
 			<button
 				className="relative z-20 mr-2 cursor-pointer text-2xl font-bold md:hidden"
-				type="button"
 				onClick={() => setIsClosed(!isClosed)}
 				title={isClosed ? "Open Menu" : "Close Menu"}
+				type="button"
 			>
 				<FontAwesomeIcon icon={isClosed ? faBars : faX} />
 			</button>

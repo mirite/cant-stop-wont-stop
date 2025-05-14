@@ -2,8 +2,7 @@ import { createInertiaApp } from "@inertiajs/react";
 import createServer from "@inertiajs/react/server";
 import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
 import ReactDOMServer from "react-dom/server";
-
-import { type RouteName, route } from "ziggy-js";
+import { route, type RouteName } from "ziggy-js";
 
 const appName = import.meta.env.VITE_APP_NAME || "Can't Stop Won't Stop";
 
@@ -11,7 +10,6 @@ createServer((page) =>
 	createInertiaApp({
 		page,
 		render: ReactDOMServer.renderToString,
-		title: (title) => `${title} - ${appName}`,
 		resolve: (name) =>
 			resolvePageComponent(
 				`./Pages/${name}.tsx`,
@@ -29,5 +27,6 @@ createServer((page) =>
 
 			return <App {...props} />;
 		},
+		title: (title) => `${title} - ${appName}`,
 	}),
 );

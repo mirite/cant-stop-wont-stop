@@ -12,7 +12,7 @@ type Props = PhotoProps & { onOpen: () => void };
  * @returns The component.
  */
 export default function Photo(props: Props): ReactElement {
-	const { className: extendedClassName, src, onOpen, ...rest } = props;
+	const { className: extendedClassName, onOpen, src, ...rest } = props;
 	const className = twMerge(
 		"size-[512px] max-w-full object-cover",
 		extendedClassName,
@@ -20,13 +20,13 @@ export default function Photo(props: Props): ReactElement {
 
 	return (
 		<div className="leading-0">
-			<button type="button" className="cursor-pointer" onClick={onOpen}>
+			<button className="cursor-pointer" onClick={onOpen} type="button">
 				<img
-					src={`/images/${src}`}
 					alt=""
-					width={500}
-					height={500}
 					className={className}
+					height={500}
+					src={`/images/${src}`}
+					width={500}
 					{...rest}
 				/>
 			</button>

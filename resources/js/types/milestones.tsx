@@ -3,18 +3,16 @@ import type { ReactNode } from "react";
 import Backpack from "@/backpacking.svg";
 import MiniPutt from "@/miniputt.svg";
 
-export type Milestone = { title: string; subtitle: string; content: ReactNode };
+export type Milestone = { content: ReactNode; subtitle: string; title: string };
 export const milestones: Milestone[] = [
 	{
-		title: "Mini Putt",
-		subtitle: "1st Date",
 		content: (
-			<img src={MiniPutt} alt="" height={100} className="size-[100px]" />
+			<img alt="" className="size-[100px]" height={100} src={MiniPutt} />
 		),
+		subtitle: "1st Date",
+		title: "Mini Putt",
 	},
 	{
-		title: "Days\nTogether",
-		subtitle: "A Lifetime to go",
 		content: (
 			<span className="fold-black text-8xl">
 				{Math.floor(
@@ -23,12 +21,14 @@ export const milestones: Milestone[] = [
 				)}
 			</span>
 		),
+		subtitle: "A Lifetime to go",
+		title: "Days\nTogether",
 	},
 	{
-		title: "Algonquin",
-		subtitle: "1st Backpacking Trip",
 		content: (
-			<img src={Backpack} alt="" height={100} className="size-[100px]" />
+			<img alt="" className="size-[100px]" height={100} src={Backpack} />
 		),
+		subtitle: "1st Backpacking Trip",
+		title: "Algonquin",
 	},
 ];

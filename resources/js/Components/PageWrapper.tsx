@@ -1,11 +1,12 @@
 import type { HTMLAttributes, ReactElement } from "react";
+
 import { twMerge } from "tailwind-merge";
 
 /** @param props */
 export default function PageWrapper(
 	props: HTMLAttributes<HTMLDivElement>,
 ): ReactElement {
-	const { className, children, ...rest } = props;
+	const { children, className, ...rest } = props;
 	return (
 		<div
 			className={twMerge(

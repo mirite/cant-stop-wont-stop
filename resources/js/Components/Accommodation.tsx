@@ -1,8 +1,9 @@
 import type { ReactElement } from "react";
 
+import type { AccommodationProps } from "@/types/accommodations";
+
 import Button from "@/Components/Button";
 import Heading3 from "@/Components/headings/Heading3";
-import type { AccommodationProps } from "@/types/accommodations";
 
 type Props = { accommodation: AccommodationProps };
 
@@ -14,7 +15,7 @@ type Props = { accommodation: AccommodationProps };
  */
 export default function Accommodation(props: Props): ReactElement {
 	const { accommodation } = props;
-	const { title, address, city, province, distance, postalCode, href } =
+	const { address, city, distance, href, postalCode, province, title } =
 		accommodation;
 	return (
 		<div className="flex w-full flex-col items-center py-8 @2xl:px-4 @2xl:py-0">
@@ -29,7 +30,7 @@ export default function Accommodation(props: Props): ReactElement {
 				{distance} Min Drive
 			</span>
 			<br />
-			<Button useNative={true} href={href} target="_blank">
+			<Button href={href} target="_blank" useNative={true}>
 				Book Now
 			</Button>
 		</div>

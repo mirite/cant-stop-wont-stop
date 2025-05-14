@@ -1,30 +1,35 @@
+import type { FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
+import type { ButtonHTMLAttributes, ReactElement } from "react";
+
 import {
 	faChevronLeft,
 	faChevronRight,
 	faX,
 } from "@fortawesome/free-solid-svg-icons";
-import type { FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import type { ButtonHTMLAttributes, ReactElement } from "react";
 import { twMerge } from "tailwind-merge";
 
 import type { PhotoProps } from "@/types/photos";
 
 type LightboxPhotoProps = Pick<
 	PhotoProps,
-	"title" | "src" | "description" | "date"
+	"date" | "description" | "src" | "title"
 > & {
-	onPrevious: () => void;
-	onNext: () => void;
-	onClose: () => void;
-	isStart: boolean;
 	isEnd: boolean;
+	isStart: boolean;
+	onClose: () => void;
+	onNext: () => void;
+	onPrevious: () => void;
 };
 const dateFormatter = new Intl.DateTimeFormat("en-ca", {
-	year: "numeric",
-	month: "long",
 	day: "numeric",
+	month: "long",
+	year: "numeric",
 });
+type SliderButtonProps = Omit<
+	ButtonHTMLAttributes<HTMLButtonElement>,
+	"children"
+> & { icon: FontAwesomeIconProps["icon"]; title: string };
 /**
  * A full sized lightbox view of a gallery image.
  *
@@ -32,37 +37,37 @@ const dateFormatter = new Intl.DateTimeFormat("en-ca", {
  * @returns The component.
  */
 export default function LightboxPhoto(props: LightboxPhotoProps): ReactElement {
-	const { isEnd, isStart, onClose, onNext, onPrevious, src, title, date } =
+	const { date, isEnd, isStart, onClose, onNext, onPrevious, src, title } =
 		props;
 	const formattedDate = dateFormatter.format(new Date(date * 1000));
 	return (
 		<div className="fixed inset-0 bg-white/10 drop-shadow-xl backdrop-blur-lg">
 			<SliderButton
-				onClick={onClose}
-				title="Close"
 				className="top-(--ui-padding) right-(--ui-padding)"
 				icon={faX}
+				onClick={onClose}
+				title="Close"
 			/>
 			<SliderButton
-				icon={faChevronLeft}
-				title="Previous"
-				onClick={onPrevious}
-				disabled={isStart}
 				className="top-(--vertical-centre) left-(--ui-padding)"
+				disabled={isStart}
+				icon={faChevronLeft}
+				onClick={onPrevious}
+				title="Previous"
 			/>
 			<button
-				type="button"
-				onClick={onClose}
 				className="relative m-auto size-full"
+				onClick={onClose}
+				type="button"
 			>
 				<div
 					className="group relative mx-auto flex size-4/5 max-h-fit max-w-fit flex-col items-center justify-center"
 					onClick={(e) => e.stopPropagation()}
 				>
 					<img
-						src={`/images/${src}`}
-						className="max-h-full max-w-full object-contain object-center"
 						alt=""
+						className="max-h-full max-w-full object-contain object-center"
+						src={`/images/${src}`}
 						title={title}
 					/>
 					<div className="inset-x-0 bottom-0 w-full bg-eucalyptus p-4 text-neutral transition-all lg:absolute lg:bg-eucalyptus/90 lg:opacity-0 lg:group-hover:opacity-100">
@@ -72,19 +77,15 @@ export default function LightboxPhoto(props: LightboxPhotoProps): ReactElement {
 				</div>
 			</button>
 			<SliderButton
-				icon={faChevronRight}
-				title="Next"
-				onClick={onNext}
-				disabled={isEnd}
 				className="top-(--vertical-centre) right-(--ui-padding)"
+				disabled={isEnd}
+				icon={faChevronRight}
+				onClick={onNext}
+				title="Next"
 			/>
 		</div>
 	);
 }
-type SliderButtonProps = Omit<
-	ButtonHTMLAttributes<HTMLButtonElement>,
-	"children"
-> & { icon: FontAwesomeIconProps["icon"]; title: string };
 /**
  * A button within the slider UI.
  *
@@ -94,12 +95,12 @@ type SliderButtonProps = Omit<
 function SliderButton(props: SliderButtonProps): ReactElement {
 	const { className: extendedClassName, icon, ...rest } = props;
 	const className = twMerge(
-		"border-primary-100/40 hover:not-disabled:bg-primary hover:not-disabled:text-neutral hover:not-disabled:border-primary fixed z-10 rounded-full border p-2 leading-0 transition-all [--button-size:1rem] [--ui-padding:1rem] [--vertical-centre:calc(50%-(var(--button-size)/2))] not-disabled:cursor-pointer disabled:opacity-25 md:[--button-size:2rem] md:[--ui-padding:2rem]",
+		"border-primary-100/40 fixed z-10 rounded-full border p-2 leading-0 transition-all [--button-size:1rem] [--ui-padding:1rem] [--vertical-centre:calc(50%-(var(--button-size)/2))] not-disabled:cursor-pointer hover:not-disabled:border-primary hover:not-disabled:bg-primary hover:not-disabled:text-neutral disabled:opacity-25 md:[--button-size:2rem] md:[--ui-padding:2rem]",
 		extendedClassName,
 	);
 	return (
 		<button className={className} type="button" {...rest}>
-			<FontAwesomeIcon icon={icon} className="size-(--button-size)!" />
+			<FontAwesomeIcon className="size-(--button-size)!" icon={icon} />
 		</button>
 	);
 }

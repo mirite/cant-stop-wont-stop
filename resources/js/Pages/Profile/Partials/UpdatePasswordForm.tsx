@@ -1,6 +1,7 @@
+import type { FormEventHandler } from "react";
+
 import { Transition } from "@headlessui/react";
 import { useForm } from "@inertiajs/react";
-import type { FormEventHandler } from "react";
 import { useRef } from "react";
 
 import InputError from "@/Components/InputError";
@@ -20,7 +21,7 @@ export default function UpdatePasswordForm({
 	const passwordInput = useRef<HTMLInputElement>(null);
 	const currentPasswordInput = useRef<HTMLInputElement>(null);
 
-	const { data, setData, errors, put, reset, processing, recentlySuccessful } =
+	const { data, errors, processing, put, recentlySuccessful, reset, setData } =
 		useForm({
 			current_password: "",
 			password: "",
@@ -31,8 +32,6 @@ export default function UpdatePasswordForm({
 		e.preventDefault();
 
 		put(route("password.update"), {
-			preserveScroll: true,
-			onSuccess: () => reset(),
 			onError: (err) => {
 				if (err.password) {
 					reset("password", "password_confirmation");
@@ -44,6 +43,8 @@ export default function UpdatePasswordForm({
 					currentPasswordInput.current?.focus();
 				}
 			},
+			onSuccess: () => reset(),
+			preserveScroll: true,
 		});
 	};
 
@@ -59,37 +60,37 @@ export default function UpdatePasswordForm({
 				</p>
 			</header>
 
-			<form onSubmit={updatePassword} className="mt-6 space-y-6">
+			<form className="mt-6 space-y-6" onSubmit={updatePassword}>
 				<div>
 					<InputLabel htmlFor="current_password" value="Current Password" />
 
 					<TextInput
-						id="current_password"
-						ref={currentPasswordInput}
-						value={data.current_password}
-						onChange={(e) => setData("current_password", e.target.value)}
-						type="password"
-						className="mt-1 block w-full"
 						autoComplete="current-password"
+						className="mt-1 block w-full"
+						id="current_password"
+						onChange={(e) => setData("current_password", e.target.value)}
+						ref={currentPasswordInput}
+						type="password"
+						value={data.current_password}
 					/>
 
-					<InputError message={errors.current_password} className="mt-2" />
+					<InputError className="mt-2" message={errors.current_password} />
 				</div>
 
 				<div>
 					<InputLabel htmlFor="password" value="New Password" />
 
 					<TextInput
-						id="password"
-						ref={passwordInput}
-						value={data.password}
-						onChange={(e) => setData("password", e.target.value)}
-						type="password"
-						className="mt-1 block w-full"
 						autoComplete="new-password"
+						className="mt-1 block w-full"
+						id="password"
+						onChange={(e) => setData("password", e.target.value)}
+						ref={passwordInput}
+						type="password"
+						value={data.password}
 					/>
 
-					<InputError message={errors.password} className="mt-2" />
+					<InputError className="mt-2" message={errors.password} />
 				</div>
 
 				<div>
@@ -99,26 +100,26 @@ export default function UpdatePasswordForm({
 					/>
 
 					<TextInput
+						autoComplete="new-password"
+						className="mt-1 block w-full"
 						id="password_confirmation"
-						value={data.password_confirmation}
 						onChange={(e) => setData("password_confirmation", e.target.value)}
 						type="password"
-						className="mt-1 block w-full"
-						autoComplete="new-password"
+						value={data.password_confirmation}
 					/>
 
-					<InputError message={errors.password_confirmation} className="mt-2" />
+					<InputError className="mt-2" message={errors.password_confirmation} />
 				</div>
 
 				<div className="flex items-center gap-4">
 					<PrimaryButton disabled={processing}>Save</PrimaryButton>
 
 					<Transition
-						show={recentlySuccessful}
 						enter="transition ease-in-out"
 						enterFrom="opacity-0"
 						leave="transition ease-in-out"
 						leaveTo="opacity-0"
+						show={recentlySuccessful}
 					>
 						<p className="text-sm text-gray-600 dark:text-gray-400">Saved.</p>
 					</Transition>

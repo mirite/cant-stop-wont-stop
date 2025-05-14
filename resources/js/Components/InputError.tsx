@@ -6,8 +6,8 @@ import type { HTMLAttributes } from "react";
  * @param root0.className
  */
 export default function InputError({
-	message,
 	className = "",
+	message,
 	...props
 }: HTMLAttributes<HTMLParagraphElement> & { message?: string }) {
 	return message ? (

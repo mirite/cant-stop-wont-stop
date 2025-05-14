@@ -1,10 +1,11 @@
 import type { CSSProperties, PropsWithChildren, ReactElement } from "react";
 
+import type { PageProps } from "@/types";
+
 import Footer from "@/Components/Footer";
 import { Header } from "@/Components/Header";
 import Main from "@/Components/Main";
 import PageWrapper from "@/Components/PageWrapper";
-import type { PageProps } from "@/types";
 import { useTheme } from "@/useTheme";
 
 /**

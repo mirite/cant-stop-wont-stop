@@ -1,6 +1,7 @@
+import type { FormEventHandler } from "react";
+
 import { Transition } from "@headlessui/react";
 import { Link, useForm, usePage } from "@inertiajs/react";
-import type { FormEventHandler } from "react";
 
 import InputError from "@/Components/InputError";
 import InputLabel from "@/Components/InputLabel";
@@ -14,20 +15,20 @@ import TextInput from "@/Components/TextInput";
  * @param root0.className
  */
 export default function UpdateProfileInformation({
+	className = "",
 	mustVerifyEmail,
 	status,
-	className = "",
 }: {
+	className?: string;
 	mustVerifyEmail: boolean;
 	status?: string;
-	className?: string;
 }) {
 	const user = usePage().props.auth.user;
 
-	const { data, setData, patch, errors, processing, recentlySuccessful } =
+	const { data, errors, patch, processing, recentlySuccessful, setData } =
 		useForm({
-			name: user.name,
 			email: user.email,
+			name: user.name,
 		});
 
 	const submit: FormEventHandler = (e) => {
@@ -48,18 +49,18 @@ export default function UpdateProfileInformation({
 				</p>
 			</header>
 
-			<form onSubmit={submit} className="mt-6 space-y-6">
+			<form className="mt-6 space-y-6" onSubmit={submit}>
 				<div>
 					<InputLabel htmlFor="name" value="Name" />
 
 					<TextInput
-						id="name"
+						autoComplete="name"
 						className="mt-1 block w-full"
-						value={data.name}
+						id="name"
+						isFocused
 						onChange={(e) => setData("name", e.target.value)}
 						required
-						isFocused
-						autoComplete="name"
+						value={data.name}
 					/>
 
 					<InputError className="mt-2" message={errors.name} />
@@ -69,13 +70,13 @@ export default function UpdateProfileInformation({
 					<InputLabel htmlFor="email" value="Email" />
 
 					<TextInput
-						id="email"
-						type="email"
+						autoComplete="username"
 						className="mt-1 block w-full"
-						value={data.email}
+						id="email"
 						onChange={(e) => setData("email", e.target.value)}
 						required
-						autoComplete="username"
+						type="email"
+						value={data.email}
 					/>
 
 					<InputError className="mt-2" message={errors.email} />
@@ -86,10 +87,10 @@ export default function UpdateProfileInformation({
 						<p className="mt-2 text-sm text-gray-800 dark:text-gray-200">
 							Your email address is unverified.
 							<Link
-								href={route("verification.send")}
-								method="post"
 								as="button"
 								className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-hidden dark:text-gray-400 dark:hover:text-gray-100 dark:focus:ring-offset-gray-800"
+								href={route("verification.send")}
+								method="post"
 							>
 								Click here to re-send the verification email.
 							</Link>
@@ -107,11 +108,11 @@ export default function UpdateProfileInformation({
 					<PrimaryButton disabled={processing}>Save</PrimaryButton>
 
 					<Transition
-						show={recentlySuccessful}
 						enter="transition ease-in-out"
 						enterFrom="opacity-0"
 						leave="transition ease-in-out"
 						leaveTo="opacity-0"
+						show={recentlySuccessful}
 					>
 						<p className="text-sm text-gray-600 dark:text-gray-400">Saved.</p>
 					</Transition>

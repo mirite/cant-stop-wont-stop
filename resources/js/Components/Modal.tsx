@@ -1,10 +1,11 @@
+import type { PropsWithChildren } from "react";
+
 import {
 	Dialog,
 	DialogPanel,
 	Transition,
 	TransitionChild,
 } from "@headlessui/react";
-import type { PropsWithChildren } from "react";
 
 /**
  * @param root0
@@ -16,15 +17,15 @@ import type { PropsWithChildren } from "react";
  */
 export default function Modal({
 	children,
-	show = false,
-	maxWidth = "2xl",
 	closeable = true,
+	maxWidth = "2xl",
 	onClose = () => {},
+	show = false,
 }: PropsWithChildren<{
-	show: boolean;
-	maxWidth?: "sm" | "md" | "lg" | "xl" | "2xl";
 	closeable?: boolean;
+	maxWidth?: "2xl" | "lg" | "md" | "sm" | "xl";
 	onClose: CallableFunction;
+	show: boolean;
 }>) {
 	const close = () => {
 		if (closeable) {
@@ -33,19 +34,19 @@ export default function Modal({
 	};
 
 	const maxWidthClass = {
-		sm: "sm:max-w-sm",
-		md: "sm:max-w-md",
-		lg: "sm:max-w-lg",
-		xl: "sm:max-w-xl",
 		"2xl": "sm:max-w-2xl",
+		lg: "sm:max-w-lg",
+		md: "sm:max-w-md",
+		sm: "sm:max-w-sm",
+		xl: "sm:max-w-xl",
 	}[maxWidth];
 
 	return (
-		<Transition show={show} leave="duration-200">
+		<Transition leave="duration-200" show={show}>
 			<Dialog
 				as="div"
-				id="modal"
 				className="fixed inset-0 z-50 flex items-center overflow-y-auto px-4 py-6 transition-all sm:px-0"
+				id="modal"
 				onClose={close}
 			>
 				<TransitionChild

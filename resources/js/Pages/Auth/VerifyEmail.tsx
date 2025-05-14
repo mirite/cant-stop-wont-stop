@@ -1,5 +1,6 @@
-import { Head, Link, useForm } from "@inertiajs/react";
 import type { FormEventHandler } from "react";
+
+import { Head, Link, useForm } from "@inertiajs/react";
 
 import PrimaryButton from "@/Components/PrimaryButton";
 import GuestLayout from "@/Layouts/GuestLayout";
@@ -41,10 +42,10 @@ export default function VerifyEmail({ status }: { status?: string }) {
 					</PrimaryButton>
 
 					<Link
-						href={route("logout")}
-						method="post"
 						as="button"
 						className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-hidden dark:text-gray-400 dark:hover:text-gray-100 dark:focus:ring-offset-gray-800"
+						href={route("logout")}
+						method="post"
 					>
 						Log Out
 					</Link>

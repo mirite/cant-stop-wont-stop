@@ -1,5 +1,6 @@
-import { Head, useForm } from "@inertiajs/react";
 import type { FormEventHandler } from "react";
+
+import { Head, useForm } from "@inertiajs/react";
 
 import InputError from "@/Components/InputError";
 import PrimaryButton from "@/Components/PrimaryButton";
@@ -11,7 +12,7 @@ import GuestLayout from "@/Layouts/GuestLayout";
  * @param root0.status
  */
 export default function ForgotPassword({ status }: { status?: string }) {
-	const { data, setData, post, processing, errors } = useForm({
+	const { data, errors, post, processing, setData } = useForm({
 		email: "",
 	});
 
@@ -39,16 +40,16 @@ export default function ForgotPassword({ status }: { status?: string }) {
 
 			<form onSubmit={submit}>
 				<TextInput
-					id="email"
-					type="email"
-					name="email"
-					value={data.email}
 					className="mt-1 block w-full"
+					id="email"
 					isFocused={true}
+					name="email"
 					onChange={(e) => setData("email", e.target.value)}
+					type="email"
+					value={data.email}
 				/>
 
-				<InputError message={errors.email} className="mt-2" />
+				<InputError className="mt-2" message={errors.email} />
 
 				<div className="mt-4 flex items-center justify-end">
 					<PrimaryButton className="ms-4" disabled={processing}>

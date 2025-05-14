@@ -7,18 +7,18 @@ import RedPattern from "./red-pattern.svg";
 
 export const themes = {
 	green: {
+		classes: "[background-size:100%_100%]",
+		date: GreenDate,
+		logo: GreenLogo,
 		pattern: GreenPattern,
 		primary: "--color-eucalyptus",
-		logo: GreenLogo,
-		date: GreenDate,
-		classes: "[background-size:100%_100%]",
 	},
 	red: {
+		classes: "[background-repeat:repeat-x] [background-size:auto_100%]",
+		date: RedDate,
+		logo: RedLogo,
 		pattern: RedPattern,
 		primary: "--color-taracota",
-		logo: RedLogo,
-		date: RedDate,
-		classes: "[background-repeat:repeat-x] [background-size:auto_100%]",
 	},
 };
 

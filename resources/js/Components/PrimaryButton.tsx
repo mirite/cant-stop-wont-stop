@@ -7,9 +7,9 @@ import type { ButtonHTMLAttributes } from "react";
  * @param root0.children
  */
 export default function PrimaryButton({
+	children,
 	className = "",
 	disabled,
-	children,
 	...props
 }: ButtonHTMLAttributes<HTMLButtonElement>) {
 	return (

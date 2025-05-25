@@ -46,38 +46,59 @@ class ImageController extends Controller {
 	 */
 	public static function get(): array {
 
-		/**
-		 * Converts a textual date into a time-stamp.
-		 *
-		 * @param string $date The textual date.
-		 * @return The time-stamp.
-		 */
-		$date_to_timestamp = function ( string $date ) {
-			$time_zone = new \DateTimeZone( 'America/Toronto' );
-			return new \DateTimeImmutable( $date, $time_zone )->getTimestamp();
-		};
-		$images            = array();
-		$root_dir          = __DIR__ . '/../../../public/images/';
-		$handle            = opendir( $root_dir );
+		$images   = array();
+		$root_dir = __DIR__ . '/../../../public/images/';
+		$handle   = opendir( $root_dir );
 		if ( $handle ) {
 
 			while ( false !== ( $entry = readdir( $handle ) ) ) {
 				$full_path = $root_dir . $entry;
 				if ( str_starts_with( mime_content_type( $full_path ), 'image' ) ) {
-					list($width, $height) = getimagesize( $full_path );
-
-					$images[] = array(
-						'src'    => $entry,
-						'title'  => '',
-						'width'  => $width,
-						'height' => $height,
-						'date'   => $date_to_timestamp( 'March 1, 2023' ),
-					);
+					$images[] = self::get_image_info( $root_dir, $entry );
 				}
 			}
 
 			closedir( $handle );
 		}
 		return $images;
+	}
+
+	/**
+	 * Gets information about the file such as size and title.
+	 *
+	 * @param string $root_dir The path to the photos directory.
+	 * @param string $entry The name of the photo to get the info for.
+	 * @return The info.
+	 */
+	private static function get_image_info( string $root_dir, string $entry ): array {
+		$full_path            = $root_dir . $entry;
+		list($width, $height) = getimagesize( $full_path );
+		$title                = '';
+		$date                 = self::date_to_timestamp( 'January 28, 2023' );
+		$path_parts           = pathinfo( $full_path );
+		$meta_path            = $root_dir . $path_parts['filename'] . '.json';
+		if ( file_exists( $meta_path ) ) {
+			$meta_raw = file_get_contents( $meta_path );
+			$parsed   = json_decode( $meta_raw );
+			$title    = $parsed->title;
+			$date     = self::date_to_timestamp( $parsed->date );
+		}
+		return array(
+			'src'    => $entry,
+			'title'  => $title,
+			'width'  => $width,
+			'height' => $height,
+			'date'   => $date,
+		);
+	}
+	/**
+	 * Converts a textual date into a time-stamp.
+	 *
+	 * @param string $date The textual date.
+	 * @return The time-stamp.
+	 */
+	private static function date_to_timestamp( string $date ): int {
+		$time_zone = new \DateTimeZone( 'America/Toronto' );
+		return new \DateTimeImmutable( $date, $time_zone )->getTimestamp();
 	}
 }

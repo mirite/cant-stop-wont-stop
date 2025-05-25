@@ -18,6 +18,7 @@ export default function Photos(
 	props: PageProps & { photos: PhotoProps[] },
 ): ReactElement {
 	const { photos, ...rest } = props;
+	console.log(photos);
 	return (
 		<Layout {...rest}>
 			<Head title="Photos" />

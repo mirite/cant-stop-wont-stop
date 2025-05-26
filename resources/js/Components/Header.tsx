@@ -37,7 +37,7 @@ export function Header(props: PageProps): ReactElement {
 				<Section className="order-2 pt-6 md:order-none md:pt-10" heading="When">
 					<span className="text-3xl font-semibold uppercase">Oct 5, 2025</span>
 					<Divider />
-					<span className="text-3xl uppercase">3:30 PM</span>
+					<span className="text-3xl uppercase">3:45PM</span>
 					<span className="font-semibold uppercase">Reception to Follow</span>
 				</Section>
 				<div className="relative order-first flex md:order-none">

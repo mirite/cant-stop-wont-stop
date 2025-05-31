@@ -48,8 +48,8 @@ export default function About(props: PageProps): ReactElement {
 		<Layout {...props}>
 			<Head title="Our Story" />
 			<Milestones milestones={milestones} />
-			<Heading1>Our Story</Heading1>
-			<div className="mx-auto w-fit">
+			<Heading1 className="mt-12">Our Story</Heading1>
+			<div className="mx-auto w-fit text-center">
 				{paragraphs.map((p) => (
 					<Paragraph key={p.text}>{p.text}</Paragraph>
 				))}

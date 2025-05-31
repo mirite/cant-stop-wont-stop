@@ -14,7 +14,7 @@ export const milestones: Milestone[] = [
 	},
 	{
 		content: (
-			<span className="fold-black text-8xl">
+			<span className="fold-black font-numeral text-[2.75rem]">
 				{Math.floor(
 					(new Date().getTime() - new Date("January 28, 2023").getTime()) /
 						(1000 * 60 * 60 * 24),
@@ -22,7 +22,7 @@ export const milestones: Milestone[] = [
 			</span>
 		),
 		subtitle: "A Lifetime to go",
-		title: "Days\nTogether",
+		title: "Days Together",
 	},
 	{
 		content: (

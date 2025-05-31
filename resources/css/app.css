@@ -1,5 +1,4 @@
 @import "tailwindcss";
-
 @plugin '@tailwindcss/forms';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
@@ -8,6 +7,7 @@
 	--font-sans:
 		Agenda, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
 		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--font-numeral: MidlandLuxury, serif;
 	--color-taracota: oklch(56.83% 0.1461 33.93);
 	--color-eucalyptus: oklch(50.3% 0.0589 135.79);
 	--color-neutral: oklch(96.27% 0.0228 95.96);
@@ -17,4 +17,9 @@
 	); /* The actual colour comes from the layout, this is so tailwind adjusts accordingly*/
 	--color-secondary: var(--color-brown);
 	--tracking-us: 0.25em;
+}
+
+@font-face {
+	font-family: "MidlandLuxury";
+	src: url("/MidlandLuxury-Black.otf");
 }

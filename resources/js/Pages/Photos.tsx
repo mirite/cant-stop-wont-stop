@@ -18,11 +18,10 @@ export default function Photos(
 	props: PageProps & { photos: PhotoProps[] },
 ): ReactElement {
 	const { photos, ...rest } = props;
-	console.log(photos);
 	return (
 		<Layout {...rest}>
 			<Head title="Photos" />
-			<PhotoGrid photos={photos} />
+			<PhotoGrid photos={photos.sort((a, b) => a.date - b.date)} />
 		</Layout>
 	);
 }

@@ -4,20 +4,17 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Auth\Events\PasswordReset;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Password;
+use Illuminate\Http\{RedirectResponse, Request};
+use Illuminate\Support\Facades\{Hash, Password};
 use Illuminate\Support\Str;
-use Illuminate\Validation\Rules;
-use Illuminate\Validation\ValidationException;
-use Inertia\Inertia;
-use Inertia\Response;
-
+use Illuminate\Validation\{Rules, ValidationException};
+use Inertia\{Inertia, Response};
 class NewPasswordController extends Controller {
 
 	/**
 	 * Display the password reset view.
+	 *
+	 * @param Request $request
 	 */
 	public function create( Request $request ): Response {
 		return Inertia::render(
@@ -33,6 +30,7 @@ class NewPasswordController extends Controller {
 	 * Handle an incoming new password request.
 	 *
 	 * @throws \Illuminate\Validation\ValidationException
+	 * @param Request $request
 	 */
 	public function store( Request $request ): RedirectResponse {
 		$request->validate(
@@ -63,7 +61,7 @@ class NewPasswordController extends Controller {
 		// If the password was successfully reset, we will redirect the user back to
 		// the application's home authenticated view. If there is an error we can
 		// redirect them back to where they came from with their error message.
-		if ( $status == Password::PASSWORD_RESET ) {
+		if ( Password::PASSWORD_RESET == $status ) {
 			return redirect()->route( 'login' )->with( 'status', __( $status ) );
 		}
 

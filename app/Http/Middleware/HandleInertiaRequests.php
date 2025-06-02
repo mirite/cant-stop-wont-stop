@@ -16,16 +16,10 @@ class HandleInertiaRequests extends Middleware {
 	protected $rootView = 'app';
 
 	/**
-	 * Determine the current asset version.
-	 */
-	public function version( Request $request ): ?string {
-		return parent::version( $request );
-	}
-
-	/**
 	 * Define the props that are shared by default.
 	 *
 	 * @return array<string, mixed>
+	 * @param Request $request
 	 */
 	public function share( Request $request ): array {
 		return array(
@@ -38,5 +32,14 @@ class HandleInertiaRequests extends Middleware {
 				'location' => $request->url(),
 			),
 		);
+	}
+
+	/**
+	 * Determine the current asset version.
+	 *
+	 * @param Request $request
+	 */
+	public function version( Request $request ): ?string {
+		return parent::version( $request );
 	}
 }

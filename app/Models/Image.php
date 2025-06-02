@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Image extends Model {
 
-	protected $fillable = array( 'image' );
-
 	use HasFactory;
+
+	protected $fillable = array( 'image' );
 }

@@ -1,9 +1,8 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\{ImageController, ProfileController};
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ImageController;
 use Inertia\Inertia;
 
 Route::get(

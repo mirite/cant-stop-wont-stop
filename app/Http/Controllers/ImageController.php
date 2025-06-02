@@ -10,14 +10,43 @@ use Inertia\Inertia;
 
 class ImageController extends Controller {
 
+	public function create() {
+		return Inertia::render( 'Image/Create' );
+	}
+
+	/**
+	 * Get the photos to display.
+	 *
+	 * TODO: Find out how Laravel does this properly.
+	 *
+	 * @return array<array{src:string,title:string,date:int,className:string,description?:string}>> The photo data.
+	 */
+	public static function get(): array {
+
+		$images   = array();
+		$root_dir = __DIR__ . '/../../../public/images/';
+		$handle   = opendir( $root_dir );
+
+		if ( $handle ) {
+
+			while ( false !== ( $entry = readdir( $handle ) ) ) {
+				$full_path = $root_dir . $entry;
+
+				if ( str_starts_with( mime_content_type( $full_path ), 'image' ) ) {
+					$images[] = self::get_image_info( $root_dir, $entry );
+				}
+			}
+
+			closedir( $handle );
+		}
+
+		return $images;
+	}
+
 	public function index() {
 		$images = Image::latest()->get();
 
 		return Inertia::render( 'Image/Index', array( 'images' => $images ) );
-	}
-
-	public function create() {
-		return Inertia::render( 'Image/Create' );
 	}
 
 	public function store( StoreImage $request ) {
@@ -38,29 +67,15 @@ class ImageController extends Controller {
 	}
 
 	/**
-	 * Get the photos to display.
+	 * Converts a textual date into a time-stamp.
 	 *
-	 * TODO: Find out how Laravel does this properly.
-	 *
-	 * @return array<array{src:string,title:string,date:int,className:string,description?:string}>> The photo data.
+	 * @param string $date The textual date.
+	 * @return The time-stamp.
 	 */
-	public static function get(): array {
+	private static function date_to_timestamp( string $date ): int {
+		$time_zone = new \DateTimeZone( 'America/Toronto' );
 
-		$images   = array();
-		$root_dir = __DIR__ . '/../../../public/images/';
-		$handle   = opendir( $root_dir );
-		if ( $handle ) {
-
-			while ( false !== ( $entry = readdir( $handle ) ) ) {
-				$full_path = $root_dir . $entry;
-				if ( str_starts_with( mime_content_type( $full_path ), 'image' ) ) {
-					$images[] = self::get_image_info( $root_dir, $entry );
-				}
-			}
-
-			closedir( $handle );
-		}
-		return $images;
+		return new \DateTimeImmutable( $date, $time_zone )->getTimestamp();
 	}
 
 	/**
@@ -71,18 +86,20 @@ class ImageController extends Controller {
 	 * @return The info.
 	 */
 	private static function get_image_info( string $root_dir, string $entry ): array {
-		$full_path            = $root_dir . $entry;
-		list($width, $height) = getimagesize( $full_path );
-		$title                = '';
-		$date                 = self::date_to_timestamp( 'January 28, 2023' );
-		$path_parts           = pathinfo( $full_path );
-		$meta_path            = $root_dir . $path_parts['filename'] . '.json';
+		$full_path              = $root_dir . $entry;
+		list( $width, $height ) = getimagesize( $full_path );
+		$title                  = '';
+		$date                   = self::date_to_timestamp( 'January 28, 2023' );
+		$path_parts             = pathinfo( $full_path );
+		$meta_path              = $root_dir . $path_parts['filename'] . '.json';
+
 		if ( file_exists( $meta_path ) ) {
 			$meta_raw = file_get_contents( $meta_path );
 			$parsed   = json_decode( $meta_raw );
 			$title    = $parsed->title;
 			$date     = self::date_to_timestamp( $parsed->date );
 		}
+
 		return array(
 			'src'    => $entry,
 			'title'  => $title,
@@ -90,15 +107,5 @@ class ImageController extends Controller {
 			'height' => $height,
 			'date'   => $date,
 		);
-	}
-	/**
-	 * Converts a textual date into a time-stamp.
-	 *
-	 * @param string $date The textual date.
-	 * @return The time-stamp.
-	 */
-	private static function date_to_timestamp( string $date ): int {
-		$time_zone = new \DateTimeZone( 'America/Toronto' );
-		return new \DateTimeImmutable( $date, $time_zone )->getTimestamp();
 	}
 }

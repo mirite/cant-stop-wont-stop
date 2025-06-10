@@ -29,7 +29,7 @@ export const accommodations: AccommodationProps[] = [
 	},
 	{
 		address: "17565 Yonge Street",
-		city: "Newmarkey",
+		city: "Newmarket",
 		distance: "25",
 		href: "https://www.bestwestern.com/en_US/book/hotel-rooms.66065.html",
 		postalCode: "L3Y 5H6",

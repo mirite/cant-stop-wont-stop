@@ -14,7 +14,7 @@ import Layout from "../Layouts/MainLayout";
 /**
  * The home page component.
  *
- * @param props
+ * @param props The page props.
  * @returns The component.
  */
 export default function Home(props: PageProps): ReactElement {
@@ -25,7 +25,7 @@ export default function Home(props: PageProps): ReactElement {
 			<Section heading="Directions">
 				<iframe
 					allowFullScreen={undefined}
-					className="max-w-full"
+					className="mb-4 max-w-full"
 					height="450"
 					loading="lazy"
 					referrerPolicy="no-referrer-when-downgrade"
@@ -33,7 +33,6 @@ export default function Home(props: PageProps): ReactElement {
 					style={{ border: 0 }}
 					width="600"
 				/>
-				<br />
 				<Button
 					href="https://maps.app.goo.gl/4S3o7ZptcNDB7iym6"
 					target={"_blank"}

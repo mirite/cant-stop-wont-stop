@@ -20,28 +20,16 @@ import Layout from "../Layouts/MainLayout";
 export default function About(props: PageProps): ReactElement {
 	const paragraphs = [
 		{
-			text: "From our first hangout in Black Panther's lair, Where the rain purred down, and we didn't care, To a Newmarket stroll, a 10-kilometer feat, Our connection felt claw-some, steady, and sweet.",
+			text: "As with all great love stories, ours began on LinkedIn. What started as casual exchanges over work projects soon blossomed into something deeper. Work lunches turned into shared afternoon walks, where laughter and conversation flowed effortlessly, laying the groundwork for a connection we couldn’t yet name. ",
 		},
 		{
-			text: "A Starbucks hug in Bradford, you asked with a meow, Four hours of talking—I should've fur-seen it somehow. Meeting Fritz, your piano lesson debut, The look in our eyes? Pure love, it’s true.",
+			text: "One evening, the release of Black Panther gave us the perfect excuse to spend time together outside of work. That outing quickly evolved into early-winter hikes, where frost-covered trails stretched before us, the crisp air nipping at our cheeks while the serene landscape enveloped us in its quiet magic. With each step, the bond between us grew stronger, as though the rhythm of our footsteps mirrored the unspoken harmony of our hearts. ",
 		},
 		{
-			text: "	January whiskered by, like a cat on a dash, From “like-liking” confessions to a romantic splash. Our first kiss, a moment we both couldn't miss, A bond sealed with purrfection, nothing amiss.",
+			text: "After months of growing closer, everything started to come to a head one chilly January day. The plan was simple: we were supposed to spend the day learning piano and coding—each of us stepping into the other’s world. But the day took an unexpected turn when Fritz, needing an emergency trip to the vet, became our priority. After ensuring Fritz was safe and sound, we found ourselves back to our original plan, albeit in a slightly altered mood. It was during that quiet, unhurried moment, as our eyes met across the room, that the world seemed to pause. In that instant, it felt like everything around us faded away, leaving only the two of us in a shared understanding that this was no longer just a friendship. ",
 		},
 		{
-			text: "An escarpment hike, the fur-midable first date, Mini golf in Oakville—non-competitive trait. Then came cherry pies on Valentine's Day, Your heart-shaped pastries took my breath away.",
-		},
-		{
-			text: "Meeting families and friends, each feline and mate, Brunches and tacos made every bond great. On Disney on Ice, our laughter took flight, A purrty magical day, a memory so bright.",
-		},
-		{
-			text: "Pane Fresco’s pizza, the fanciest by far, And Omomomo visits, now part of our star. We camped and saw science; it sparked feline pride, Your campfire mastery warmed me inside.",
-		},
-		{
-			text: "Keys to our home, and a tree all your own, Living together, our love fully grown. From Wonderland rides to Niagara’s sunny shores, Each whisker of time just means I love you more.",
-		},
-		{
-			text: "As the seasons pass, like a cat’s swift stride, You’re my fur-ever partner, my heart, my guide. With each date a meow-ment, each milestone divine, You’re my purrfect companion, my Valentine.",
+			text: "A week or two later, the inevitable could no longer be ignored. We finally admitted aloud what had been growing between us. Our first real date was a storybook day: we embarked on a snowy hike, the fresh powder crunching underfoot, followed by a lively round of mini-golf that filled the air with laughter. The evening ended with dinner at Dave & Buster’s, where the excitement of the day lingered in every glance and smile. From that moment onward, our story truly began. ",
 		},
 	];
 	return (

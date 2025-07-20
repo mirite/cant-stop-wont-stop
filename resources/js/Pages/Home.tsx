@@ -6,6 +6,7 @@ import type { PageProps } from "@/types";
 
 import Accommodations from "@/Components/Accommodations";
 import Button from "@/Components/Button";
+import Heading2 from "@/Components/headings/Heading2";
 import Section from "@/Components/Section";
 import { accommodations } from "@/types/accommodations";
 
@@ -22,6 +23,16 @@ export default function Home(props: PageProps): ReactElement {
 		<Layout {...props}>
 			<Head title="Home" />
 			<Accommodations accommodations={accommodations} />
+			<div className="flex flex-col items-center justify-center gap-4 py-8">
+				<Heading2>Registry</Heading2>
+				<Button
+					className="mx-auto"
+					href={"https://www.amazon.ca/wedding/share/baileyjesse"}
+					target="_blank"
+				>
+					View Registry
+				</Button>
+			</div>
 			<Section heading="Directions">
 				<iframe
 					allowFullScreen={undefined}

@@ -29,6 +29,7 @@ export default function Home(props: PageProps): ReactElement {
 					className="mx-auto"
 					href={"https://www.amazon.ca/wedding/share/baileyjesse"}
 					target="_blank"
+					useNative={true}
 				>
 					View Registry
 				</Button>

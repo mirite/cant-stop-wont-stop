@@ -37,6 +37,22 @@ Route::get(
 		);
 	}
 );
+
+Route::get(
+	'/photos/add',
+	function () {
+		return Inertia::render(
+			'PhotosUpload',
+			array(
+				'canLogin'       => Route::has( 'login' ),
+				'canRegister'    => Route::has( 'register' ),
+				'laravelVersion' => Application::VERSION,
+				'phpVersion'     => PHP_VERSION,
+				'theme'          => 'green',
+			)
+		);
+	}
+);
 Route::get(
 	'/about',
 	function () {

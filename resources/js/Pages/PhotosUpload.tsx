@@ -15,19 +15,19 @@ import Layout from "../Layouts/MainLayout";
  * @returns The component.
  */
 export default function PhotosUpload(props: PageProps): ReactElement {
-	const { post, progress, setData } = useForm({
+	const { errors, post, progress, setData } = useForm({
 		images: null as File[] | null,
 	});
 	const handleSubmit = (e: FormEvent) => {
 		e.preventDefault();
-		post("/");
+		post("/capture");
 	};
 	return (
 		<Layout {...props}>
 			<Head title="Add Photos" />
 			<Heading1>Add Photos</Heading1>
 			<form
-				className="flex items-center justify-center"
+				className="flex flex-col items-center justify-center"
 				onSubmit={handleSubmit}
 			>
 				<label htmlFor="fileInput">Photos:</label>
@@ -40,11 +40,13 @@ export default function PhotosUpload(props: PageProps): ReactElement {
 					}
 					type="file"
 				/>
+				<button type="submit">Upload</button>
 				{progress ? (
 					<progress max="100" value={progress.percentage}>
 						{progress.percentage}%
 					</progress>
 				) : null}
+				{errors ? <div className="bg-amber-400 p-2">{errors.images}</div> : null}
 			</form>
 		</Layout>
 	);

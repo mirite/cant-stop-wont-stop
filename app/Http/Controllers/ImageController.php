@@ -10,9 +10,6 @@ use Inertia\Inertia;
 
 class ImageController extends Controller {
 
-	public function create() {
-		return Inertia::render( 'Image/Create' );
-	}
 
 	/**
 	 * Get the photos to display.
@@ -44,24 +41,30 @@ class ImageController extends Controller {
 	}
 
 	public function index() {
-		$images = Image::latest()->get();
-
-		return Inertia::render( 'Image/Index', array( 'images' => $images ) );
+				return Inertia::render(
+					'PhotosUpload',
+					array(
+						'phpVersion' => PHP_VERSION,
+						'theme'      => 'green',
+					)
+				);
 	}
 
 	public function store( StoreImage $request ) {
-
-		$image_path = '';
-
 		if ( $request->hasFile( 'image' ) ) {
-			$image_path = $request->file( 'image' )->store( 'image', 'public' );
-		}
+			/** @var array<\Illuminate\Http\UploadedFile> $files */
+			$files = $request->file( 'image' );
 
-		$data = Image::create(
-			array(
-				'image' => $image_path,
-			)
-		);
+			foreach ( $files as $file ) {
+				$image_path = $file->store( 'image', 'public' );
+
+				Image::create(
+					array(
+						'image' => $image_path,
+					)
+				);
+			}
+		}
 
 		return Redirect::route( 'image.index' );
 	}

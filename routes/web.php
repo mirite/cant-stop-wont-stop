@@ -37,22 +37,6 @@ Route::get(
 		);
 	}
 );
-
-Route::get(
-	'/photos/add',
-	function () {
-		return Inertia::render(
-			'PhotosUpload',
-			array(
-				'canLogin'       => Route::has( 'login' ),
-				'canRegister'    => Route::has( 'register' ),
-				'laravelVersion' => Application::VERSION,
-				'phpVersion'     => PHP_VERSION,
-				'theme'          => 'green',
-			)
-		);
-	}
-);
 Route::get(
 	'/about',
 	function () {
@@ -74,9 +58,14 @@ Route::get(
 		return Inertia::render( 'Dashboard' );
 	}
 )->middleware( array( 'auth', 'verified' ) )->name( 'dashboard' );
-Route::get( 'image', array( ImageController::class, 'index' ) )->name( 'image.index' );
-Route::get( 'image/create', array( ImageController::class, 'create' ) )->name( 'image.create' );
-Route::post( 'image', array( ImageController::class, 'store' ) )->name( 'image.store' );
+
+Route::controller( ImageController::class )->group(
+	function () {
+		Route::get( '/capture', 'index' );
+		Route::post( '/capture', 'store' );
+	}
+);
+
 Route::middleware( 'auth' )->group(
 	function () {
 		Route::get( '/profile', array( ProfileController::class, 'edit' ) )->name( 'profile.edit' );

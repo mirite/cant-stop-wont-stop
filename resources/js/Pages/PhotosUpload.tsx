@@ -1,10 +1,11 @@
-import type { FormEvent, ReactElement } from "react";
+import type { ReactElement } from "react";
 
-import { Head, useForm } from "@inertiajs/react";
+import { Head } from "@inertiajs/react";
 
 import type { PageProps } from "@/types";
 
 import Heading1 from "@/Components/headings/Heading1";
+import ImageUploader from "@/Components/ImageUploader";
 
 import Layout from "../Layouts/MainLayout";
 
@@ -15,39 +16,11 @@ import Layout from "../Layouts/MainLayout";
  * @returns The component.
  */
 export default function PhotosUpload(props: PageProps): ReactElement {
-	const { errors, post, progress, setData } = useForm({
-		images: null as File[] | null,
-	});
-	const handleSubmit = (e: FormEvent) => {
-		e.preventDefault();
-		post("/capture");
-	};
 	return (
 		<Layout {...props}>
 			<Head title="Add Photos" />
 			<Heading1>Add Photos</Heading1>
-			<form
-				className="flex flex-col items-center justify-center"
-				onSubmit={handleSubmit}
-			>
-				<label htmlFor="fileInput">Photos:</label>
-				<input
-					accept="image/png, image/jpeg"
-					id="fileInput"
-					multiple={true}
-					onChange={(e) =>
-						setData("images", e.target.files ? Array.from(e.target.files) : [])
-					}
-					type="file"
-				/>
-				<button type="submit">Upload</button>
-				{progress ? (
-					<progress max="100" value={progress.percentage}>
-						{progress.percentage}%
-					</progress>
-				) : null}
-				{errors ? <div className="bg-amber-400 p-2">{errors.images}</div> : null}
-			</form>
+			<ImageUploader />
 		</Layout>
 	);
 }

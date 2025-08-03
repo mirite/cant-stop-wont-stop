@@ -22,7 +22,7 @@ export default function ImageUploader(): ReactElement {
 	const hasImages = isContentful(data);
 	const fileListText = hasImages
 		? data.images.map((i) => i.name).join(", ")
-		: null;
+		: "";
 	const uploadButtonText =
 		"Upload" + (hasImages ? ` ${data.images.length} files` : "");
 	return (
@@ -41,7 +41,7 @@ export default function ImageUploader(): ReactElement {
 				onChange={handleChange}
 				type="file"
 			/>
-			{fileListText !== null && <span>{fileListText}</span>}
+			{fileListText != "" && <span>{fileListText}</span>}
 			<button
 				className="cursor-pointer rounded-full bg-primary/20 px-8 py-1 text-center text-xl font-bold uppercase transition-all hover:bg-primary hover:text-neutral"
 				disabled={!hasImages}
@@ -49,11 +49,11 @@ export default function ImageUploader(): ReactElement {
 			>
 				{uploadButtonText}
 			</button>
-			{progress ? (
+			{progress != undefined && (
 				<progress max="100" value={progress.percentage}>
 					{progress.percentage}%
 				</progress>
-			) : null}
+			)}
 			{errors.images ? (
 				<div className="bg-amber-400 p-2">{errors.images}</div>
 			) : null}

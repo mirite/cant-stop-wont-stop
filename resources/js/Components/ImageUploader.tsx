@@ -1,6 +1,6 @@
-import type { ChangeEvent, FormEvent, ReactElement } from "react";
+import type { ReactElement } from "react";
 
-import { useForm } from "@inertiajs/react";
+import { useUploadForm } from "@/useUploadForm";
 
 /**
  * Form for uploading new photos from the event.
@@ -8,23 +8,16 @@ import { useForm } from "@inertiajs/react";
  * @returns The component.
  */
 export default function ImageUploader(): ReactElement {
-	const { data, errors, post, progress, setData } = useForm({
-		images: null as File[] | null,
-	});
+	const {
+		errors,
+		fileListText,
+		handleChange,
+		handleSubmit,
+		hasImages,
+		progress,
+		uploadButtonText,
+	} = useUploadForm("/capture");
 
-	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-		setData("images", e.target.files ? Array.from(e.target.files) : []);
-	};
-	const handleSubmit = (e: FormEvent) => {
-		e.preventDefault();
-		post("/capture");
-	};
-	const hasImages = isContentful(data);
-	const fileListText = hasImages
-		? data.images.map((i) => i.name).join(", ")
-		: "";
-	const uploadButtonText =
-		"Upload" + (hasImages ? ` ${data.images.length} files` : "");
 	return (
 		<form
 			className="mx-auto mb-4 flex max-w-3xl flex-col items-center justify-center gap-4 border border-solid p-4"
@@ -59,17 +52,4 @@ export default function ImageUploader(): ReactElement {
 			) : null}
 		</form>
 	);
-}
-
-/**
- * Determines if the images attribute is populated with one or more files.
- *
- * @template TData The type of the form data object.
- * @param data The form data.
- * @returns True if there is one or more image.
- */
-function isContentful<TData extends { images: File[] | null }>(
-	data: TData,
-): data is TData & { images: File[] } {
-	return data.images !== null && data.images.length > 0;
 }

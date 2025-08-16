@@ -1,8 +1,8 @@
+import { useForm } from "@inertiajs/react";
 import type { AxiosProgressEvent } from "axios";
 import type { ChangeEvent, FormEvent } from "react";
 
-import { useForm } from "@inertiajs/react";
-
+export type UseFormPayload = Record<string, File>;
 export type UseUploadFormResult<TData extends object> = {
 	data: TData;
 	errors: { [key in keyof TData]?: string };
@@ -13,7 +13,6 @@ export type UseUploadFormResult<TData extends object> = {
 	progress: AxiosProgressEvent | null;
 	uploadButtonText: string;
 };
-
 /**
  * Handles the logic for the image uploads form.
  *
@@ -22,24 +21,25 @@ export type UseUploadFormResult<TData extends object> = {
  */
 export function useUploadForm(
 	endpoint: string,
-): UseUploadFormResult<{ images: File[] | null }> {
-	const { data, errors, post, progress, setData } = useForm({
-		images: null as File[] | null,
-	});
+): UseUploadFormResult<UseFormPayload> {
+	const { data, errors, post, progress, setData } = useForm<UseFormPayload>({});
 
 	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-		setData("images", e.target.files ? Array.from(e.target.files) : []);
+		const newFiles: UseFormPayload = {};
+		for (const file of e.target.files || []) {
+			newFiles[file.name] = file;
+		}
+
+		setData(newFiles);
 	};
 	const handleSubmit = (e: FormEvent) => {
 		e.preventDefault();
 		post(endpoint);
 	};
 	const hasImages = isContentful(data);
-	const fileListText = hasImages
-		? data.images.map((i) => i.name).join(", ")
-		: "";
+	const fileListText = hasImages ? Object.keys(data).join(", ") : "";
 	const uploadButtonText =
-		"Upload" + (hasImages ? ` ${data.images.length} files` : "");
+		"Upload" + (hasImages ? ` ${Object.keys(data).length} files` : "");
 	return {
 		data,
 		errors,
@@ -59,8 +59,8 @@ export function useUploadForm(
  * @param data The form data.
  * @returns True if there is one or more image.
  */
-function isContentful<TData extends { images: File[] | null }>(
+function isContentful<TData extends UseFormPayload>(
 	data: TData,
-): data is TData & { images: File[] } {
-	return data.images !== null && data.images.length > 0;
+): data is TData & UseFormPayload {
+	return Object.keys(data).length > 0;
 }

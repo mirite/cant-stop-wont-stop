@@ -8,6 +8,9 @@ import PrimaryButton from "@/Components/PrimaryButton";
 import TextInput from "@/Components/TextInput";
 import GuestLayout from "@/Layouts/GuestLayout";
 
+/**
+ *
+ */
 export default function ConfirmPassword() {
 	const { data, errors, post, processing, reset, setData } = useForm({
 		password: "",

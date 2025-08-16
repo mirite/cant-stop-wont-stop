@@ -4,6 +4,9 @@ import { Head } from "@inertiajs/react";
 
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
+/**
+ *
+ */
 export default function Dashboard(): ReactElement {
 	return (
 		<AuthenticatedLayout>

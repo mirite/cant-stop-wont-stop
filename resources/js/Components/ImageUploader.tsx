@@ -35,6 +35,13 @@ export default function ImageUploader(): ReactElement {
 				type="file"
 			/>
 			{fileListText != "" && <span>{fileListText}</span>}
+			<div
+				className="cf-turnstile"
+				data-callback="onSuccess"
+				data-sitekey="0x4AAAAAABtXg9HPDsMQ2aD1"
+				data-size="normal"
+				data-theme="light"
+			/>
 			<button
 				className="cursor-pointer rounded-full bg-primary/20 px-8 py-1 text-center text-xl font-bold uppercase transition-all hover:bg-primary hover:text-neutral"
 				disabled={!hasImages}

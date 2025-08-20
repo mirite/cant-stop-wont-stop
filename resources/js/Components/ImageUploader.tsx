@@ -22,14 +22,13 @@ export default function ImageUploader(): ReactElement {
 
 	return (
 		<form
-			className="mx-auto mb-4 flex max-w-3xl flex-col items-center justify-center gap-4 border border-solid p-4"
+			className="mx-auto mb-4 flex max-w-3xl flex-col items-center justify-center gap-4 border border-solid p-8"
 			onSubmit={handleSubmit}
 		>
-			<label className="cursor-pointer font-bold" htmlFor="email">
-				Your Email
-			</label>
-			<input id="email" onChange={changeEmail} required type="email" />
-			<label className="cursor-pointer font-bold underline" htmlFor="fileInput">
+			<label
+				className="cursor-pointer rounded-full bg-primary/20 px-8 py-1 text-center text-xl font-bold uppercase transition-all hover:bg-primary hover:text-neutral"
+				htmlFor="fileInput"
+			>
 				Choose Photos
 			</label>
 			<input
@@ -40,14 +39,27 @@ export default function ImageUploader(): ReactElement {
 				onChange={changeFiles}
 				type="file"
 			/>
-			{fileListText != "" && <span>{fileListText}</span>}
+			{fileListText != "" && (
+				<span className="tracking-normal">{fileListText}</span>
+			)}
+			<label className="cursor-pointer font-bold" htmlFor="emailInput">
+				Your Email
+			</label>
+			<input
+				className="w-sm rounded-md border-2 border-solid border-eucalyptus bg-white px-3 py-3 font-bold tracking-normal text-black focus:border-2 focus:border-eucalyptus focus:outline focus:outline-eucalyptus [&:user-invalid]:border-2 [&:user-invalid]:border-solid [&:user-invalid]:border-red-500 [&:user-invalid]:bg-white"
+				id="email"
+				onChange={changeEmail}
+				placeholder="example@example.com"
+				required
+				type="emailInput"
+			/>
 			<div
 				// eslint-disable-next-line tailwindcss/no-custom-classname
 				className="cf-turnstile"
 				data-callback="onSuccess"
 				data-sitekey="0x4AAAAAABtXg9HPDsMQ2aD1"
 				data-size="normal"
-				data-theme="dark"
+				data-theme="light"
 			/>
 			<button
 				className="cursor-pointer rounded-full bg-primary/20 px-8 py-1 text-center text-xl font-bold uppercase transition-all not-disabled:hover:bg-primary not-disabled:hover:text-neutral disabled:cursor-not-allowed disabled:opacity-70"

@@ -16,7 +16,11 @@ return Application::configure( basePath: dirname( __DIR__ ) )
 				append: array(
 					\App\Http\Middleware\HandleInertiaRequests::class,
 					\Illuminate\Http\Middleware\AddLinkHeadersForPreloadedAssets::class,
-					VerifyTurnstile::class,
+				)
+			);
+			$middleware->alias(
+				array(
+					'turnstile' => VerifyTurnstile::class,
 				)
 			);
 		}

@@ -4,12 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreImage;
 use App\Models\Image;
-use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\{Redirect, Storage};
 use Inertia\Inertia;
 
 
 class ImageController extends Controller {
 
+	/**
+	 * A list of pre-approved email addresses.
+	 * In a real application, this might come from a config file or database table.
+	 *
+	 * @var array<int, string>
+	 */
+	private const PRE_APPROVED_EMAILS = array(
+		'jconner90@gmail.com',
+		'another-admin@example.com',
+	);
 
 	/**
 	 * Get the photos to display.
@@ -41,26 +51,54 @@ class ImageController extends Controller {
 	}
 
 	public function index() {
-				return Inertia::render(
-					'PhotosUpload',
-					array(
-						'phpVersion' => PHP_VERSION,
-						'theme'      => 'green',
-					)
+		$images = Image::where( 'is_approved', true )->latest()->get();
+
+		$photo_data = $images->map(
+			function ( Image $image ) {
+				return array(
+					'src'    => Storage::url( $image->image ),
+					'title'  => $image->title,
+					'width'  => $image->width,
+					'height' => $image->height,
+					'date'   => $image->created_at->getTimestamp(),
 				);
+			}
+		)->all();
+		$photo_data = array_merge( self::get(), $photo_data );
+
+		return Inertia::render(
+			'PhotosUpload',
+			array(
+				'phpVersion' => PHP_VERSION,
+				'theme'      => 'green',
+				'photos'     => $photo_data,
+			)
+		);
 	}
 
 	public function store( StoreImage $request ) {
+		// Get the validated email from the request.
+		$email = $request->validated( 'email' );
+
+		// Check if the submitter's email is in the pre-approved list.
+		$isApproved = in_array( $email, self::PRE_APPROVED_EMAILS, true );
+
 		if ( $request->hasFile( 'image' ) ) {
 			/** @var array<\Illuminate\Http\UploadedFile> $files */
 			$files = $request->file( 'image' );
 
 			foreach ( $files as $file ) {
-				$image_path = $file->store( 'image', 'public' );
+				$image_path             = $file->store( 'image', 'public' );
+				list( $width, $height ) = getimagesize( $file->getRealPath() );
 
 				Image::create(
 					array(
-						'image' => $image_path,
+						'image'       => $image_path,
+						'title'       => $request->input( 'title', $file->getClientOriginalName() ),
+						'width'       => $width,
+						'height'      => $height,
+						'email'       => $email,           // <-- Save the email
+						'is_approved' => $isApproved,      // <-- Save the approval status
 					)
 				);
 			}

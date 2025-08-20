@@ -1,12 +1,9 @@
-import type { ReactElement } from "react";
-
 import { Head } from "@inertiajs/react";
-
-import type { PageProps } from "@/types";
+import type { ReactElement } from "react";
 
 import Heading1 from "@/Components/headings/Heading1";
 import ImageUploader from "@/Components/ImageUploader";
-
+import type { PageProps } from "@/types";
 import Layout from "../Layouts/MainLayout";
 
 /**
@@ -19,6 +16,7 @@ export default function PhotosUpload(props: PageProps): ReactElement {
 	return (
 		<Layout {...props}>
 			<Head title="Add Photos" />
+			{JSON.stringify(props.photos)}
 			<Heading1>Add Photos</Heading1>
 			<ImageUploader />
 		</Layout>

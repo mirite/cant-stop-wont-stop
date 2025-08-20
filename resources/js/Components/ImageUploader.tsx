@@ -9,9 +9,11 @@ import { useUploadForm } from "@/useUploadForm";
  */
 export default function ImageUploader(): ReactElement {
 	const {
+		changeEmail,
+		changeFiles,
+		data,
 		errors,
 		fileListText,
-		handleChange,
 		handleSubmit,
 		hasImages,
 		progress,
@@ -23,6 +25,10 @@ export default function ImageUploader(): ReactElement {
 			className="mx-auto mb-4 flex max-w-3xl flex-col items-center justify-center gap-4 border border-solid p-4"
 			onSubmit={handleSubmit}
 		>
+			<label className="cursor-pointer font-bold" htmlFor="email">
+				Your Email
+			</label>
+			<input id="email" onChange={changeEmail} required type="email" />
 			<label className="cursor-pointer font-bold underline" htmlFor="fileInput">
 				Choose Photos
 			</label>
@@ -31,20 +37,21 @@ export default function ImageUploader(): ReactElement {
 				className="hidden"
 				id="fileInput"
 				multiple={true}
-				onChange={handleChange}
+				onChange={changeFiles}
 				type="file"
 			/>
 			{fileListText != "" && <span>{fileListText}</span>}
 			<div
+				// eslint-disable-next-line tailwindcss/no-custom-classname
 				className="cf-turnstile"
 				data-callback="onSuccess"
 				data-sitekey="0x4AAAAAABtXg9HPDsMQ2aD1"
 				data-size="normal"
-				data-theme="light"
+				data-theme="dark"
 			/>
 			<button
-				className="cursor-pointer rounded-full bg-primary/20 px-8 py-1 text-center text-xl font-bold uppercase transition-all hover:bg-primary hover:text-neutral"
-				disabled={!hasImages}
+				className="cursor-pointer rounded-full bg-primary/20 px-8 py-1 text-center text-xl font-bold uppercase transition-all not-disabled:hover:bg-primary not-disabled:hover:text-neutral disabled:cursor-not-allowed disabled:opacity-70"
+				disabled={!hasImages || !data.email}
 				type="submit"
 			>
 				{uploadButtonText}
@@ -54,8 +61,8 @@ export default function ImageUploader(): ReactElement {
 					{progress.percentage}%
 				</progress>
 			)}
-			{errors.images ? (
-				<div className="bg-amber-400 p-2">{errors.images}</div>
+			{errors.files ? (
+				<div className="bg-amber-400 p-2">{errors.files}</div>
 			) : null}
 		</form>
 	);

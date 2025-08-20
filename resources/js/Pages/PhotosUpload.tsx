@@ -16,7 +16,6 @@ export default function PhotosUpload(props: PageProps): ReactElement {
 	return (
 		<Layout {...props}>
 			<Head title="Add Photos" />
-			{JSON.stringify(props.photos)}
 			<Heading1>Add Photos</Heading1>
 			<ImageUploader />
 		</Layout>

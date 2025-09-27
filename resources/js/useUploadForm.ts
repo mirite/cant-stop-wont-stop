@@ -2,10 +2,15 @@ import { useForm } from "@inertiajs/react";
 import type { AxiosProgressEvent } from "axios";
 import type { ChangeEvent, FormEvent } from "react";
 
-export type UseFormPayload = { email: string; files: Record<string, File> };
+export type UseFormPayload = {
+	"cf-turnstile-response": string;
+	email: string;
+	images: Record<string, File>;
+};
 export type UseUploadFormResult<TData extends object> = {
 	changeEmail: (e: ChangeEvent<HTMLInputElement>) => unknown;
 	changeFiles: (e: ChangeEvent<HTMLInputElement>) => unknown;
+	changeTurnstile: (e: string) => unknown;
 	data: TData;
 	errors: { [key in keyof TData]?: string };
 	fileListText: string;
@@ -24,14 +29,15 @@ export function useUploadForm(
 	endpoint: string,
 ): UseUploadFormResult<UseFormPayload> {
 	const { data, errors, post, progress, setData } = useForm<UseFormPayload>({
+		"cf-turnstile-response": "",
 		email: "",
-		files: {},
+		images: {},
 	});
 
 	const changeFiles = (e: ChangeEvent<HTMLInputElement>) => {
-		const newState: UseFormPayload = { ...data, files: {} };
+		const newState: UseFormPayload = { ...data, images: {} };
 		for (const file of e.target.files || []) {
-			newState.files[file.name] = file;
+			newState.images[file.name] = file;
 		}
 
 		setData(newState);
@@ -39,18 +45,22 @@ export function useUploadForm(
 	const changeEmail = (e: ChangeEvent<HTMLInputElement>) => {
 		setData({ ...data, email: e.currentTarget.value });
 	};
+	const changeTurnstile = (e: string) => {
+		setData({ ...data, "cf-turnstile-response": e });
+	};
 	const handleSubmit = (e: FormEvent) => {
 		e.preventDefault();
 		post(endpoint);
 	};
 	const hasImages = isContentful(data);
-	const fileListText = hasImages ? Object.keys(data.files).join(", ") : "";
-	const count = Object.keys(data.files).length;
+	const fileListText = hasImages ? Object.keys(data.images).join(", ") : "";
+	const count = Object.keys(data.images).length;
 	const uploadButtonText =
 		"Upload" + (hasImages ? ` ${count} file${count > 1 ? "s" : ""}` : "");
 	return {
 		changeEmail,
 		changeFiles,
+		changeTurnstile,
 		data,
 		errors,
 		fileListText,
@@ -71,5 +81,5 @@ export function useUploadForm(
 function isContentful<TData extends UseFormPayload>(
 	data: TData,
 ): data is TData & UseFormPayload {
-	return Object.keys(data.files).length > 0;
+	return Object.keys(data.images).length > 0;
 }

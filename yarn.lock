@@ -5511,6 +5511,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-turnstile@npm:^1.1.4":
+  version: 1.1.4
+  resolution: "react-turnstile@npm:1.1.4"
+  peerDependencies:
+    react: ">= 16.13.1"
+    react-dom: ">= 16.13.1"
+  checksum: 10c0/2a03226eede070e56be597b1456d870eb7180b90ed46a256970374fa545151474a08cb00acfe65292e353f8a2d082e1b2f851696b714f164251928f3330d2dad
+  languageName: node
+  linkType: hard
+
 "react@npm:^19.1.1":
   version: 19.1.1
   resolution: "react@npm:19.1.1"
@@ -5753,6 +5763,7 @@ __metadata:
     prettier: "npm:^3.6.2"
     react: "npm:^19.1.1"
     react-dom: "npm:^19.1.1"
+    react-turnstile: "npm:^1.1.4"
     tailwind-merge: "npm:^3.3.1"
     tailwindcss: "npm:4.1.13"
     typescript: "npm:^5.9.2"

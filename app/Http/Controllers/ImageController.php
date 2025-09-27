@@ -7,12 +7,13 @@ use App\Models\Image;
 use Illuminate\Support\Facades\{Redirect, Storage};
 use Inertia\Inertia;
 
-
+/**
+ * Controller for the Image gallery functionality.
+ */
 class ImageController extends Controller {
 
 	/**
 	 * A list of pre-approved email addresses.
-	 * In a real application, this might come from a config file or database table.
 	 *
 	 * @var array<int, string>
 	 */
@@ -77,15 +78,14 @@ class ImageController extends Controller {
 	}
 
 	public function store( StoreImage $request ) {
-		// Get the validated email from the request.
+		dd( 'Store method was reached' );
 		$email = $request->validated( 'email' );
 
-		// Check if the submitter's email is in the pre-approved list.
-		$isApproved = in_array( $email, self::PRE_APPROVED_EMAILS, true );
+		$is_approved = in_array( $email, self::PRE_APPROVED_EMAILS, true );
 
-		if ( $request->hasFile( 'image' ) ) {
+		if ( $request->hasFile( 'images' ) ) {
 			/** @var array<\Illuminate\Http\UploadedFile> $files */
-			$files = $request->file( 'image' );
+			$files = $request->file( 'images' );
 
 			foreach ( $files as $file ) {
 				$image_path             = $file->store( 'image', 'public' );
@@ -98,7 +98,7 @@ class ImageController extends Controller {
 						'width'       => $width,
 						'height'      => $height,
 						'email'       => $email,           // <-- Save the email
-						'is_approved' => $isApproved,      // <-- Save the approval status
+						'is_approved' => $is_approved,      // <-- Save the approval status
 					)
 				);
 			}

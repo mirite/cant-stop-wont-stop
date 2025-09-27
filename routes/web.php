@@ -61,7 +61,7 @@ Route::get(
 
 Route::controller( ImageController::class )->group(
 	function () {
-		Route::get( '/capture', 'index' );
+		Route::get( '/capture', 'index' )->name( 'image.index' );
 		Route::post( '/capture', 'store' )->middleware( 'turnstile' );
 	}
 );

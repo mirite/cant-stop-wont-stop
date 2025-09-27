@@ -1,4 +1,5 @@
 import type { ReactElement } from "react";
+import Turnstile from "react-turnstile";
 
 import { useUploadForm } from "@/useUploadForm";
 
@@ -11,6 +12,7 @@ export default function ImageUploader(): ReactElement {
 	const {
 		changeEmail,
 		changeFiles,
+		changeTurnstile,
 		data,
 		errors,
 		fileListText,
@@ -53,13 +55,12 @@ export default function ImageUploader(): ReactElement {
 				required
 				type="emailInput"
 			/>
-			<div
-				// eslint-disable-next-line tailwindcss/no-custom-classname
-				className="cf-turnstile"
-				data-callback="onSuccess"
-				data-sitekey="0x4AAAAAABtXg9HPDsMQ2aD1"
-				data-size="normal"
-				data-theme="light"
+			<Turnstile
+				onSuccess={(token) => {
+					changeTurnstile(token);
+				}}
+				sitekey={import.meta.env.VITE_TURNSTILE_SITE_KEY as string}
+				theme="light"
 			/>
 			<button
 				className="cursor-pointer rounded-full bg-primary/20 px-8 py-1 text-center text-xl font-bold uppercase transition-all not-disabled:hover:bg-primary not-disabled:hover:text-neutral disabled:cursor-not-allowed disabled:opacity-70"
@@ -73,9 +74,11 @@ export default function ImageUploader(): ReactElement {
 					{progress.percentage}%
 				</progress>
 			)}
-			{errors.files ? (
-				<div className="bg-amber-400 p-2">{errors.files}</div>
-			) : null}
+			{Object.entries(errors).map(([field, error]) => (
+				<div className="bg-amber-400 p-2" key={field}>
+					{error}
+				</div>
+			))}
 		</form>
 	);
 }

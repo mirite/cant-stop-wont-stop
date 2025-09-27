@@ -26,7 +26,7 @@ export default function ImageUploader({
 		hasImages,
 		progress,
 		uploadButtonText,
-	} = useUploadForm("/capture");
+	} = useUploadForm("/photos");
 	const siteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY as unknown;
 	if (typeof siteKey !== "string") {
 		return <span>Turnstile Site Key Not Set</span>;

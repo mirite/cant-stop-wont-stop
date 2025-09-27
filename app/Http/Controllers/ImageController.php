@@ -20,7 +20,7 @@ class ImageController extends Controller {
 	 */
 	private const PRE_APPROVED_EMAILS = array(
 		'jconner90@gmail.com',
-		'another-admin@example.com',
+		'bfew23@gmail.com',
 	);
 
 	/**

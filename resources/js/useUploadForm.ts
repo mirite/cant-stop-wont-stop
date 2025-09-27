@@ -2,11 +2,12 @@ import { useForm } from "@inertiajs/react";
 import type { AxiosProgressEvent } from "axios";
 import type { ChangeEvent, FormEvent } from "react";
 
-export type UseFormPayload = {
-	"cf-turnstile-response": string;
-	email: string;
-	images: Record<string, File>;
+const defaultPayload = {
+	"cf-turnstile-response": "",
+	email: "",
+	images: {} as Record<string, File>,
 };
+export type UseFormPayload = typeof defaultPayload;
 export type UseUploadFormResult<TData extends object> = {
 	changeEmail: (e: ChangeEvent<HTMLInputElement>) => unknown;
 	changeFiles: (e: ChangeEvent<HTMLInputElement>) => unknown;
@@ -29,9 +30,7 @@ export function useUploadForm(
 	endpoint: string,
 ): UseUploadFormResult<UseFormPayload> {
 	const { data, errors, post, progress, setData } = useForm<UseFormPayload>({
-		"cf-turnstile-response": "",
-		email: "",
-		images: {},
+		...defaultPayload,
 	});
 
 	const changeFiles = (e: ChangeEvent<HTMLInputElement>) => {
@@ -50,7 +49,11 @@ export function useUploadForm(
 	};
 	const handleSubmit = (e: FormEvent) => {
 		e.preventDefault();
-		post(endpoint);
+		post(endpoint, {
+			onSuccess: () => {
+				setData({ ...defaultPayload });
+			},
+		});
 	};
 	const hasImages = isContentful(data);
 	const fileListText = hasImages ? Object.keys(data.images).join(", ") : "";

@@ -12,12 +12,14 @@ import Layout from "../Layouts/MainLayout";
  * @param props The component props
  * @returns The component.
  */
-export default function PhotosUpload(props: PageProps): ReactElement {
+export default function PhotosUpload(
+	props: PageProps<{ uploadStatus?: string }>,
+): ReactElement {
 	return (
 		<Layout {...props}>
 			<Head title="Add Photos" />
 			<Heading1>Add Photos</Heading1>
-			<ImageUploader />
+			<ImageUploader uploadStatus={props.uploadStatus} />
 		</Layout>
 	);
 }

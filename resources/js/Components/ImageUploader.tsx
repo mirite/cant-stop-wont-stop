@@ -6,9 +6,15 @@ import { useUploadForm } from "@/useUploadForm";
 /**
  * Form for uploading new photos from the event.
  *
+ * @param root0
+ * @param root0.uploadStatus
  * @returns The component.
  */
-export default function ImageUploader(): ReactElement {
+export default function ImageUploader({
+	uploadStatus,
+}: {
+	uploadStatus?: string;
+}): ReactElement {
 	const {
 		changeEmail,
 		changeFiles,
@@ -82,6 +88,18 @@ export default function ImageUploader(): ReactElement {
 					{error}
 				</div>
 			))}
+			{uploadStatus === "approved" && (
+				<div className="mx-auto mb-4 max-w-3xl border border-solid border-green-600 bg-green-100 p-4 text-center text-green-800">
+					✅ Thank you for sharing your memories of our special day!
+				</div>
+			)}
+
+			{uploadStatus === "pending" && (
+				<div className="mx-auto mb-4 max-w-3xl border border-solid border-yellow-600 bg-yellow-100 p-4 text-center text-yellow-800">
+					👍 Thank you for sharing your memories of our special day! Your photos
+					are pending review and will appear in the gallery once approved.
+				</div>
+			)}
 		</form>
 	);
 }

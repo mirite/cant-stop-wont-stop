@@ -70,15 +70,17 @@ class ImageController extends Controller {
 		return Inertia::render(
 			'PhotosUpload',
 			array(
-				'phpVersion' => PHP_VERSION,
-				'theme'      => 'green',
-				'photos'     => $photo_data,
-			)
+				'phpVersion'   => PHP_VERSION,
+				'theme'        => 'green',
+				'photos'       => $photo_data,
+				'uploadStatus' => session( 'upload_status' ),
+			),
 		);
 	}
 
 	public function store( StoreImage $request ) {
-		$email = $request->validated( 'email' );
+		$image_uploaded = false;
+		$email          = $request->validated( 'email' );
 
 		$is_approved = in_array( $email, self::PRE_APPROVED_EMAILS, true );
 
@@ -101,6 +103,14 @@ class ImageController extends Controller {
 					)
 				);
 			}
+
+			$image_uploaded = count( $files ) > 0;
+		}
+
+		if ( $image_uploaded ) {
+				$status = $is_approved ? 'approved' : 'pending';
+
+				return Redirect::route( 'image.index' )->with( 'upload_status', $status );
 		}
 
 		return Redirect::route( 'image.index' );

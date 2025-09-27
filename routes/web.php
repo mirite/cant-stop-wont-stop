@@ -20,7 +20,7 @@ Route::get(
 		);
 	}
 );
-
+/*
 Route::get(
 	'/photos',
 	function () {
@@ -36,7 +36,7 @@ Route::get(
 			)
 		);
 	}
-);
+);*/
 Route::get(
 	'/about',
 	function () {
@@ -61,8 +61,8 @@ Route::get(
 
 Route::controller( ImageController::class )->group(
 	function () {
-		Route::get( '/capture', 'index' )->name( 'image.index' );
-		Route::post( '/capture', 'store' )->middleware( 'turnstile' );
+		Route::get( '/photos', 'index' )->name( 'image.index' );
+		Route::post( '/photos', 'store' )->middleware( 'turnstile' );
 	}
 );
 

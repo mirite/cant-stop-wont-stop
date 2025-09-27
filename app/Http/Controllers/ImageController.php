@@ -70,7 +70,7 @@ class ImageController extends Controller {
 			array(
 				'phpVersion'   => PHP_VERSION,
 				'theme'        => 'green',
-				'photos'       => $photo_data,
+				'photos'       => array_merge( $photo_data, self::get() ),
 				'uploadStatus' => session( 'upload_status' ),
 			),
 		);

@@ -21,7 +21,10 @@ export default function ImageUploader(): ReactElement {
 		progress,
 		uploadButtonText,
 	} = useUploadForm("/capture");
-
+	const siteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY as unknown;
+	if (typeof siteKey !== "string") {
+		return <span>Turnstile Site Key Not Set</span>;
+	}
 	return (
 		<form
 			className="mx-auto mb-4 flex max-w-3xl flex-col items-center justify-center gap-4 border border-solid p-8"
@@ -59,7 +62,7 @@ export default function ImageUploader(): ReactElement {
 				onSuccess={(token) => {
 					changeTurnstile(token);
 				}}
-				sitekey={import.meta.env.VITE_TURNSTILE_SITE_KEY as string}
+				sitekey={siteKey}
 				theme="light"
 			/>
 			<button

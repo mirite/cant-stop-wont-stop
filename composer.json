@@ -4,6 +4,7 @@
 	"type": "project",
 	"description": "The custom component of our wedding website",
 	"require": {
+		"dedmytro/laravel-cloudflare-images": "^0.2.2",
 		"inertiajs/inertia-laravel": "^2.0.5",
 		"laravel/framework": "^12.24.0",
 		"laravel/sanctum": "^4.2",

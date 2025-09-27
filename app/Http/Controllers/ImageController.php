@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreImage;
 use App\Models\Image;
-use Illuminate\Support\Facades\{Redirect, Storage};
+use DeDmytro\CloudflareImages\Facades\CloudflareApi;
+use Illuminate\Support\Facades\{Redirect};
 use Inertia\Inertia;
 
 /**
@@ -55,7 +56,7 @@ class ImageController extends Controller {
 		$photo_data = $images->map(
 			function ( Image $image ) {
 				return array(
-					'src'    => Storage::url( $image->image ),
+					'src'    => CloudflareApi::images()->url( $image->image ),
 					'title'  => $image->title,
 					'width'  => $image->width,
 					'height' => $image->height,
@@ -86,12 +87,14 @@ class ImageController extends Controller {
 			$files = $request->file( 'images' );
 
 			foreach ( $files as $file ) {
+				$response               = CloudflareApi::images()->upload( $file );
+				$cloudflare_id          = $response->result->id;
 				$image_path             = $file->store( 'image', 'public' );
 				list( $width, $height ) = getimagesize( $file->getRealPath() );
 
 				Image::create(
 					array(
-						'image'       => $image_path,
+						'image'       => $cloudflare_id,
 						'title'       => $request->input( 'title', $file->getClientOriginalName() ),
 						'width'       => $width,
 						'height'      => $height,

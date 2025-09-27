@@ -1,12 +1,11 @@
-import type { FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
-import type { ButtonHTMLAttributes, ReactElement } from "react";
-
 import {
 	faChevronLeft,
 	faChevronRight,
 	faX,
 } from "@fortawesome/free-solid-svg-icons";
+import type { FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import type { ButtonHTMLAttributes, ReactElement } from "react";
 import { twMerge } from "tailwind-merge";
 
 import type { PhotoProps } from "@/types/photos";
@@ -67,7 +66,7 @@ export default function LightboxPhoto(props: LightboxPhotoProps): ReactElement {
 					<img
 						alt=""
 						className="max-h-full max-w-full object-contain object-center"
-						src={`/images/${src}`}
+						src={src}
 						title={title}
 					/>
 					<div className="inset-x-0 bottom-0 w-full bg-eucalyptus p-4 text-neutral transition-all lg:absolute lg:bg-eucalyptus/90 lg:opacity-0 lg:group-hover:opacity-100">

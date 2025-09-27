@@ -25,7 +25,7 @@ export default function Photo(props: Props): ReactElement {
 					alt=""
 					className={className}
 					height={500}
-					src={`/images/${src}`}
+					src={src}
 					width={500}
 					{...rest}
 				/>

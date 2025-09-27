@@ -25,8 +25,6 @@ class ImageController extends Controller {
 	/**
 	 * Get the photos to display.
 	 *
-	 * TODO: Find out how Laravel does this properly.
-	 *
 	 * @return array<array{src:string,title:string,date:int,className:string,description?:string}>> The photo data.
 	 */
 	public static function get(): array {
@@ -65,7 +63,6 @@ class ImageController extends Controller {
 				);
 			}
 		)->all();
-		$photo_data = array_merge( self::get(), $photo_data );
 
 		return Inertia::render(
 			'PhotosUpload',
@@ -151,7 +148,7 @@ class ImageController extends Controller {
 		}
 
 		return array(
-			'src'    => $entry,
+			'src'    => 'images/' . $entry,
 			'title'  => $title,
 			'width'  => $width,
 			'height' => $height,

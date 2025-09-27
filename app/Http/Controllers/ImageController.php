@@ -78,7 +78,6 @@ class ImageController extends Controller {
 	}
 
 	public function store( StoreImage $request ) {
-		dd( 'Store method was reached' );
 		$email = $request->validated( 'email' );
 
 		$is_approved = in_array( $email, self::PRE_APPROVED_EMAILS, true );

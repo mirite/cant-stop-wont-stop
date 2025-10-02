@@ -4,6 +4,9 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * An upload image request.
+ */
 class StoreImage extends FormRequest {
 
 	/**
@@ -22,8 +25,8 @@ class StoreImage extends FormRequest {
 	 */
 	public function rules(): array {
 		return array(
-			'images'   => array( 'required', 'array', 'max:10' ),
-			'images.*' => array( 'required', 'image', 'mimes:jpg,jpeg,png,gif,svg,webp', 'max:5120' ),
+			'images'   => array( 'required', 'array', 'max:20' ),
+			'images.*' => array( 'required', 'image', 'mimes:jpg,jpeg,png,gif,svg,webp,heic', 'max:10240' ),
 			'email'    => array( 'required', 'string', 'email', 'max:255' ),
 		);
 	}

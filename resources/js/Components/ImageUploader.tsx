@@ -6,8 +6,8 @@ import { useUploadForm } from "@/useUploadForm";
 /**
  * Form for uploading new photos from the event.
  *
- * @param root0
- * @param root0.uploadStatus
+ * @param root0 The upload status from Laravel.
+ * @param root0.uploadStatus The upload status from Laravel.
  * @returns The component.
  */
 export default function ImageUploader({
@@ -36,23 +36,6 @@ export default function ImageUploader({
 			className="mx-auto mb-4 flex max-w-3xl flex-col items-center justify-center gap-4 border border-solid p-8"
 			onSubmit={handleSubmit}
 		>
-			<label
-				className="cursor-pointer rounded-full bg-primary/20 px-8 py-1 text-center text-xl font-bold uppercase transition-all hover:bg-primary hover:text-neutral"
-				htmlFor="fileInput"
-			>
-				Choose Photos
-			</label>
-			<input
-				accept="image/png, image/jpeg"
-				className="hidden"
-				id="fileInput"
-				multiple={true}
-				onChange={changeFiles}
-				type="file"
-			/>
-			{fileListText != "" && (
-				<span className="tracking-normal">{fileListText}</span>
-			)}
 			<label className="cursor-pointer font-bold" htmlFor="emailInput">
 				Your Email
 			</label>
@@ -64,6 +47,30 @@ export default function ImageUploader({
 				required
 				type="emailInput"
 			/>
+			<div className="flex flex-col items-center gap-2">
+				<p className="max-w-[80ch] text-center tracking-normal">
+					Choose up to 20 photos (PNG or JPEG, up to 10MB each) from your device
+					to share.
+				</p>
+				<label
+					className="cursor-pointer rounded-full bg-primary/20 px-8 py-1 text-center text-xl font-bold uppercase transition-all hover:bg-primary hover:text-neutral"
+					htmlFor="fileInput"
+				>
+					Choose Photos
+				</label>
+				<input
+					accept="image/*"
+					capture="environment"
+					className="hidden"
+					id="fileInput"
+					multiple={true}
+					onChange={changeFiles}
+					type="file"
+				/>
+				{fileListText != "" && (
+					<span className="tracking-normal">{fileListText}</span>
+				)}
+			</div>
 			<Turnstile
 				onSuccess={(token) => {
 					changeTurnstile(token);

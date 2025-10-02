@@ -1,13 +1,16 @@
+/* eslint-disable @typescript-eslint/unbound-method */
 import { useForm } from "@inertiajs/react";
 import type { AxiosProgressEvent } from "axios";
 import type { ChangeEvent, FormEvent } from "react";
 
-const defaultPayload = {
+const MAX_FILE_SIZE_MB = 10;
+const MAX_FILE_SIZE_BYTES = MAX_FILE_SIZE_MB * 1024 * 1024;
+const defaultPayload = () => ({
 	"cf-turnstile-response": "",
 	email: "",
 	images: {} as Record<string, File>,
-};
-export type UseFormPayload = typeof defaultPayload;
+});
+export type UseFormPayload = ReturnType<typeof defaultPayload>;
 export type UseUploadFormResult<TData extends object> = {
 	changeEmail: (e: ChangeEvent<HTMLInputElement>) => unknown;
 	changeFiles: (e: ChangeEvent<HTMLInputElement>) => unknown;
@@ -29,17 +32,33 @@ export type UseUploadFormResult<TData extends object> = {
 export function useUploadForm(
 	endpoint: string,
 ): UseUploadFormResult<UseFormPayload> {
-	const { data, errors, post, progress, setData } = useForm<UseFormPayload>({
-		...defaultPayload,
-	});
+	const { clearErrors, data, errors, post, progress, setData, setError } =
+		useForm(defaultPayload);
 
 	const changeFiles = (e: ChangeEvent<HTMLInputElement>) => {
-		const newState: UseFormPayload = { ...data, images: {} };
-		for (const file of e.target.files || []) {
-			newState.images[file.name] = file;
+		clearErrors("images");
+
+		const validImages: Record<string, File> = {};
+		const oversizedFiles: string[] = [];
+		const files = e.target.files || [];
+
+		for (const file of files) {
+			if (file.size > MAX_FILE_SIZE_BYTES) {
+				oversizedFiles.push(file.name);
+			} else {
+				validImages[file.name] = file;
+			}
 		}
 
-		setData(newState);
+		setData({ ...data, images: validImages });
+
+		if (oversizedFiles.length > 0) {
+			const fileList = oversizedFiles.join(", ");
+			setError(
+				"images",
+				`The following files exceed the ${MAX_FILE_SIZE_MB}MB limit and were not added: ${fileList}.`,
+			);
+		}
 	};
 	const changeEmail = (e: ChangeEvent<HTMLInputElement>) => {
 		setData({ ...data, email: e.currentTarget.value });
@@ -51,7 +70,7 @@ export function useUploadForm(
 		e.preventDefault();
 		post(endpoint, {
 			onSuccess: () => {
-				setData({ ...defaultPayload });
+				setData(defaultPayload);
 			},
 		});
 	};

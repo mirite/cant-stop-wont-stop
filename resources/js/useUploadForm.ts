@@ -3,7 +3,7 @@ import { useForm } from "@inertiajs/react";
 import type { AxiosProgressEvent } from "axios";
 import type { ChangeEvent, FormEvent } from "react";
 
-const MAX_FILE_SIZE_MB = 10;
+const MAX_FILE_SIZE_MB = 25;
 const MAX_FILE_SIZE_BYTES = MAX_FILE_SIZE_MB * 1024 * 1024;
 const defaultPayload = () => ({
 	"cf-turnstile-response": "",

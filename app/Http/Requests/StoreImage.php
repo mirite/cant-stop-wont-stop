@@ -25,8 +25,8 @@ class StoreImage extends FormRequest {
 	 */
 	public function rules(): array {
 		return array(
-			'images'   => array( 'required', 'array', 'max:20' ),
-			'images.*' => array( 'required', 'image', 'mimes:jpg,jpeg,png,gif,svg,webp,heic', 'max:10240' ),
+			'images'   => array( 'required', 'array', 'max:10' ),
+			'images.*' => array( 'required', 'image', 'mimes:jpg,jpeg,png,gif,svg,webp,heic', 'max:25000' ),
 			'email'    => array( 'required', 'string', 'email', 'max:255' ),
 		);
 	}

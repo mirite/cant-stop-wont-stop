@@ -49,7 +49,7 @@ export default function ImageUploader({
 			/>
 			<div className="flex flex-col items-center gap-2">
 				<p className="max-w-[80ch] text-center tracking-normal">
-					Choose up to 20 photos (PNG or JPEG, up to 10MB each) from your device
+					Choose up to 10 photos (PNG or JPEG, up to 25MB each) from your device
 					to share.
 				</p>
 				<label
@@ -60,7 +60,6 @@ export default function ImageUploader({
 				</label>
 				<input
 					accept="image/*"
-					capture="environment"
 					className="hidden"
 					id="fileInput"
 					multiple={true}

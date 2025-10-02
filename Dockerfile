@@ -3,8 +3,11 @@ FROM php:8.4-alpine AS base
 
 RUN apk update && \
     apk add --no-cache libsodium-dev zlib-dev libpng-dev icu-dev libxml2-dev libxslt-dev libzip-dev curl libpq-dev nodejs npm linux-headers && \
-    docker-php-ext-install bcmath sodium gd intl soap xsl zip pdo_pgsql sockets && \
-    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
+    docker-php-ext-install bcmath sodium gd intl soap xsl zip pdo_pgsql sockets
+
+COPY uploads.ini /usr/local/etc/php/conf.d/uploads.ini
+
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
     rm -rf /var/cache/apk/*
 
 FROM base AS filesystem

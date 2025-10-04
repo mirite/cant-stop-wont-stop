@@ -20,7 +20,20 @@ class ImageController extends Controller {
 	 */
 	private const PRE_APPROVED_EMAILS = array(
 		'jconner90@gmail.com',
-		'bfew23@gmail.com',
+		'Bboudreau890@gmail.com',
+		'dfew@sympatico.ca',
+		'kimhf001@hotmail.com',
+		'katie_few@yahoo.ca',
+		'alexisemerson29@gmail.com',
+		'cory@iamogre.com',
+		'bigred.conner@gmail.com',
+		'4thboyof5727@gmail.com',
+		'mattymattob@gmail.com',
+		'rosannec7@gmail.com',
+		'timmyconner97@gmail.com',
+		'jameswellconner@gmail.com',
+		'medic705@icloud.com',
+		'kiernan@thevine.to',
 	);
 
 	/**
@@ -94,12 +107,10 @@ class ImageController extends Controller {
 
 				Image::create(
 					array(
-						'image'       => $cloudflare_id,
-						'title'       => $request->input( 'title', $file->getClientOriginalName() ),
-						'width'       => $width,
-						'height'      => $height,
-						'email'       => $email,           // <-- Save the email
-						'is_approved' => $is_approved,      // <-- Save the approval status
+						'image'  => $cloudflare_id,
+						'title'  => $request->input( 'title', $file->getClientOriginalName() ),
+						'width'  => $width,
+						'height' => $height,
 					)
 				);
 			}

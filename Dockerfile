@@ -17,7 +17,7 @@ RUN apk update && \
     libpq-dev \
     linux-headers
 
-RUN docker-php-ext-install bcmath sodium gd intl soap xsl zip pdo_pgsql sockets
+# RUN docker-php-ext-install bcmath sodium gd intl soap xsl zip pdo_pgsql sockets
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 

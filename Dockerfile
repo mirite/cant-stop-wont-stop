@@ -23,14 +23,6 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 COPY uploads.ini /usr/local/etc/php/conf.d/uploads.ini
 
-FROM node:24-alpine AS frontend
-RUN corepack enable
-WORKDIR /app
-COPY package*.json ./
-RUN yarn install
-COPY . .
-RUN yarn run build
-
 FROM base AS vendor
 WORKDIR /app
 COPY --from=frontend /app .
@@ -52,7 +44,6 @@ ENV DB_PASSWORD=$DB_PASSWORD
 
 COPY --from=vendor /app/vendor ./vendor
 COPY . .
-COPY --from=frontend /app/public/build ./public/build
 
 RUN php artisan config:cache && \
     php artisan route:cache && \

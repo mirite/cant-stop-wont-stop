@@ -107,10 +107,12 @@ class ImageController extends Controller {
 
 				Image::create(
 					array(
-						'image'  => $cloudflare_id,
-						'title'  => $request->input( 'title', $file->getClientOriginalName() ),
-						'width'  => $width,
-						'height' => $height,
+						'image'       => $cloudflare_id,
+						'title'       => $request->input( 'title', $file->getClientOriginalName() ),
+						'width'       => $width,
+						'height'      => $height,
+						'email'       => $email,
+						'is_approved' => $is_approved,
 					)
 				);
 			}

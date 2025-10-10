@@ -4,8 +4,154 @@
 		"Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
 		"This file is @generated automatically"
 	],
-	"content-hash": "1ebfa6a88ee5e365889e286f6b340acf",
+	"content-hash": "07fe076a06d18be282b33e14ed215cc3",
 	"packages": [
+		{
+			"name": "barryvdh/laravel-ide-helper",
+			"version": "v3.6.0",
+			"source": {
+				"type": "git",
+				"url": "https://github.com/barryvdh/laravel-ide-helper.git",
+				"reference": "8d00250cba25728373e92c1d8dcebcbf64623d29"
+			},
+			"dist": {
+				"type": "zip",
+				"url": "https://api.github.com/repos/barryvdh/laravel-ide-helper/zipball/8d00250cba25728373e92c1d8dcebcbf64623d29",
+				"reference": "8d00250cba25728373e92c1d8dcebcbf64623d29",
+				"shasum": ""
+			},
+			"require": {
+				"barryvdh/reflection-docblock": "^2.4",
+				"composer/class-map-generator": "^1.0",
+				"ext-json": "*",
+				"illuminate/console": "^11.15 || ^12",
+				"illuminate/database": "^11.15 || ^12",
+				"illuminate/filesystem": "^11.15 || ^12",
+				"illuminate/support": "^11.15 || ^12",
+				"php": "^8.2"
+			},
+			"require-dev": {
+				"ext-pdo_sqlite": "*",
+				"friendsofphp/php-cs-fixer": "^3",
+				"illuminate/config": "^11.15 || ^12",
+				"illuminate/view": "^11.15 || ^12",
+				"mockery/mockery": "^1.4",
+				"orchestra/testbench": "^9.2 || ^10",
+				"phpunit/phpunit": "^10.5 || ^11.5.3",
+				"spatie/phpunit-snapshot-assertions": "^4 || ^5",
+				"vimeo/psalm": "^5.4",
+				"vlucas/phpdotenv": "^5"
+			},
+			"suggest": {
+				"illuminate/events": "Required for automatic helper generation (^6|^7|^8|^9|^10|^11)."
+			},
+			"type": "library",
+			"extra": {
+				"laravel": {
+					"providers": [
+						"Barryvdh\\LaravelIdeHelper\\IdeHelperServiceProvider"
+					]
+				},
+				"branch-alias": {
+					"dev-master": "3.5-dev"
+				}
+			},
+			"autoload": {
+				"psr-4": {
+					"Barryvdh\\LaravelIdeHelper\\": "src"
+				}
+			},
+			"notification-url": "https://packagist.org/downloads/",
+			"license": [
+				"MIT"
+			],
+			"authors": [
+				{
+					"name": "Barry vd. Heuvel",
+					"email": "barryvdh@gmail.com"
+				}
+			],
+			"description": "Laravel IDE Helper, generates correct PHPDocs for all Facade classes, to improve auto-completion.",
+			"keywords": [
+				"autocomplete",
+				"codeintel",
+				"dev",
+				"helper",
+				"ide",
+				"laravel",
+				"netbeans",
+				"phpdoc",
+				"phpstorm",
+				"sublime"
+			],
+			"support": {
+				"issues": "https://github.com/barryvdh/laravel-ide-helper/issues",
+				"source": "https://github.com/barryvdh/laravel-ide-helper/tree/v3.6.0"
+			},
+			"funding": [
+				{
+					"url": "https://fruitcake.nl",
+					"type": "custom"
+				},
+				{
+					"url": "https://github.com/barryvdh",
+					"type": "github"
+				}
+			],
+			"time": "2025-07-17T20:11:57+00:00"
+		},
+		{
+			"name": "barryvdh/reflection-docblock",
+			"version": "v2.4.0",
+			"source": {
+				"type": "git",
+				"url": "https://github.com/barryvdh/ReflectionDocBlock.git",
+				"reference": "d103774cbe7e94ddee7e4870f97f727b43fe7201"
+			},
+			"dist": {
+				"type": "zip",
+				"url": "https://api.github.com/repos/barryvdh/ReflectionDocBlock/zipball/d103774cbe7e94ddee7e4870f97f727b43fe7201",
+				"reference": "d103774cbe7e94ddee7e4870f97f727b43fe7201",
+				"shasum": ""
+			},
+			"require": {
+				"php": ">=7.1"
+			},
+			"require-dev": {
+				"phpunit/phpunit": "^8.5.14|^9"
+			},
+			"suggest": {
+				"dflydev/markdown": "~1.0",
+				"erusev/parsedown": "~1.0"
+			},
+			"type": "library",
+			"extra": {
+				"branch-alias": {
+					"dev-master": "2.3.x-dev"
+				}
+			},
+			"autoload": {
+				"psr-0": {
+					"Barryvdh": [
+						"src/"
+					]
+				}
+			},
+			"notification-url": "https://packagist.org/downloads/",
+			"license": [
+				"MIT"
+			],
+			"authors": [
+				{
+					"name": "Mike van Riel",
+					"email": "mike.vanriel@naenius.com"
+				}
+			],
+			"support": {
+				"source": "https://github.com/barryvdh/ReflectionDocBlock/tree/v2.4.0"
+			},
+			"time": "2025-07-17T06:07:30+00:00"
+		},
 		{
 			"name": "brick/math",
 			"version": "0.14.0",
@@ -134,6 +280,154 @@
 				}
 			],
 			"time": "2024-02-09T16:56:22+00:00"
+		},
+		{
+			"name": "composer/class-map-generator",
+			"version": "1.6.2",
+			"source": {
+				"type": "git",
+				"url": "https://github.com/composer/class-map-generator.git",
+				"reference": "ba9f089655d4cdd64e762a6044f411ccdaec0076"
+			},
+			"dist": {
+				"type": "zip",
+				"url": "https://api.github.com/repos/composer/class-map-generator/zipball/ba9f089655d4cdd64e762a6044f411ccdaec0076",
+				"reference": "ba9f089655d4cdd64e762a6044f411ccdaec0076",
+				"shasum": ""
+			},
+			"require": {
+				"composer/pcre": "^2.1 || ^3.1",
+				"php": "^7.2 || ^8.0",
+				"symfony/finder": "^4.4 || ^5.3 || ^6 || ^7"
+			},
+			"require-dev": {
+				"phpstan/phpstan": "^1.12 || ^2",
+				"phpstan/phpstan-deprecation-rules": "^1 || ^2",
+				"phpstan/phpstan-phpunit": "^1 || ^2",
+				"phpstan/phpstan-strict-rules": "^1.1 || ^2",
+				"phpunit/phpunit": "^8",
+				"symfony/filesystem": "^5.4 || ^6"
+			},
+			"type": "library",
+			"extra": {
+				"branch-alias": {
+					"dev-main": "1.x-dev"
+				}
+			},
+			"autoload": {
+				"psr-4": {
+					"Composer\\ClassMapGenerator\\": "src"
+				}
+			},
+			"notification-url": "https://packagist.org/downloads/",
+			"license": [
+				"MIT"
+			],
+			"authors": [
+				{
+					"name": "Jordi Boggiano",
+					"email": "j.boggiano@seld.be",
+					"homepage": "https://seld.be"
+				}
+			],
+			"description": "Utilities to scan PHP code and generate class maps.",
+			"keywords": [
+				"classmap"
+			],
+			"support": {
+				"issues": "https://github.com/composer/class-map-generator/issues",
+				"source": "https://github.com/composer/class-map-generator/tree/1.6.2"
+			},
+			"funding": [
+				{
+					"url": "https://packagist.com",
+					"type": "custom"
+				},
+				{
+					"url": "https://github.com/composer",
+					"type": "github"
+				}
+			],
+			"time": "2025-08-20T18:52:43+00:00"
+		},
+		{
+			"name": "composer/pcre",
+			"version": "3.3.2",
+			"source": {
+				"type": "git",
+				"url": "https://github.com/composer/pcre.git",
+				"reference": "b2bed4734f0cc156ee1fe9c0da2550420d99a21e"
+			},
+			"dist": {
+				"type": "zip",
+				"url": "https://api.github.com/repos/composer/pcre/zipball/b2bed4734f0cc156ee1fe9c0da2550420d99a21e",
+				"reference": "b2bed4734f0cc156ee1fe9c0da2550420d99a21e",
+				"shasum": ""
+			},
+			"require": {
+				"php": "^7.4 || ^8.0"
+			},
+			"conflict": {
+				"phpstan/phpstan": "<1.11.10"
+			},
+			"require-dev": {
+				"phpstan/phpstan": "^1.12 || ^2",
+				"phpstan/phpstan-strict-rules": "^1 || ^2",
+				"phpunit/phpunit": "^8 || ^9"
+			},
+			"type": "library",
+			"extra": {
+				"phpstan": {
+					"includes": [
+						"extension.neon"
+					]
+				},
+				"branch-alias": {
+					"dev-main": "3.x-dev"
+				}
+			},
+			"autoload": {
+				"psr-4": {
+					"Composer\\Pcre\\": "src"
+				}
+			},
+			"notification-url": "https://packagist.org/downloads/",
+			"license": [
+				"MIT"
+			],
+			"authors": [
+				{
+					"name": "Jordi Boggiano",
+					"email": "j.boggiano@seld.be",
+					"homepage": "http://seld.be"
+				}
+			],
+			"description": "PCRE wrapping library that offers type-safe preg_* replacements.",
+			"keywords": [
+				"PCRE",
+				"preg",
+				"regex",
+				"regular expression"
+			],
+			"support": {
+				"issues": "https://github.com/composer/pcre/issues",
+				"source": "https://github.com/composer/pcre/tree/3.3.2"
+			},
+			"funding": [
+				{
+					"url": "https://packagist.com",
+					"type": "custom"
+				},
+				{
+					"url": "https://github.com/composer",
+					"type": "github"
+				},
+				{
+					"url": "https://tidelift.com/funding/github/packagist/composer/composer",
+					"type": "tidelift"
+				}
+			],
+			"time": "2024-11-12T16:29:46+00:00"
 		},
 		{
 			"name": "dedmytro/laravel-cloudflare-images",
@@ -571,6 +865,77 @@
 				}
 			],
 			"time": "2025-03-06T22:45:56+00:00"
+		},
+		{
+			"name": "filp/whoops",
+			"version": "2.18.4",
+			"source": {
+				"type": "git",
+				"url": "https://github.com/filp/whoops.git",
+				"reference": "d2102955e48b9fd9ab24280a7ad12ed552752c4d"
+			},
+			"dist": {
+				"type": "zip",
+				"url": "https://api.github.com/repos/filp/whoops/zipball/d2102955e48b9fd9ab24280a7ad12ed552752c4d",
+				"reference": "d2102955e48b9fd9ab24280a7ad12ed552752c4d",
+				"shasum": ""
+			},
+			"require": {
+				"php": "^7.1 || ^8.0",
+				"psr/log": "^1.0.1 || ^2.0 || ^3.0"
+			},
+			"require-dev": {
+				"mockery/mockery": "^1.0",
+				"phpunit/phpunit": "^7.5.20 || ^8.5.8 || ^9.3.3",
+				"symfony/var-dumper": "^4.0 || ^5.0"
+			},
+			"suggest": {
+				"symfony/var-dumper": "Pretty print complex values better with var-dumper available",
+				"whoops/soap": "Formats errors as SOAP responses"
+			},
+			"type": "library",
+			"extra": {
+				"branch-alias": {
+					"dev-master": "2.7-dev"
+				}
+			},
+			"autoload": {
+				"psr-4": {
+					"Whoops\\": "src/Whoops/"
+				}
+			},
+			"notification-url": "https://packagist.org/downloads/",
+			"license": [
+				"MIT"
+			],
+			"authors": [
+				{
+					"name": "Filipe Dobreira",
+					"homepage": "https://github.com/filp",
+					"role": "Developer"
+				}
+			],
+			"description": "php error handling for cool kids",
+			"homepage": "https://filp.github.io/whoops/",
+			"keywords": [
+				"error",
+				"exception",
+				"handling",
+				"library",
+				"throwable",
+				"whoops"
+			],
+			"support": {
+				"issues": "https://github.com/filp/whoops/issues",
+				"source": "https://github.com/filp/whoops/tree/2.18.4"
+			},
+			"funding": [
+				{
+					"url": "https://github.com/denis-sokolov",
+					"type": "github"
+				}
+			],
+			"time": "2025-08-08T12:00:00+00:00"
 		},
 		{
 			"name": "fruitcake/php-cors",
@@ -1187,17 +1552,78 @@
 			"time": "2025-09-28T21:21:36+00:00"
 		},
 		{
-			"name": "laravel/framework",
-			"version": "v12.32.5",
+			"name": "laravel/breeze",
+			"version": "v2.3.8",
 			"source": {
 				"type": "git",
-				"url": "https://github.com/laravel/framework.git",
-				"reference": "77b2740391cd2a825ba59d6fada45e9b8b9bcc5a"
+				"url": "https://github.com/laravel/breeze.git",
+				"reference": "1a29c5792818bd4cddf70b5f743a227e02fbcfcd"
 			},
 			"dist": {
 				"type": "zip",
-				"url": "https://api.github.com/repos/laravel/framework/zipball/77b2740391cd2a825ba59d6fada45e9b8b9bcc5a",
-				"reference": "77b2740391cd2a825ba59d6fada45e9b8b9bcc5a",
+				"url": "https://api.github.com/repos/laravel/breeze/zipball/1a29c5792818bd4cddf70b5f743a227e02fbcfcd",
+				"reference": "1a29c5792818bd4cddf70b5f743a227e02fbcfcd",
+				"shasum": ""
+			},
+			"require": {
+				"illuminate/console": "^11.0|^12.0",
+				"illuminate/filesystem": "^11.0|^12.0",
+				"illuminate/support": "^11.0|^12.0",
+				"illuminate/validation": "^11.0|^12.0",
+				"php": "^8.2.0",
+				"symfony/console": "^7.0"
+			},
+			"require-dev": {
+				"laravel/framework": "^11.0|^12.0",
+				"orchestra/testbench-core": "^9.0|^10.0",
+				"phpstan/phpstan": "^2.0"
+			},
+			"type": "library",
+			"extra": {
+				"laravel": {
+					"providers": [
+						"Laravel\\Breeze\\BreezeServiceProvider"
+					]
+				}
+			},
+			"autoload": {
+				"psr-4": {
+					"Laravel\\Breeze\\": "src/"
+				}
+			},
+			"notification-url": "https://packagist.org/downloads/",
+			"license": [
+				"MIT"
+			],
+			"authors": [
+				{
+					"name": "Taylor Otwell",
+					"email": "taylor@laravel.com"
+				}
+			],
+			"description": "Minimal Laravel authentication scaffolding with Blade and Tailwind.",
+			"keywords": [
+				"auth",
+				"laravel"
+			],
+			"support": {
+				"issues": "https://github.com/laravel/breeze/issues",
+				"source": "https://github.com/laravel/breeze"
+			},
+			"time": "2025-07-18T18:49:59+00:00"
+		},
+		{
+			"name": "laravel/framework",
+			"version": "v12.33.0",
+			"source": {
+				"type": "git",
+				"url": "https://github.com/laravel/framework.git",
+				"reference": "124efc5f09d4668a4dc13f94a1018c524a58bcb1"
+			},
+			"dist": {
+				"type": "zip",
+				"url": "https://api.github.com/repos/laravel/framework/zipball/124efc5f09d4668a4dc13f94a1018c524a58bcb1",
+				"reference": "124efc5f09d4668a4dc13f94a1018c524a58bcb1",
 				"shasum": ""
 			},
 			"require": {
@@ -1403,7 +1829,86 @@
 				"issues": "https://github.com/laravel/framework/issues",
 				"source": "https://github.com/laravel/framework"
 			},
-			"time": "2025-09-30T17:39:22+00:00"
+			"time": "2025-10-07T14:30:39+00:00"
+		},
+		{
+			"name": "laravel/pail",
+			"version": "v1.2.3",
+			"source": {
+				"type": "git",
+				"url": "https://github.com/laravel/pail.git",
+				"reference": "8cc3d575c1f0e57eeb923f366a37528c50d2385a"
+			},
+			"dist": {
+				"type": "zip",
+				"url": "https://api.github.com/repos/laravel/pail/zipball/8cc3d575c1f0e57eeb923f366a37528c50d2385a",
+				"reference": "8cc3d575c1f0e57eeb923f366a37528c50d2385a",
+				"shasum": ""
+			},
+			"require": {
+				"ext-mbstring": "*",
+				"illuminate/console": "^10.24|^11.0|^12.0",
+				"illuminate/contracts": "^10.24|^11.0|^12.0",
+				"illuminate/log": "^10.24|^11.0|^12.0",
+				"illuminate/process": "^10.24|^11.0|^12.0",
+				"illuminate/support": "^10.24|^11.0|^12.0",
+				"nunomaduro/termwind": "^1.15|^2.0",
+				"php": "^8.2",
+				"symfony/console": "^6.0|^7.0"
+			},
+			"require-dev": {
+				"laravel/framework": "^10.24|^11.0|^12.0",
+				"laravel/pint": "^1.13",
+				"orchestra/testbench-core": "^8.13|^9.0|^10.0",
+				"pestphp/pest": "^2.20|^3.0",
+				"pestphp/pest-plugin-type-coverage": "^2.3|^3.0",
+				"phpstan/phpstan": "^1.12.27",
+				"symfony/var-dumper": "^6.3|^7.0"
+			},
+			"type": "library",
+			"extra": {
+				"laravel": {
+					"providers": [
+						"Laravel\\Pail\\PailServiceProvider"
+					]
+				},
+				"branch-alias": {
+					"dev-main": "1.x-dev"
+				}
+			},
+			"autoload": {
+				"psr-4": {
+					"Laravel\\Pail\\": "src/"
+				}
+			},
+			"notification-url": "https://packagist.org/downloads/",
+			"license": [
+				"MIT"
+			],
+			"authors": [
+				{
+					"name": "Taylor Otwell",
+					"email": "taylor@laravel.com"
+				},
+				{
+					"name": "Nuno Maduro",
+					"email": "enunomaduro@gmail.com"
+				}
+			],
+			"description": "Easily delve into your Laravel application's log files directly from the command line.",
+			"homepage": "https://github.com/laravel/pail",
+			"keywords": [
+				"dev",
+				"laravel",
+				"logs",
+				"php",
+				"tail"
+			],
+			"support": {
+				"issues": "https://github.com/laravel/pail/issues",
+				"source": "https://github.com/laravel/pail"
+			},
+			"time": "2025-06-05T13:55:57+00:00"
 		},
 		{
 			"name": "laravel/prompts",
@@ -2622,6 +3127,105 @@
 				"source": "https://github.com/nikic/PHP-Parser/tree/v5.6.1"
 			},
 			"time": "2025-08-13T20:13:15+00:00"
+		},
+		{
+			"name": "nunomaduro/collision",
+			"version": "v8.8.2",
+			"source": {
+				"type": "git",
+				"url": "https://github.com/nunomaduro/collision.git",
+				"reference": "60207965f9b7b7a4ce15a0f75d57f9dadb105bdb"
+			},
+			"dist": {
+				"type": "zip",
+				"url": "https://api.github.com/repos/nunomaduro/collision/zipball/60207965f9b7b7a4ce15a0f75d57f9dadb105bdb",
+				"reference": "60207965f9b7b7a4ce15a0f75d57f9dadb105bdb",
+				"shasum": ""
+			},
+			"require": {
+				"filp/whoops": "^2.18.1",
+				"nunomaduro/termwind": "^2.3.1",
+				"php": "^8.2.0",
+				"symfony/console": "^7.3.0"
+			},
+			"conflict": {
+				"laravel/framework": "<11.44.2 || >=13.0.0",
+				"phpunit/phpunit": "<11.5.15 || >=13.0.0"
+			},
+			"require-dev": {
+				"brianium/paratest": "^7.8.3",
+				"larastan/larastan": "^3.4.2",
+				"laravel/framework": "^11.44.2 || ^12.18",
+				"laravel/pint": "^1.22.1",
+				"laravel/sail": "^1.43.1",
+				"laravel/sanctum": "^4.1.1",
+				"laravel/tinker": "^2.10.1",
+				"orchestra/testbench-core": "^9.12.0 || ^10.4",
+				"pestphp/pest": "^3.8.2",
+				"sebastian/environment": "^7.2.1 || ^8.0"
+			},
+			"type": "library",
+			"extra": {
+				"laravel": {
+					"providers": [
+						"NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider"
+					]
+				},
+				"branch-alias": {
+					"dev-8.x": "8.x-dev"
+				}
+			},
+			"autoload": {
+				"files": [
+					"./src/Adapters/Phpunit/Autoload.php"
+				],
+				"psr-4": {
+					"NunoMaduro\\Collision\\": "src/"
+				}
+			},
+			"notification-url": "https://packagist.org/downloads/",
+			"license": [
+				"MIT"
+			],
+			"authors": [
+				{
+					"name": "Nuno Maduro",
+					"email": "enunomaduro@gmail.com"
+				}
+			],
+			"description": "Cli error handling for console/command-line PHP applications.",
+			"keywords": [
+				"artisan",
+				"cli",
+				"command-line",
+				"console",
+				"dev",
+				"error",
+				"handling",
+				"laravel",
+				"laravel-zero",
+				"php",
+				"symfony"
+			],
+			"support": {
+				"issues": "https://github.com/nunomaduro/collision/issues",
+				"source": "https://github.com/nunomaduro/collision"
+			},
+			"funding": [
+				{
+					"url": "https://www.paypal.com/paypalme/enunomaduro",
+					"type": "custom"
+				},
+				{
+					"url": "https://github.com/nunomaduro",
+					"type": "github"
+				},
+				{
+					"url": "https://www.patreon.com/nunomaduro",
+					"type": "patreon"
+				}
+			],
+			"time": "2025-06-25T02:12:12+00:00"
 		},
 		{
 			"name": "nunomaduro/termwind",
@@ -6294,152 +6898,6 @@
 	],
 	"packages-dev": [
 		{
-			"name": "barryvdh/laravel-ide-helper",
-			"version": "v3.6.0",
-			"source": {
-				"type": "git",
-				"url": "https://github.com/barryvdh/laravel-ide-helper.git",
-				"reference": "8d00250cba25728373e92c1d8dcebcbf64623d29"
-			},
-			"dist": {
-				"type": "zip",
-				"url": "https://api.github.com/repos/barryvdh/laravel-ide-helper/zipball/8d00250cba25728373e92c1d8dcebcbf64623d29",
-				"reference": "8d00250cba25728373e92c1d8dcebcbf64623d29",
-				"shasum": ""
-			},
-			"require": {
-				"barryvdh/reflection-docblock": "^2.4",
-				"composer/class-map-generator": "^1.0",
-				"ext-json": "*",
-				"illuminate/console": "^11.15 || ^12",
-				"illuminate/database": "^11.15 || ^12",
-				"illuminate/filesystem": "^11.15 || ^12",
-				"illuminate/support": "^11.15 || ^12",
-				"php": "^8.2"
-			},
-			"require-dev": {
-				"ext-pdo_sqlite": "*",
-				"friendsofphp/php-cs-fixer": "^3",
-				"illuminate/config": "^11.15 || ^12",
-				"illuminate/view": "^11.15 || ^12",
-				"mockery/mockery": "^1.4",
-				"orchestra/testbench": "^9.2 || ^10",
-				"phpunit/phpunit": "^10.5 || ^11.5.3",
-				"spatie/phpunit-snapshot-assertions": "^4 || ^5",
-				"vimeo/psalm": "^5.4",
-				"vlucas/phpdotenv": "^5"
-			},
-			"suggest": {
-				"illuminate/events": "Required for automatic helper generation (^6|^7|^8|^9|^10|^11)."
-			},
-			"type": "library",
-			"extra": {
-				"laravel": {
-					"providers": [
-						"Barryvdh\\LaravelIdeHelper\\IdeHelperServiceProvider"
-					]
-				},
-				"branch-alias": {
-					"dev-master": "3.5-dev"
-				}
-			},
-			"autoload": {
-				"psr-4": {
-					"Barryvdh\\LaravelIdeHelper\\": "src"
-				}
-			},
-			"notification-url": "https://packagist.org/downloads/",
-			"license": [
-				"MIT"
-			],
-			"authors": [
-				{
-					"name": "Barry vd. Heuvel",
-					"email": "barryvdh@gmail.com"
-				}
-			],
-			"description": "Laravel IDE Helper, generates correct PHPDocs for all Facade classes, to improve auto-completion.",
-			"keywords": [
-				"autocomplete",
-				"codeintel",
-				"dev",
-				"helper",
-				"ide",
-				"laravel",
-				"netbeans",
-				"phpdoc",
-				"phpstorm",
-				"sublime"
-			],
-			"support": {
-				"issues": "https://github.com/barryvdh/laravel-ide-helper/issues",
-				"source": "https://github.com/barryvdh/laravel-ide-helper/tree/v3.6.0"
-			},
-			"funding": [
-				{
-					"url": "https://fruitcake.nl",
-					"type": "custom"
-				},
-				{
-					"url": "https://github.com/barryvdh",
-					"type": "github"
-				}
-			],
-			"time": "2025-07-17T20:11:57+00:00"
-		},
-		{
-			"name": "barryvdh/reflection-docblock",
-			"version": "v2.4.0",
-			"source": {
-				"type": "git",
-				"url": "https://github.com/barryvdh/ReflectionDocBlock.git",
-				"reference": "d103774cbe7e94ddee7e4870f97f727b43fe7201"
-			},
-			"dist": {
-				"type": "zip",
-				"url": "https://api.github.com/repos/barryvdh/ReflectionDocBlock/zipball/d103774cbe7e94ddee7e4870f97f727b43fe7201",
-				"reference": "d103774cbe7e94ddee7e4870f97f727b43fe7201",
-				"shasum": ""
-			},
-			"require": {
-				"php": ">=7.1"
-			},
-			"require-dev": {
-				"phpunit/phpunit": "^8.5.14|^9"
-			},
-			"suggest": {
-				"dflydev/markdown": "~1.0",
-				"erusev/parsedown": "~1.0"
-			},
-			"type": "library",
-			"extra": {
-				"branch-alias": {
-					"dev-master": "2.3.x-dev"
-				}
-			},
-			"autoload": {
-				"psr-0": {
-					"Barryvdh": [
-						"src/"
-					]
-				}
-			},
-			"notification-url": "https://packagist.org/downloads/",
-			"license": [
-				"MIT"
-			],
-			"authors": [
-				{
-					"name": "Mike van Riel",
-					"email": "mike.vanriel@naenius.com"
-				}
-			],
-			"support": {
-				"source": "https://github.com/barryvdh/ReflectionDocBlock/tree/v2.4.0"
-			},
-			"time": "2025-07-17T06:07:30+00:00"
-		},
-		{
 			"name": "clue/ndjson-react",
 			"version": "v1.3.0",
 			"source": {
@@ -6502,154 +6960,6 @@
 				}
 			],
 			"time": "2022-12-23T10:58:28+00:00"
-		},
-		{
-			"name": "composer/class-map-generator",
-			"version": "1.6.2",
-			"source": {
-				"type": "git",
-				"url": "https://github.com/composer/class-map-generator.git",
-				"reference": "ba9f089655d4cdd64e762a6044f411ccdaec0076"
-			},
-			"dist": {
-				"type": "zip",
-				"url": "https://api.github.com/repos/composer/class-map-generator/zipball/ba9f089655d4cdd64e762a6044f411ccdaec0076",
-				"reference": "ba9f089655d4cdd64e762a6044f411ccdaec0076",
-				"shasum": ""
-			},
-			"require": {
-				"composer/pcre": "^2.1 || ^3.1",
-				"php": "^7.2 || ^8.0",
-				"symfony/finder": "^4.4 || ^5.3 || ^6 || ^7"
-			},
-			"require-dev": {
-				"phpstan/phpstan": "^1.12 || ^2",
-				"phpstan/phpstan-deprecation-rules": "^1 || ^2",
-				"phpstan/phpstan-phpunit": "^1 || ^2",
-				"phpstan/phpstan-strict-rules": "^1.1 || ^2",
-				"phpunit/phpunit": "^8",
-				"symfony/filesystem": "^5.4 || ^6"
-			},
-			"type": "library",
-			"extra": {
-				"branch-alias": {
-					"dev-main": "1.x-dev"
-				}
-			},
-			"autoload": {
-				"psr-4": {
-					"Composer\\ClassMapGenerator\\": "src"
-				}
-			},
-			"notification-url": "https://packagist.org/downloads/",
-			"license": [
-				"MIT"
-			],
-			"authors": [
-				{
-					"name": "Jordi Boggiano",
-					"email": "j.boggiano@seld.be",
-					"homepage": "https://seld.be"
-				}
-			],
-			"description": "Utilities to scan PHP code and generate class maps.",
-			"keywords": [
-				"classmap"
-			],
-			"support": {
-				"issues": "https://github.com/composer/class-map-generator/issues",
-				"source": "https://github.com/composer/class-map-generator/tree/1.6.2"
-			},
-			"funding": [
-				{
-					"url": "https://packagist.com",
-					"type": "custom"
-				},
-				{
-					"url": "https://github.com/composer",
-					"type": "github"
-				}
-			],
-			"time": "2025-08-20T18:52:43+00:00"
-		},
-		{
-			"name": "composer/pcre",
-			"version": "3.3.2",
-			"source": {
-				"type": "git",
-				"url": "https://github.com/composer/pcre.git",
-				"reference": "b2bed4734f0cc156ee1fe9c0da2550420d99a21e"
-			},
-			"dist": {
-				"type": "zip",
-				"url": "https://api.github.com/repos/composer/pcre/zipball/b2bed4734f0cc156ee1fe9c0da2550420d99a21e",
-				"reference": "b2bed4734f0cc156ee1fe9c0da2550420d99a21e",
-				"shasum": ""
-			},
-			"require": {
-				"php": "^7.4 || ^8.0"
-			},
-			"conflict": {
-				"phpstan/phpstan": "<1.11.10"
-			},
-			"require-dev": {
-				"phpstan/phpstan": "^1.12 || ^2",
-				"phpstan/phpstan-strict-rules": "^1 || ^2",
-				"phpunit/phpunit": "^8 || ^9"
-			},
-			"type": "library",
-			"extra": {
-				"phpstan": {
-					"includes": [
-						"extension.neon"
-					]
-				},
-				"branch-alias": {
-					"dev-main": "3.x-dev"
-				}
-			},
-			"autoload": {
-				"psr-4": {
-					"Composer\\Pcre\\": "src"
-				}
-			},
-			"notification-url": "https://packagist.org/downloads/",
-			"license": [
-				"MIT"
-			],
-			"authors": [
-				{
-					"name": "Jordi Boggiano",
-					"email": "j.boggiano@seld.be",
-					"homepage": "http://seld.be"
-				}
-			],
-			"description": "PCRE wrapping library that offers type-safe preg_* replacements.",
-			"keywords": [
-				"PCRE",
-				"preg",
-				"regex",
-				"regular expression"
-			],
-			"support": {
-				"issues": "https://github.com/composer/pcre/issues",
-				"source": "https://github.com/composer/pcre/tree/3.3.2"
-			},
-			"funding": [
-				{
-					"url": "https://packagist.com",
-					"type": "custom"
-				},
-				{
-					"url": "https://github.com/composer",
-					"type": "github"
-				},
-				{
-					"url": "https://tidelift.com/funding/github/packagist/composer/composer",
-					"type": "tidelift"
-				}
-			],
-			"time": "2024-11-12T16:29:46+00:00"
 		},
 		{
 			"name": "composer/semver",
@@ -7062,77 +7372,6 @@
 			"time": "2025-08-14T07:29:31+00:00"
 		},
 		{
-			"name": "filp/whoops",
-			"version": "2.18.4",
-			"source": {
-				"type": "git",
-				"url": "https://github.com/filp/whoops.git",
-				"reference": "d2102955e48b9fd9ab24280a7ad12ed552752c4d"
-			},
-			"dist": {
-				"type": "zip",
-				"url": "https://api.github.com/repos/filp/whoops/zipball/d2102955e48b9fd9ab24280a7ad12ed552752c4d",
-				"reference": "d2102955e48b9fd9ab24280a7ad12ed552752c4d",
-				"shasum": ""
-			},
-			"require": {
-				"php": "^7.1 || ^8.0",
-				"psr/log": "^1.0.1 || ^2.0 || ^3.0"
-			},
-			"require-dev": {
-				"mockery/mockery": "^1.0",
-				"phpunit/phpunit": "^7.5.20 || ^8.5.8 || ^9.3.3",
-				"symfony/var-dumper": "^4.0 || ^5.0"
-			},
-			"suggest": {
-				"symfony/var-dumper": "Pretty print complex values better with var-dumper available",
-				"whoops/soap": "Formats errors as SOAP responses"
-			},
-			"type": "library",
-			"extra": {
-				"branch-alias": {
-					"dev-master": "2.7-dev"
-				}
-			},
-			"autoload": {
-				"psr-4": {
-					"Whoops\\": "src/Whoops/"
-				}
-			},
-			"notification-url": "https://packagist.org/downloads/",
-			"license": [
-				"MIT"
-			],
-			"authors": [
-				{
-					"name": "Filipe Dobreira",
-					"homepage": "https://github.com/filp",
-					"role": "Developer"
-				}
-			],
-			"description": "php error handling for cool kids",
-			"homepage": "https://filp.github.io/whoops/",
-			"keywords": [
-				"error",
-				"exception",
-				"handling",
-				"library",
-				"throwable",
-				"whoops"
-			],
-			"support": {
-				"issues": "https://github.com/filp/whoops/issues",
-				"source": "https://github.com/filp/whoops/tree/2.18.4"
-			},
-			"funding": [
-				{
-					"url": "https://github.com/denis-sokolov",
-					"type": "github"
-				}
-			],
-			"time": "2025-08-08T12:00:00+00:00"
-		},
-		{
 			"name": "friendsofphp/php-cs-fixer",
 			"version": "v3.88.2",
 			"source": {
@@ -7286,146 +7525,6 @@
 				"source": "https://github.com/hamcrest/hamcrest-php/tree/v2.1.1"
 			},
 			"time": "2025-04-30T06:54:44+00:00"
-		},
-		{
-			"name": "laravel/breeze",
-			"version": "v2.3.8",
-			"source": {
-				"type": "git",
-				"url": "https://github.com/laravel/breeze.git",
-				"reference": "1a29c5792818bd4cddf70b5f743a227e02fbcfcd"
-			},
-			"dist": {
-				"type": "zip",
-				"url": "https://api.github.com/repos/laravel/breeze/zipball/1a29c5792818bd4cddf70b5f743a227e02fbcfcd",
-				"reference": "1a29c5792818bd4cddf70b5f743a227e02fbcfcd",
-				"shasum": ""
-			},
-			"require": {
-				"illuminate/console": "^11.0|^12.0",
-				"illuminate/filesystem": "^11.0|^12.0",
-				"illuminate/support": "^11.0|^12.0",
-				"illuminate/validation": "^11.0|^12.0",
-				"php": "^8.2.0",
-				"symfony/console": "^7.0"
-			},
-			"require-dev": {
-				"laravel/framework": "^11.0|^12.0",
-				"orchestra/testbench-core": "^9.0|^10.0",
-				"phpstan/phpstan": "^2.0"
-			},
-			"type": "library",
-			"extra": {
-				"laravel": {
-					"providers": [
-						"Laravel\\Breeze\\BreezeServiceProvider"
-					]
-				}
-			},
-			"autoload": {
-				"psr-4": {
-					"Laravel\\Breeze\\": "src/"
-				}
-			},
-			"notification-url": "https://packagist.org/downloads/",
-			"license": [
-				"MIT"
-			],
-			"authors": [
-				{
-					"name": "Taylor Otwell",
-					"email": "taylor@laravel.com"
-				}
-			],
-			"description": "Minimal Laravel authentication scaffolding with Blade and Tailwind.",
-			"keywords": [
-				"auth",
-				"laravel"
-			],
-			"support": {
-				"issues": "https://github.com/laravel/breeze/issues",
-				"source": "https://github.com/laravel/breeze"
-			},
-			"time": "2025-07-18T18:49:59+00:00"
-		},
-		{
-			"name": "laravel/pail",
-			"version": "v1.2.3",
-			"source": {
-				"type": "git",
-				"url": "https://github.com/laravel/pail.git",
-				"reference": "8cc3d575c1f0e57eeb923f366a37528c50d2385a"
-			},
-			"dist": {
-				"type": "zip",
-				"url": "https://api.github.com/repos/laravel/pail/zipball/8cc3d575c1f0e57eeb923f366a37528c50d2385a",
-				"reference": "8cc3d575c1f0e57eeb923f366a37528c50d2385a",
-				"shasum": ""
-			},
-			"require": {
-				"ext-mbstring": "*",
-				"illuminate/console": "^10.24|^11.0|^12.0",
-				"illuminate/contracts": "^10.24|^11.0|^12.0",
-				"illuminate/log": "^10.24|^11.0|^12.0",
-				"illuminate/process": "^10.24|^11.0|^12.0",
-				"illuminate/support": "^10.24|^11.0|^12.0",
-				"nunomaduro/termwind": "^1.15|^2.0",
-				"php": "^8.2",
-				"symfony/console": "^6.0|^7.0"
-			},
-			"require-dev": {
-				"laravel/framework": "^10.24|^11.0|^12.0",
-				"laravel/pint": "^1.13",
-				"orchestra/testbench-core": "^8.13|^9.0|^10.0",
-				"pestphp/pest": "^2.20|^3.0",
-				"pestphp/pest-plugin-type-coverage": "^2.3|^3.0",
-				"phpstan/phpstan": "^1.12.27",
-				"symfony/var-dumper": "^6.3|^7.0"
-			},
-			"type": "library",
-			"extra": {
-				"laravel": {
-					"providers": [
-						"Laravel\\Pail\\PailServiceProvider"
-					]
-				},
-				"branch-alias": {
-					"dev-main": "1.x-dev"
-				}
-			},
-			"autoload": {
-				"psr-4": {
-					"Laravel\\Pail\\": "src/"
-				}
-			},
-			"notification-url": "https://packagist.org/downloads/",
-			"license": [
-				"MIT"
-			],
-			"authors": [
-				{
-					"name": "Taylor Otwell",
-					"email": "taylor@laravel.com"
-				},
-				{
-					"name": "Nuno Maduro",
-					"email": "enunomaduro@gmail.com"
-				}
-			],
-			"description": "Easily delve into your Laravel application's log files directly from the command line.",
-			"homepage": "https://github.com/laravel/pail",
-			"keywords": [
-				"dev",
-				"laravel",
-				"logs",
-				"php",
-				"tail"
-			],
-			"support": {
-				"issues": "https://github.com/laravel/pail/issues",
-				"source": "https://github.com/laravel/pail"
-			},
-			"time": "2025-06-05T13:55:57+00:00"
 		},
 		{
 			"name": "laravel/pint",
@@ -7744,105 +7843,6 @@
 				}
 			],
 			"time": "2025-08-01T08:46:24+00:00"
-		},
-		{
-			"name": "nunomaduro/collision",
-			"version": "v8.8.2",
-			"source": {
-				"type": "git",
-				"url": "https://github.com/nunomaduro/collision.git",
-				"reference": "60207965f9b7b7a4ce15a0f75d57f9dadb105bdb"
-			},
-			"dist": {
-				"type": "zip",
-				"url": "https://api.github.com/repos/nunomaduro/collision/zipball/60207965f9b7b7a4ce15a0f75d57f9dadb105bdb",
-				"reference": "60207965f9b7b7a4ce15a0f75d57f9dadb105bdb",
-				"shasum": ""
-			},
-			"require": {
-				"filp/whoops": "^2.18.1",
-				"nunomaduro/termwind": "^2.3.1",
-				"php": "^8.2.0",
-				"symfony/console": "^7.3.0"
-			},
-			"conflict": {
-				"laravel/framework": "<11.44.2 || >=13.0.0",
-				"phpunit/phpunit": "<11.5.15 || >=13.0.0"
-			},
-			"require-dev": {
-				"brianium/paratest": "^7.8.3",
-				"larastan/larastan": "^3.4.2",
-				"laravel/framework": "^11.44.2 || ^12.18",
-				"laravel/pint": "^1.22.1",
-				"laravel/sail": "^1.43.1",
-				"laravel/sanctum": "^4.1.1",
-				"laravel/tinker": "^2.10.1",
-				"orchestra/testbench-core": "^9.12.0 || ^10.4",
-				"pestphp/pest": "^3.8.2",
-				"sebastian/environment": "^7.2.1 || ^8.0"
-			},
-			"type": "library",
-			"extra": {
-				"laravel": {
-					"providers": [
-						"NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider"
-					]
-				},
-				"branch-alias": {
-					"dev-8.x": "8.x-dev"
-				}
-			},
-			"autoload": {
-				"files": [
-					"./src/Adapters/Phpunit/Autoload.php"
-				],
-				"psr-4": {
-					"NunoMaduro\\Collision\\": "src/"
-				}
-			},
-			"notification-url": "https://packagist.org/downloads/",
-			"license": [
-				"MIT"
-			],
-			"authors": [
-				{
-					"name": "Nuno Maduro",
-					"email": "enunomaduro@gmail.com"
-				}
-			],
-			"description": "Cli error handling for console/command-line PHP applications.",
-			"keywords": [
-				"artisan",
-				"cli",
-				"command-line",
-				"console",
-				"dev",
-				"error",
-				"handling",
-				"laravel",
-				"laravel-zero",
-				"php",
-				"symfony"
-			],
-			"support": {
-				"issues": "https://github.com/nunomaduro/collision/issues",
-				"source": "https://github.com/nunomaduro/collision"
-			},
-			"funding": [
-				{
-					"url": "https://www.paypal.com/paypalme/enunomaduro",
-					"type": "custom"
-				},
-				{
-					"url": "https://github.com/nunomaduro",
-					"type": "github"
-				},
-				{
-					"url": "https://www.patreon.com/nunomaduro",
-					"type": "patreon"
-				}
-			],
-			"time": "2025-06-25T02:12:12+00:00"
 		},
 		{
 			"name": "phar-io/manifest",
@@ -8187,16 +8187,11 @@
 		},
 		{
 			"name": "phpstan/phpstan",
-			"version": "2.1.29",
-			"source": {
-				"type": "git",
-				"url": "https://github.com/phpstan/phpstan-phar-composer-source.git",
-				"reference": "git"
-			},
+			"version": "2.1.30",
 			"dist": {
 				"type": "zip",
-				"url": "https://api.github.com/repos/phpstan/phpstan/zipball/d618573eed4a1b6b75e37b2e0b65ac65c885d88e",
-				"reference": "d618573eed4a1b6b75e37b2e0b65ac65c885d88e",
+				"url": "https://api.github.com/repos/phpstan/phpstan/zipball/a4a7f159927983dd4f7c8020ed227d80b7f39d7d",
+				"reference": "a4a7f159927983dd4f7c8020ed227d80b7f39d7d",
 				"shasum": ""
 			},
 			"require": {
@@ -8241,7 +8236,7 @@
 					"type": "github"
 				}
 			],
-			"time": "2025-09-25T06:58:18+00:00"
+			"time": "2025-10-02T16:07:52+00:00"
 		},
 		{
 			"name": "phpunit/php-code-coverage",
@@ -9219,12 +9214,12 @@
 			"source": {
 				"type": "git",
 				"url": "https://github.com/Roave/SecurityAdvisories.git",
-				"reference": "4c2208a685ebaa31a0b6ce592e2ee2735542b0fc"
+				"reference": "79c1c038b063d5cdbdc7fc954eb8d7d1e1886f6e"
 			},
 			"dist": {
 				"type": "zip",
-				"url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/4c2208a685ebaa31a0b6ce592e2ee2735542b0fc",
-				"reference": "4c2208a685ebaa31a0b6ce592e2ee2735542b0fc",
+				"url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/79c1c038b063d5cdbdc7fc954eb8d7d1e1886f6e",
+				"reference": "79c1c038b063d5cdbdc7fc954eb8d7d1e1886f6e",
 				"shasum": ""
 			},
 			"conflict": {
@@ -9664,7 +9659,9 @@
 				"mediawiki/semantic-media-wiki": "<4.0.2",
 				"mehrwert/phpmyadmin": "<3.2",
 				"melisplatform/melis-asset-manager": "<5.0.1",
-				"melisplatform/melis-cms": "<5.0.1",
+				"melisplatform/melis-cms": "<5.3.4",
+				"melisplatform/melis-cms-slider": "<5.3.1",
+				"melisplatform/melis-core": "<5.3.11",
 				"melisplatform/melis-front": "<5.0.1",
 				"mezzio/mezzio-swoole": "<3.7|>=4,<4.3",
 				"mgallegos/laravel-jqgrid": "<=1.3",
@@ -9715,7 +9712,7 @@
 				"notrinos/notrinos-erp": "<=0.7",
 				"noumo/easyii": "<=0.9",
 				"novaksolutions/infusionsoft-php-sdk": "<1",
-				"novosga/novosga": "<=2.2.9",
+				"novosga/novosga": "<=2.2.12",
 				"nukeviet/nukeviet": "<4.5.02",
 				"nyholm/psr7": "<1.6.1",
 				"nystudio107/craft-seomatic": "<3.4.12",
@@ -9730,7 +9727,7 @@
 				"omeka/omeka-s": "<4.0.3",
 				"onelogin/php-saml": "<2.10.4",
 				"oneup/uploader-bundle": ">=1,<1.9.3|>=2,<2.1.5",
-				"open-web-analytics/open-web-analytics": "<1.7.4",
+				"open-web-analytics/open-web-analytics": "<1.8.1",
 				"opencart/opencart": ">=0",
 				"openid/php-openid": "<2.3",
 				"openmage/magento-lts": "<20.12.3",
@@ -9993,7 +9990,7 @@
 				"thelia/thelia": ">=2.1,<2.1.3",
 				"theonedemon/phpwhois": "<=4.2.5",
 				"thinkcmf/thinkcmf": "<6.0.8",
-				"thorsten/phpmyfaq": "<=4.0.1",
+				"thorsten/phpmyfaq": "<=4.0.1|>=4.0.7,<4.0.13",
 				"tikiwiki/tiki-manager": "<=17.1",
 				"timber/timber": ">=0.16.6,<1.23.1|>=1.24,<1.24.1|>=2,<2.1",
 				"tinymce/tinymce": "<7.2",
@@ -10009,7 +10006,7 @@
 				"tribalsystems/zenario": "<=9.7.61188",
 				"truckersmp/phpwhois": "<=4.3.1",
 				"ttskch/pagination-service-provider": "<1",
-				"twbs/bootstrap": "<3.4.1|>=4,<=4.6.2",
+				"twbs/bootstrap": "<3.4.1|>=4,<4.3.1",
 				"twig/twig": "<3.11.2|>=3.12,<3.14.1|>=3.16,<3.19",
 				"typo3/cms": "<9.5.29|>=10,<10.4.35|>=11,<11.5.23|>=12,<12.2",
 				"typo3/cms-backend": "<4.1.14|>=4.2,<4.2.15|>=4.3,<4.3.7|>=4.4,<4.4.4|>=7,<=7.6.50|>=8,<=8.7.39|>=9,<9.5.55|>=10,<10.4.54|>=11,<11.5.48|>=12,<12.4.37|>=13,<13.4.18",
@@ -10073,6 +10070,7 @@
 				"webklex/laravel-imap": "<5.3",
 				"webklex/php-imap": "<5.3",
 				"webpa/webpa": "<3.1.2",
+				"webreinvent/vaahcms": "<=2.3.1",
 				"wikibase/wikibase": "<=1.39.3",
 				"wikimedia/parsoid": "<0.12.2",
 				"willdurand/js-translation-bundle": "<2.1.1",
@@ -10185,7 +10183,7 @@
 					"type": "tidelift"
 				}
 			],
-			"time": "2025-10-01T22:05:21+00:00"
+			"time": "2025-10-09T21:05:17+00:00"
 		},
 		{
 			"name": "sebastian/cli-parser",

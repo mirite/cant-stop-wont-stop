@@ -17,7 +17,7 @@ RUN apk update && \
     libpq-dev \
     linux-headers
 
-# RUN docker-php-ext-install bcmath sodium gd intl soap xsl zip pdo_pgsql sockets
+RUN docker-php-ext-install bcmath sodium gd intl soap xsl zip pdo_pgsql sockets
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
@@ -25,8 +25,8 @@ COPY uploads.ini /usr/local/etc/php/conf.d/uploads.ini
 
 FROM base AS vendor
 WORKDIR /app
-COPY --from=frontend /app .
-RUN composer install --no-interaction --optimize-autoloader --no-dev
+COPY . .
+RUN composer install --no-interaction --optimize-autoloader
 
 FROM base AS production
 WORKDIR /app
@@ -49,9 +49,7 @@ RUN php artisan config:cache && \
     php artisan route:cache && \
     php artisan view:cache
 
-RUN chown -R frankenphp:frankenphp .
-
-COPY docker/entrypoint.sh /usr/local/bin/entrypoint
+COPY entrypoint.sh /usr/local/bin/entrypoint
 RUN chmod +x /usr/local/bin/entrypoint
 
 EXPOSE 80

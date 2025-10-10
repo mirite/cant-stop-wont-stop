@@ -24,18 +24,12 @@ RUN apk update && \
     libpq-dev \
     linux-headers && \
     # Install the PHP extensions
-    docker-php-ext-install bcmath sodium gd intl soap xsl zip pdo_pgsql sockets && \
     # Clean up the build dependencies
     apk del .build-deps
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 COPY uploads.ini /usr/local/etc/php/conf.d/uploads.ini
-
-FROM base AS vendor
-WORKDIR /app
-COPY . .
-RUN composer install --no-interaction --optimize-autoloader
 
 FROM base AS production
 WORKDIR /app
@@ -57,12 +51,7 @@ ENV DB_DATABASE=$DB_DATABASE
 ENV DB_USERNAME=$DB_USERNAME
 ENV DB_PASSWORD=$DB_PASSWORD
 
-COPY --from=vendor /app/vendor ./vendor
 COPY . .
-
-RUN php artisan config:cache && \
-    php artisan route:cache && \
-    php artisan view:cache
 
 COPY entrypoint.sh /usr/local/bin/entrypoint
 RUN chmod +x /usr/local/bin/entrypoint

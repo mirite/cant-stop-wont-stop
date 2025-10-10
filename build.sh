@@ -1,7 +1,23 @@
 #!/bin/bash
+
+# Exit immediately if a command exits with a non-zero status.
+set -e
+
+echo "Installing frontend dependencies..."
 yarn install
+
+echo "Building frontend assets..."
 yarn build
+
+echo "Installing PHP dependencies for production..."
 composer install --no-dev --no-interaction --optimize-autoloader
+
+echo "Caching Laravel configuration, routes, and views..."
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+
+echo "Creating deployment tarball..."
 tar -cvf ./deploy.tar \
 	--exclude='*.map' \
 	--exclude='public/hot' \

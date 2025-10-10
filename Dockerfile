@@ -4,9 +4,16 @@ WORKDIR /app
 
 RUN apk update && \
     apk add --no-cache \
-    curl \
-    nodejs \
-    npm \
+    libsodium \
+    zlib \
+    libpng \
+    icu-libs \
+    libxml2 \
+    libxslt \
+    libzip \
+    libpq && \
+    apk add --no-cache --virtual .build-deps \
+    $PHPIZE_DEPS \
     libsodium-dev \
     zlib-dev \
     libpng-dev \
@@ -15,9 +22,11 @@ RUN apk update && \
     libxslt-dev \
     libzip-dev \
     libpq-dev \
-    linux-headers
-
-# RUN docker-php-ext-install bcmath sodium gd intl soap xsl zip pdo_pgsql sockets
+    linux-headers && \
+    # Install the PHP extensions
+    docker-php-ext-install bcmath sodium gd intl soap xsl zip pdo_pgsql sockets && \
+    # Clean up the build dependencies
+    apk del .build-deps
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 

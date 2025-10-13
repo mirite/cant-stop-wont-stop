@@ -13,9 +13,9 @@ echo "Installing PHP dependencies for production..."
 composer install --no-dev --no-interaction --optimize-autoloader
 
 echo "Caching Laravel configuration, routes, and views..."
-php artisan config:cache
-php artisan route:cache
-php artisan view:cache
+# php artisan config:cache
+# php artisan route:cache
+# php artisan view:cache
 
 echo "Creating deployment tarball..."
 tar -cvf ./deploy.tar \

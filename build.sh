@@ -10,7 +10,6 @@ echo "Building frontend assets..."
 yarn build
 
 echo "Installing PHP dependencies for production..."
-composer install --no-dev --no-interaction --optimize-autoloader
 
 echo "Caching Laravel configuration, routes, and views..."
 # php artisan config:cache
@@ -32,6 +31,7 @@ tar -cvf ./deploy.tar \
 	--exclude='.idea' \
 	--exclude='.vscode' \
 	--exclude='*.env' \
+	--exclude='vendor' \
 	./*
 
 # Verify the tarball

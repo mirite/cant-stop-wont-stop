@@ -53,6 +53,7 @@ ENV DB_PASSWORD=$DB_PASSWORD
 
 COPY . .
 
+RUN composer install --no-dev --no-interaction --optimize-autoloader
 COPY entrypoint.sh /usr/local/bin/entrypoint
 RUN chmod +x /usr/local/bin/entrypoint
 
